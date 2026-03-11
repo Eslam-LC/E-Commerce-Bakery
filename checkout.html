@@ -1,15 +1,108 @@
+<!--
+  PAGE:     checkout.html  (Checkout)
+  OWNER:    Person E
+
+  WHAT THIS PAGE IS:
+    The final step before "purchasing". It opens in a new tab.
+    It behaves differently depending on whether the user is logged in.
+    After the simulated payment, the cart is cleared and stock is decremented.
+
+  WHAT THE USER CAN DO HERE:
+    (if logged in)
+      - See their email address
+      - Watch a "processing payment" message for 2 seconds
+      - See a success message and a "Return to Store" button
+
+    (if not logged in / guest)
+      - Fill in email, name, address
+      - Submit the form
+      - Watch a "processing payment" message for 2 seconds
+      - See a success message and a "Return to Store" button
+
+  CONNECTS TO:
+    ← cart.html      (arrived via "Proceed to Checkout" — this tab was opened)
+    → index.html     ("Return to Store" button — tries to close tab, falls back to home)
+
+  YOUR JS TASK:
+    - On page load: call updateCartBadge() and updateAccountIcon()
+    - var cartItems = getCart()
+    - If cartItems is empty → show "Nothing to checkout" message
+    - If isLoggedIn():
+        show "Logged in as [email]" message
+        show "Redirecting to payment gateway..."
+        setTimeout 2000ms then:
+          for each item in cartItems → call decrementStock(item.productId, item.quantity)
+          call clearCart()
+          show success message + Return to Store button
+    - If not logged in:
+        show the guest form
+        on form submit:
+          save guest info to localStorage (key: 'bh_guest_checkout')
+          show "Redirecting to payment gateway..."
+          setTimeout 2000ms then:
+            same decrement + clearCart + success as above
+
+    - "Return to Store" button:
+        window.close()   ← closes the tab if it was opened by another tab
+        if that doesn't work: window.location.href = '/index.html'
+
+  CSS GUIDELINES:
+    - Very minimal page — centred card, max-width around 500px
+    - Use .card and .flex-center on the main wrapper
+    - Use .form-group for each guest form field
+    - Use .btn .btn-primary for the submit and return buttons
+    - The "processing" and "success" messages should replace the form content
+      not appear alongside it — hide the form, show the message
+    - Add page-specific styles inside the <style> block in <head>
+-->
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
-    <link rel="stylesheet" href="global.css">
+    <meta charset="UTF-8">
+    <title>BakeHaven — Checkout</title>
+    <link rel="stylesheet" href="/css/global.css">
+    <style>
+        /* Person E: page-specific styles go here */
+    </style>
 </head>
+
 <body>
-    <!-- Your page content goes here -->
 
-    <!-- JavaScript includes (order is important) -->
-    <script src="api.js"></script>
-    <script src="cart.js"></script>
-    <script src="user.js"></script>
+    <!-- PASTE HEADER FROM header-footer.snippet.html -->
 
+    <main class="page-main flex-center">
+        <div class="card" id="checkout-card">
+            <!-- JS renders either the logged-in view or the guest form here -->
+            <div id="checkout-content">
+                <!-- TODO (Person E) -->
+            </div>
+        </div>
+    </main>
+
+    <!-- PASTE FOOTER FROM header-footer.snippet.html -->
+
+    <script src="/js/api.js"></script>
+    <script src="/js/cart.js"></script>
+    <script src="/js/user.js"></script>
+    <script>
+        // TODO (Person E): your page script goes here
+        //
+        // Step 1 — on load: updateCartBadge(), updateAccountIcon()
+        // Step 2 — var cartItems = getCart()
+        //          if empty → show "cart is empty" message
+        // Step 3 — if (isLoggedIn()):
+        //            show email + "redirecting..." message
+        //            setTimeout(2000, function() {
+        //                cartItems.forEach → decrementStock(id, qty)
+        //                clearCart()
+        //                show success + return button
+        //            })
+        //          else:
+        //            show guest form
+        //            on submit → save to localStorage, show message,
+        //            setTimeout same as above
+    </script>
 </body>
+
 </html>

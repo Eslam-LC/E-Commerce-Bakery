@@ -1,15 +1,102 @@
+<!--
+  PAGE:     product-detail.html  (Single Product View)
+  OWNER:    Person D
+
+  WHAT THIS PAGE IS:
+    A full view of one product. The product to show is determined
+    by the id in the URL query string — e.g. product-detail.html?id=3
+    The page reads that id, fetches all products, finds the matching one,
+    and displays its details.
+
+  WHAT THE USER CAN DO HERE:
+    - See the product image, name, price, description, and specs
+    - See the stock status (in stock / low stock / out of stock)
+    - Choose a quantity and add the product to the cart
+    - Go back to the products listing
+
+  CONNECTS TO:
+    ← products.html   (arrived via a card click, "Back" button returns here)
+    ← index.html      (arrived via carousel View button)
+    → cart.html       (no direct link — cart icon in header goes there)
+
+  HOW TO GET THE PRODUCT ID FROM THE URL:
+    var params = new URLSearchParams(location.search)
+    var id = params.get('id')
+    (same pattern as your detail.js from the lab — you already know this!)
+
+  LAYOUT:
+    Two columns side by side:
+      Left  (~40%): large product image
+      Right (~60%): name, price, description, specs table,
+                    stock status label, quantity selector, Add to Cart button
+
+  YOUR JS TASK:
+    - On page load: call updateCartBadge() and updateAccountIcon()
+    - Read the id from the URL
+    - fetchJSON('/api/products.json', function(products) { ... })
+    - Find the product where product.id == id
+    - Get available stock:  getAvailable(product)     → a number
+    - Get the label:        getStatusLabel(available)  → { text, cssClass }
+    - Render the page — apply label.cssClass to the stock element
+    - If available === 0: disable the "Add to Cart" button
+    - On "Add to Cart" click: call addToCart(product.id, quantity)
+    - Show a brief "Added!" message after adding
+
+  CSS GUIDELINES:
+    - Use .card for the main content wrapper
+    - Use .stock-label plus label.cssClass for the stock status text
+      (the colours are already defined in global.css — just apply the class)
+    - Use .btn .btn-primary for the "Add to Cart" button
+    - Use .btn .btn-outline for the "Back to Products" link styled as a button
+    - Keep the specs as an HTML <table> — tables are the right tool for key/value pairs
+    - Add page-specific styles inside the <style> block in <head>
+-->
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
-    <link rel="stylesheet" href="global.css">
+    <meta charset="UTF-8">
+    <title>BakeHaven — Product</title>
+    <link rel="stylesheet" href="/css/global.css">
+    <style>
+        /* Person D: page-specific styles go here */
+    </style>
 </head>
+
 <body>
-    <!-- Your page content goes here -->
 
-    <!-- JavaScript includes (order is important) -->
-    <script src="api.js"></script>
-    <script src="cart.js"></script>
-    <script src="user.js"></script>
+    <!-- PASTE HEADER FROM header-footer.snippet.html -->
 
+    <main class="page-main">
+        <div class="container">
+
+            <a href="/products.html" class="btn btn-outline">← Back to Products</a>
+
+            <!-- JS fills this in after fetching the product -->
+            <div id="product-detail-content">
+                <!-- TODO (Person D): JS will inject the two-column layout here -->
+            </div>
+
+        </div>
+    </main>
+
+    <!-- PASTE FOOTER FROM header-footer.snippet.html -->
+
+    <script src="/js/api.js"></script>
+    <script src="/js/cart.js"></script>
+    <script src="/js/user.js"></script>
+    <script>
+        // TODO (Person D): your page script goes here
+        //
+        // Step 1 — on load: call updateCartBadge() and updateAccountIcon()
+        // Step 2 — var id = new URLSearchParams(location.search).get('id')
+        // Step 3 — fetchJSON('/api/products.json', function(products) {
+        //              find the product where product.id == id
+        //              render the two-column layout into #product-detail-content
+        //              show stock label using getAvailable() and getStatusLabel()
+        //          })
+        // Step 4 — wire "Add to Cart" button to call addToCart(product.id, quantity)
+    </script>
 </body>
+
 </html>
