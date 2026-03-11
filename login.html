@@ -1,15 +1,99 @@
+<!--
+  PAGE:     login.html  (Sign In)
+  OWNER:    Person E
+
+  WHAT THIS PAGE IS:
+    The sign-in page. The user enters their email and password.
+    The credentials are checked against /api/users.json.
+    On success the session is saved and the user is redirected home.
+    On failure an error message appears below the form.
+
+  WHAT THE USER CAN DO HERE:
+    - Enter email and password and log in
+    - See an error if credentials are wrong
+    - Click a link to go to register.html instead
+
+  CONNECTS TO:
+    ← Any page       (arrived via account icon in header when logged out)
+    → index.html     (redirect on successful login)
+    → register.html  ("Don't have an account?" link)
+
+  YOUR JS TASK:
+    - On page load: call updateCartBadge() and updateAccountIcon()
+    - If isLoggedIn() is true → redirect to /index.html immediately
+      (no point showing login to someone already logged in)
+    - On "Login" button click:
+        1. Read the email and password input values
+        2. Basic check: are they empty? If yes, show an error
+        3. Call validateCredentials(email, password, onSuccess, onFail)
+           onSuccess → call login(userData) then redirect to /index.html
+           onFail    → show the error message in #login-error
+
+  CSS GUIDELINES:
+    - Centre the form card on the page using .flex-center on <main>
+    - Use .card for the form wrapper, max-width around 400px
+    - Use .form-group for each label + input pair (defined in global.css)
+    - Use .btn .btn-primary for the login button, full width
+    - Error message starts hidden (display:none) — your JS sets display:block
+      and fills in the message text when login fails
+    - Add page-specific styles inside the <style> block in <head>
+-->
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
-    <link rel="stylesheet" href="global.css">
+    <meta charset="UTF-8">
+    <title>BakeHaven — Sign In</title>
+    <link rel="stylesheet" href="/css/global.css">
+    <style>
+        /* Person E: page-specific styles go here */
+    </style>
 </head>
+
 <body>
-    <!-- Your page content goes here -->
 
-    <!-- JavaScript includes (order is important) -->
-    <script src="api.js"></script>
-    <script src="cart.js"></script>
-    <script src="user.js"></script>
+    <!-- PASTE HEADER FROM header-footer.snippet.html -->
 
+    <main class="page-main flex-center">
+        <div class="card" id="login-card">
+            <h2>Sign In</h2>
+
+            <!-- Hidden by default — shown by JS when login fails -->
+            <p id="login-error" style="display:none; color:var(--color-danger);"></p>
+
+            <div class="form-group">
+                <label for="login-email">Email</label>
+                <input type="email" id="login-email" placeholder="you@example.com">
+            </div>
+
+            <div class="form-group">
+                <label for="login-password">Password</label>
+                <input type="password" id="login-password" placeholder="••••••••">
+            </div>
+
+            <button class="btn btn-primary" id="login-btn">Login</button>
+
+            <p>Don't have an account? <a href="/register.html">Register</a></p>
+        </div>
+    </main>
+
+    <!-- PASTE FOOTER FROM header-footer.snippet.html -->
+
+    <script src="/js/api.js"></script>
+    <script src="/js/cart.js"></script>
+    <script src="/js/user.js"></script>
+    <script>
+        // TODO (Person E): your page script goes here
+        //
+        // Step 1 — on load: updateCartBadge(), updateAccountIcon()
+        // Step 2 — if (isLoggedIn()) window.location.href = '/index.html'
+        // Step 3 — wire login-btn click:
+        //            read email and password values
+        //            validateCredentials(email, password,
+        //              function(userData) { login(userData); redirect to home },
+        //              function(msg)      { show msg in #login-error }
+        //            )
+    </script>
 </body>
+
 </html>

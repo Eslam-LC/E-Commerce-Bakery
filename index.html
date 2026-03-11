@@ -1,15 +1,94 @@
+<!--
+  PAGE:     index.html  (Home Page)
+  OWNER:    Person B
+
+  WHAT THIS PAGE IS:
+    The first page a visitor sees. It introduces the brand,
+    shows some featured products, and gets people interested
+    in browsing.
+
+  WHAT THE USER CAN DO HERE:
+    - Click "Shop Now" → goes to products.html
+    - Click a category card → goes to products.html
+    - Click "View" on a carousel card → goes to product-detail.html?id=X
+
+  CONNECTS TO:
+    → products.html        (Shop Now button, category cards)
+    → product-detail.html  (View buttons on carousel)
+
+  SECTIONS TO BUILD:
+    1. Hero
+         Full-width banner image
+         Headline: "Discover the freshest baked goods"
+         Subheadline: "Artisanal treats made with love"
+         "Shop Now" button → /products.html
+
+    2. Featured Categories  (4 cards in a row)
+         Artisan Breads / Cakes & Cupcakes / Pastries / Cookies & Biscuits
+         Each card: icon or image, category name, "Shop" link → /products.html
+
+    3. Deals of the Day  (horizontal scrollable row)
+         4-6 product cards fetched from /api/products.json
+         Each card: image, name, price with strikethrough original price, rating stars, "View" button
+         "View" button → /product-detail.html?id=PRODUCT_ID
+
+  YOUR JS TASK:
+    - On page load: call updateCartBadge() and updateAccountIcon()
+    - Call fetchJSON('/api/products.json', function(products) { ... })
+    - Inside the callback: pick some products and build carousel card HTML
+    - Inject the cards into #carousel-container using innerHTML or appendChild
+    - Wire the View buttons to navigate to product-detail.html?id=X
+
+  CSS GUIDELINES (use classes from global.css — do not redefine them):
+    - Use .container for the content wrapper on each section
+    - Use .btn .btn-primary for the "Shop Now" button
+    - Use .btn .btn-outline for the "View" buttons on cards
+    - Use .card for each product card and category card
+    - Add page-specific styles inside the <style> block in <head>
+    - Keep section backgrounds alternating (color-bg and color-surface)
+      so sections are visually separated without needing borders
+-->
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
-    <link rel="stylesheet" href="global.css">
+    <meta charset="UTF-8">
+    <title>BakeHaven — Fresh Baked Goods</title>
+    <link rel="stylesheet" href="/css/global.css">
+    <style>
+        /* Person B: page-specific styles go here or in a separate css file*/
+    </style>
 </head>
+
 <body>
-    <!-- Your page content goes here -->
 
-    <!-- JavaScript includes (order is important) -->
-    <script src="api.js"></script>
-    <script src="cart.js"></script>
-    <script src="user.js"></script>
+    <!-- PASTE HEADER FROM header-footer.snippet.html -->
 
+    <main class="page-main">
+
+        <!-- Section 1: Hero -->
+        <!-- TODO (Person B) -->
+
+        <!-- Section 2: Featured Categories -->
+        <!-- TODO (Person B) -->
+
+        <!-- Section 3: Deals of the Day — JS injects cards into this div -->
+        <div id="carousel-container"></div>
+
+    </main>
+
+    <!-- PASTE FOOTER FROM header-footer.snippet.html -->
+
+    <script src="/js/api.js"></script>
+    <script src="/js/cart.js"></script>
+    <script src="/js/user.js"></script>
+    <script>
+        // TODO (Person B): your page script goes here or in separate js file
+        // Step 1 — on load, call updateCartBadge() and updateAccountIcon()
+        // Step 2 — fetchJSON('/api/products.json', function(products) {
+        //              build carousel cards and put them in #carousel-container
+        //          })
+    </script>
 </body>
+
 </html>

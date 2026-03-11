@@ -1,15 +1,118 @@
+<!--
+  PAGE:     register.html  (Create Account)
+  OWNER:    Person E
+
+  WHAT THIS PAGE IS:
+    The registration page. The user fills in their details to create
+    a new account. Because there's no real server to write to, new users
+    are saved in localStorage and merged with the seeded users when
+    checking credentials.
+
+  WHAT THE USER CAN DO HERE:
+    - Fill in name, email, password, confirm password
+    - Create an account and get logged in automatically
+    - See errors if passwords don't match or email is taken
+    - Click a link to go back to login.html
+
+  CONNECTS TO:
+    ← login.html     (arrived via "Don't have an account?" link)
+    → index.html     (redirect after successful registration)
+    → login.html     ("Already have an account?" link)
+
+  YOUR JS TASK:
+    - On page load: call updateCartBadge() and updateAccountIcon()
+    - If isLoggedIn() → redirect to /index.html immediately
+    - On "Register" button click:
+        1. Read all four field values
+        2. Check nothing is empty
+        3. Check password === confirm password
+        4. fetchJSON('/api/users.json', function(seededUsers) {
+               also read any extra registered users from localStorage
+               combine both lists and check the email isn't already taken
+               if taken → show error
+               if free  → build new user object, save to localStorage,
+                          call login({ id, name, email }), redirect home
+           })
+
+  HOW TO SAVE EXTRA USERS TO LOCALSTORAGE:
+    Use a key like 'bh_users_extra' and store an array of user objects.
+    When checking for duplicates, check both the seededUsers array
+    and whatever is in localStorage under that key.
+
+  CSS GUIDELINES:
+    - Same layout as login.html — centred card, .form-group for each field
+    - Use .btn .btn-primary for the Register button, full width
+    - Error and success messages follow the same pattern as login.html
+    - Add page-specific styles inside the <style> block in <head>
+-->
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
-    <link rel="stylesheet" href="global.css">
+    <meta charset="UTF-8">
+    <title>BakeHaven — Create Account</title>
+    <link rel="stylesheet" href="/css/global.css">
+    <style>
+        /* Person E: page-specific styles go here */
+    </style>
 </head>
+
 <body>
-    <!-- Your page content goes here -->
 
-    <!-- JavaScript includes (order is important) -->
-    <script src="api.js"></script>
-    <script src="cart.js"></script>
-    <script src="user.js"></script>
+    <!-- PASTE HEADER FROM header-footer.snippet.html -->
 
+    <main class="page-main flex-center">
+        <div class="card" id="register-card">
+            <h2>Create Account</h2>
+
+            <p id="register-error" style="display:none; color:var(--color-danger);"></p>
+
+            <div class="form-group">
+                <label for="reg-name">Full Name</label>
+                <input type="text" id="reg-name" placeholder="Jane Smith">
+            </div>
+
+            <div class="form-group">
+                <label for="reg-email">Email</label>
+                <input type="email" id="reg-email" placeholder="you@example.com">
+            </div>
+
+            <div class="form-group">
+                <label for="reg-password">Password</label>
+                <input type="password" id="reg-password" placeholder="••••••••">
+            </div>
+
+            <div class="form-group">
+                <label for="reg-confirm">Confirm Password</label>
+                <input type="password" id="reg-confirm" placeholder="••••••••">
+            </div>
+
+            <button class="btn btn-primary" id="register-btn">Register</button>
+
+            <p>Already have an account? <a href="/login.html">Sign In</a></p>
+        </div>
+    </main>
+
+    <!-- PASTE FOOTER FROM header-footer.snippet.html -->
+
+    <script src="/js/api.js"></script>
+    <script src="/js/cart.js"></script>
+    <script src="/js/user.js"></script>
+    <script>
+        // TODO (Person E): your page script goes here
+        //
+        // Step 1 — on load: updateCartBadge(), updateAccountIcon()
+        // Step 2 — if (isLoggedIn()) redirect to home
+        // Step 3 — wire register-btn click:
+        //            validate fields (not empty, passwords match)
+        //            fetchJSON('/api/users.json', function(seededUsers) {
+        //                also read localStorage 'bh_users_extra'
+        //                check email not already taken in either list
+        //                save new user to 'bh_users_extra' in localStorage
+        //                login({ id: Date.now(), name, email })
+        //                redirect to /index.html
+        //            })
+    </script>
 </body>
+
 </html>

@@ -1,15 +1,114 @@
+<!--
+  PAGE:     products.html  (Products Listing)
+  OWNER:    Person C
+
+  WHAT THIS PAGE IS:
+    A browsable catalogue of all bakery products with filters on the side.
+    Everything happens in the browser — no new requests when filtering,
+    just hide/show the cards based on what the user has selected.
+
+  WHAT THE USER CAN DO HERE:
+    - Search products by name
+    - Filter by category (checkboxes)
+    - Filter by price range (min / max inputs)
+    - Filter by minimum sales count (slider)
+    - Sort by price or popularity
+    - Clear all filters
+    - Click a product card → goes to product-detail.html?id=X
+
+  CONNECTS TO:
+    ← index.html           (arrived from Shop Now or category links)
+    → product-detail.html  (clicking any product card)
+
+  LAYOUT:
+    Left sidebar (about 250px wide): all the filters
+    Right area (rest of the width): results count + sort + product grid
+
+  SIDEBAR FILTERS TO BUILD:
+    - Search bar       text input, filters by product name as you type
+    - Categories       one checkbox per category, built from the product data
+    - Price range      two number inputs: Min $ and Max $
+    - Min sales        a range slider
+    - Clear All        button that resets everything and shows all products
+
+  PRODUCT GRID:
+    Each card shows: image, name, price, rating stars, "X sold"
+    Clicking the card (anywhere on it) navigates to product-detail.html?id=X
+
+  YOUR JS TASK:
+    - On page load: call updateCartBadge() and updateAccountIcon()
+    - fetchJSON('/api/products.json', function(products) { ... })
+    - Save the full list in a variable (you'll need it for resetting filters)
+    - Write a renderGrid(list) function that clears and re-draws the grid
+    - Every filter input event calls renderGrid() with the filtered subset
+    - "Clear All" resets the inputs and calls renderGrid(allProducts)
+
+  CSS GUIDELINES:
+    - Use .container for the outer wrapper
+    - Use .card for each product card
+    - Use .btn .btn-outline for the "Clear All Filters" button
+    - (suggestion) Use CSS flexbox for the two-column layout (sidebar + grid)
+    - (suggestion) Product cards in the grid should use CSS grid with a fixed column count
+      (e.g. repeat(3, 1fr)) so they stay aligned regardless of card height
+    - Add hover effect on cardsd and a slight translateY
+      so they feel clickable — add cursor: pointer too
+    - Add page-specific styles inside the <style> block in <head>
+-->
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
-    <link rel="stylesheet" href="global.css">
+    <meta charset="UTF-8">
+    <title>BakeHaven — Products</title>
+    <link rel="stylesheet" href="/css/global.css">
+    <style>
+        /* Person C: page-specific styles go here */
+    </style>
 </head>
+
 <body>
-    <!-- Your page content goes here -->
 
-    <!-- JavaScript includes (order is important) -->
-    <script src="api.js"></script>
-    <script src="cart.js"></script>
-    <script src="user.js"></script>
+    <!-- PASTE HEADER FROM header-footer.snippet.html -->
 
+    <main class="page-main">
+        <div class="container">
+            <div id="page-layout">
+                <!-- Left: Sidebar filters -->
+                <aside id="filters-sidebar">
+                    <!-- TODO (Person C): search, checkboxes, price range, slider, clear button -->
+                </aside>
+
+                <!-- Right: Results + Grid -->
+                <section id="grid-section">
+                    <div id="results-header">
+                        <!-- TODO (Person C): "X products found" text + sort dropdown -->
+                    </div>
+                    <div id="product-grid">
+                        <!-- JS injects product cards here -->
+                    </div>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <!-- PASTE FOOTER FROM header-footer.snippet.html -->
+
+    <script src="/js/api.js"></script>
+    <script src="/js/cart.js"></script>
+    <script src="/js/user.js"></script>
+    <script>
+        // TODO (Person C): your page script goes here
+        // var allProducts = []   ← store the full list here after fetch
+        //
+        // Step 1 — on load: call updateCartBadge() and updateAccountIcon()
+        // Step 2 — fetchJSON('/api/products.json', function(products) {
+        //              allProducts = products
+        //              renderGrid(allProducts)
+        //              build the category checkboxes from the data
+        //          })
+        // Step 3 — write renderGrid(list) — clears #product-grid and redraws cards
+        // Step 4 — wire each filter to run renderGrid() with a filtered list
+    </script>
 </body>
+
 </html>

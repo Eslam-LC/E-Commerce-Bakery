@@ -1,0 +1,57 @@
+/*
+ * FILE:    css/global.css
+ * OWNER:   Eslam-LC(HEader-Footer), and manage merges to ensure consistancy
+ *
+ * PURPOSE:
+ *   Shared styles used by every page. Defines the visual identity
+ *   of BakeHaven so all pages look like they belong to the same site.
+ *   Each page can have its own <style> block for page-specific things,
+ *   but colors, fonts, and shared components live here.
+ * 
+ * ─────────────────────────────────────────────────────────────
+ * SECTIONS TO WRITE  (add a comment before each section)
+ * ─────────────────────────────────────────────────────────────
+ *
+ *   1. Base reset
+ *      — box-sizing, margin/padding 0, body font/background/color
+ *      — why: browsers have different default styles, reset removes surprises
+ *
+ *   2. Layout utilities
+ *      — .container  max-width wrapper, centered
+ *      — .flex, .flex-center, .flex-between  reusable flex helpers
+ *      — .page-main  wrapper for page body content, flex:1 to push footer down
+ *      — why: instead of rewriting display:flex on every page
+ *
+ *   3. Buttons  (.btn, .btn-primary, .btn-outline, .btn:disabled)
+ *      — why: every page has buttons — one definition keeps them identical
+ *
+ *   4. Cards  (.card)
+ *      — white background, border-radius, box-shadow
+ *      — why: product cards, checkout card, login card all share this look
+ *
+ *   5. Header  (.site-header, .header-logo, .header-nav, .cart-link,
+ *               .cart-badge, .account-btn, .account-dropdown)
+ *      — why: the header is on every page — style it once here
+ *      — cart-badge is hidden by default (display:none), shown by cart.js
+ *      — account-dropdown is hidden by default, shown by user.js
+ *
+ *   6. Footer  (.site-footer, .footer-grid, .footer-col, .footer-bottom)
+ *      — why: footer is on every page
+ *
+ *   7. Forms  (.form-group, input, textarea, select, :focus state)
+ *      — why: login, register, checkout, feedback all have forms
+ *      — :focus should use --color-primary as border color
+ *
+ *   8. Stock labels  (.stock-label, .in-stock, .low-stock, .out-of-stock)
+ *      — why: getStatusLabel() in cart.js returns these class names
+ *      — in-stock → green, low-stock → orange, out-of-stock → red
+ *
+ *   9. Feedback modal container  (#feedback-modal-container)
+ *      — .modal-overlay  fixed, covers whole screen, dark transparent bg
+ *      — .modal-box      white centered card on top of the overlay
+ *      — both hidden by default, Person E's JS adds an 'open' class to show them
+ *
+ * ─────────────────────────────────────────────────────────────
+ */
+
+/* SUSGGESTION: shared ownership Eslam-LC and Wael */

@@ -1,15 +1,96 @@
+<!--
+  PAGE:     cart.html  (Shopping Cart)
+  OWNER:    Person D
+
+  WHAT THIS PAGE IS:
+    Shows everything the user has added to their cart.
+    The cart data lives in localStorage, so it comes from getCart()
+    not from the server. But you still need to fetch products.json
+    to get the names, images, and prices to display.
+
+  WHAT THE USER CAN DO HERE:
+    - See all their cart items (image, name, price, quantity, subtotal)
+    - Increase or decrease quantity of an item
+    - Remove an item
+    - See the total price
+    - Go back to browsing
+    - Proceed to checkout (opens in a new tab)
+    - If cart is empty: see a message with a link back to products
+
+  CONNECTS TO:
+    ← Any page       (arrived via cart icon in header)
+    → products.html  ("Continue Shopping" button)
+    → checkout.html  ("Proceed to Checkout" — opens in new tab with target="_blank")
+
+  YOUR JS TASK:
+    - On page load: call updateCartBadge() and updateAccountIcon()
+    - var cartItems = getCart()   → [ { productId, quantity }, ... ]
+    - If cartItems is empty, show the empty state
+    - fetchJSON('/api/products.json', function(products) { ... })
+    - Match each cart item to its product using productId
+    - Render the item rows with quantity +/- buttons and a remove button
+    - On quantity change: call updateQuantity(productId, newQty) then re-render
+    - On remove: call removeFromCart(productId) then re-render
+    - Calculate and display the total by summing price × quantity for each item
+
+  CSS GUIDELINES:
+    - Centre the content with a max-width around 800px
+    - Use .card for the main cart wrapper
+    - Use a <table> or a series of flex rows for the item list
+      (a table works well here — each row has clearly defined columns)
+    - Quantity +/- buttons can be small and borderless, just numbers in a row
+    - The total should be visually heavier — larger font, bold
+    - "Continue Shopping" → .btn .btn-outline
+    - "Proceed to Checkout" → .btn .btn-primary
+    - Add page-specific styles inside the <style> block in <head>
+-->
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
-    <link rel="stylesheet" href="global.css">
+    <meta charset="UTF-8">
+    <title>BakeHaven — Your Cart</title>
+    <link rel="stylesheet" href="/css/global.css">
+    <style>
+        /* Person D: page-specific styles go here */
+    </style>
 </head>
+
 <body>
-    <!-- Your page content goes here -->
 
-    <!-- JavaScript includes (order is important) -->
-    <script src="api.js"></script>
-    <script src="cart.js"></script>
-    <script src="user.js"></script>
+    <!-- PASTE HEADER FROM header-footer.snippet.html -->
 
+    <main class="page-main">
+        <div class="container">
+            <h1>Your Cart</h1>
+
+            <!-- JS renders either the cart items or the empty state here -->
+            <div id="cart-content">
+                <!-- TODO (Person D) -->
+            </div>
+
+        </div>
+    </main>
+
+    <!-- PASTE FOOTER FROM header-footer.snippet.html -->
+
+    <script src="/js/api.js"></script>
+    <script src="/js/cart.js"></script>
+    <script src="/js/user.js"></script>
+    <script>
+        // TODO (Person D): your page script goes here
+        //
+        // Step 1 — on load: call updateCartBadge() and updateAccountIcon()
+        // Step 2 — var cartItems = getCart()
+        //          if cartItems.length === 0 → show empty state
+        // Step 3 — fetchJSON('/api/products.json', function(products) {
+        //              match each cart item to its product
+        //              render the rows with quantity controls and remove buttons
+        //              calculate and show the total
+        //          })
+        // Step 4 — wire +/- buttons to updateQuantity() and re-render
+        // Step 5 — wire remove buttons to removeFromCart() and re-render
+    </script>
 </body>
+
 </html>
