@@ -1,0 +1,452 @@
+[
+  {
+    "id": 1,
+    "name": "Baklava",
+    "category": "Pastry",
+    "price": 8.99,
+    "originalPrice": 10.99,
+    "image": "/images/baklava.jpg",
+    "rating": 4.8,
+    "sales": 234,
+    "stock": 45,
+    "description": "Layers of flaky filo filled with chopped pistachios and walnuts, sweetened with rosewater syrup.",
+    "specs": {
+      "weight": "500g",
+      "ingredients": "Filo dough, pistachios, walnuts, sugar, rosewater, butter",
+      "allergens": "Nuts, Gluten, Dairy",
+      "shelfLife": "2 weeks"
+    }
+  },
+  {
+    "id": 2,
+    "name": "Kunafa",
+    "category": "Dessert",
+    "price": 12.5,
+    "originalPrice": 15.0,
+    "image": "/images/kunafa.jpg",
+    "rating": 4.9,
+    "sales": 187,
+    "stock": 30,
+    "description": "Shredded phyllo pastry layered with sweet cheese and soaked in orange-blossom syrup.",
+    "specs": {
+      "weight": "600g",
+      "ingredients": "Kataifi dough, akkawi cheese, sugar, orange blossom water, pistachios",
+      "allergens": "Gluten, Dairy, Nuts",
+      "servingSize": "4-6 people"
+    }
+  },
+  {
+    "id": 3,
+    "name": "Pita Bread",
+    "category": "Bread",
+    "price": 2.49,
+    "originalPrice": 2.49,
+    "image": "/images/pita.jpg",
+    "rating": 4.7,
+    "sales": 589,
+    "stock": 200,
+    "description": "Soft, round flatbread with a pocket, perfect for sandwiches or dipping.",
+    "specs": {
+      "weight": "400g (6 pieces)",
+      "ingredients": "Wheat flour, water, yeast, salt",
+      "allergens": "Gluten",
+      "storage": "Keep in airtight container"
+    }
+  },
+  {
+    "id": 4,
+    "name": "Manakish Za'atar",
+    "category": "Flatbread",
+    "price": 4.5,
+    "originalPrice": 5.0,
+    "image": "/images/manakish.jpg",
+    "rating": 4.6,
+    "sales": 312,
+    "stock": 75,
+    "description": "Traditional Middle Eastern flatbread topped with za'atar spice mix and olive oil.",
+    "specs": {
+      "weight": "300g",
+      "ingredients": "Dough, za'atar (thyme, sesame, sumac), olive oil",
+      "allergens": "Gluten, Sesame",
+      "calories": "320 per serving"
+    }
+  },
+  {
+    "id": 5,
+    "name": "Ka'ak (Sesame Bread Rings)",
+    "category": "Bread",
+    "price": 3.99,
+    "originalPrice": 4.49,
+    "image": "/images/kaak.jpg",
+    "rating": 4.5,
+    "sales": 198,
+    "stock": 120,
+    "description": "Crispy sesame bread rings, often enjoyed with cheese or labneh.",
+    "specs": {
+      "weight": "350g (5 rings)",
+      "ingredients": "Flour, sesame seeds, yeast, salt, olive oil",
+      "allergens": "Gluten, Sesame",
+      "shelfLife": "1 week"
+    }
+  },
+  {
+    "id": 6,
+    "name": "Ma'amoul (Date-Filled Cookies)",
+    "category": "Cookie",
+    "price": 6.75,
+    "originalPrice": 7.5,
+    "image": "/images/maamoul.jpg",
+    "rating": 4.8,
+    "sales": 156,
+    "stock": 60,
+    "description": "Semolina shortbread cookies filled with date paste, dusted with powdered sugar.",
+    "specs": {
+      "weight": "400g",
+      "ingredients": "Semolina, butter, dates, cinnamon, powdered sugar",
+      "allergens": "Gluten, Dairy",
+      "variants": "Also available with pistachios or walnuts"
+    }
+  },
+  {
+    "id": 7,
+    "name": "Basbousa",
+    "category": "Cake",
+    "price": 7.25,
+    "originalPrice": 8.0,
+    "image": "/images/basbousa.jpg",
+    "rating": 4.7,
+    "sales": 143,
+    "stock": 40,
+    "description": "Moist semolina cake soaked in simple syrup, often topped with coconut or almonds.",
+    "specs": {
+      "weight": "550g",
+      "ingredients": "Semolina, yogurt, sugar, coconut, almonds, syrup",
+      "allergens": "Gluten, Dairy, Tree nuts",
+      "serving": "8-10 slices"
+    }
+  },
+  {
+    "id": 8,
+    "name": "Qatayef",
+    "category": "Dessert",
+    "price": 9.0,
+    "originalPrice": 10.5,
+    "image": "/images/qatayef.jpg",
+    "rating": 4.9,
+    "sales": 112,
+    "stock": 25,
+    "description": "Stuffed pancakes filled with sweet cheese or nuts, fried and dipped in syrup.",
+    "specs": {
+      "weight": "500g (8 pieces)",
+      "ingredients": "Flour, yeast, sugar, akkawi cheese, walnuts, syrup",
+      "allergens": "Gluten, Dairy, Nuts",
+      "bestServed": "Warm"
+    }
+  },
+  {
+    "id": 9,
+    "name": "Sfiha (Meat Pies)",
+    "category": "Savory Pastry",
+    "price": 5.5,
+    "originalPrice": 6.0,
+    "image": "/images/sfiha.jpg",
+    "rating": 4.6,
+    "sales": 201,
+    "stock": 55,
+    "description": "Open-faced pastries topped with spiced minced lamb or beef.",
+    "specs": {
+      "weight": "400g (6 pieces)",
+      "ingredients": "Dough, minced meat, onions, pine nuts, pomegranate molasses, spices",
+      "allergens": "Gluten",
+      "reheat": "Oven recommended"
+    }
+  },
+  {
+    "id": 10,
+    "name": "Fatayer Spinach",
+    "category": "Savory Pastry",
+    "price": 5.25,
+    "originalPrice": 5.75,
+    "image": "/images/fatayer.jpg",
+    "rating": 4.7,
+    "sales": 178,
+    "stock": 70,
+    "description": "Triangular pastries filled with spinach, sumac, and onions.",
+    "specs": {
+      "weight": "450g (6 pieces)",
+      "ingredients": "Flour, spinach, onions, sumac, olive oil, lemon juice",
+      "allergens": "Gluten",
+      "storage": "Refrigerate"
+    }
+  },
+  {
+    "id": 11,
+    "name": "Halawet el Jibn",
+    "category": "Dessert",
+    "price": 10.0,
+    "originalPrice": 12.0,
+    "image": "/images/halawet-jibn.jpg",
+    "rating": 4.8,
+    "sales": 89,
+    "stock": 20,
+    "description": "Sweet cheese rolls with cream filling, topped with pistachios and syrup.",
+    "specs": {
+      "weight": "400g",
+      "ingredients": "Akkaawi cheese, semolina, sugar, cream, pistachios, rose syrup",
+      "allergens": "Dairy, Gluten, Nuts",
+      "shelfLife": "3 days refrigerated"
+    }
+  },
+  {
+    "id": 12,
+    "name": "Warbat with Cream",
+    "category": "Pastry",
+    "price": 7.5,
+    "originalPrice": 8.5,
+    "image": "/images/warbat.jpg",
+    "rating": 4.7,
+    "sales": 134,
+    "stock": 35,
+    "description": "Flaky phyllo pastry filled with creamy custard and drizzled with syrup.",
+    "specs": {
+      "weight": "450g",
+      "ingredients": "Phyllo dough, semolina custard, sugar, orange blossom syrup",
+      "allergens": "Gluten, Dairy",
+      "serving": "6 pieces"
+    }
+  },
+  {
+    "id": 13,
+    "name": "Croissant",
+    "category": "Viennoiserie",
+    "price": 2.95,
+    "originalPrice": 3.5,
+    "image": "/images/croissant.jpg",
+    "rating": 4.8,
+    "sales": 432,
+    "stock": 80,
+    "description": "Buttery, flaky French croissant with a golden crust.",
+    "specs": {
+      "weight": "100g",
+      "ingredients": "Flour, butter, yeast, sugar, salt",
+      "allergens": "Gluten, Dairy",
+      "bestFresh": "Day of purchase"
+    }
+  },
+  {
+    "id": 14,
+    "name": "Baguette",
+    "category": "Bread",
+    "price": 2.25,
+    "originalPrice": 2.25,
+    "image": "/images/baguette.jpg",
+    "rating": 4.6,
+    "sales": 521,
+    "stock": 150,
+    "description": "Classic French baguette with a crisp crust and soft interior.",
+    "specs": {
+      "weight": "250g",
+      "ingredients": "Flour, water, yeast, salt",
+      "allergens": "Gluten",
+      "shelfLife": "1-2 days"
+    }
+  },
+  {
+    "id": 15,
+    "name": "Chocolate Chip Cookie",
+    "category": "Cookie",
+    "price": 1.75,
+    "originalPrice": 2.0,
+    "image": "/images/cookie.jpg",
+    "rating": 4.9,
+    "sales": 689,
+    "stock": 200,
+    "description": "Chewy cookie packed with semi-sweet chocolate chips.",
+    "specs": {
+      "weight": "80g",
+      "ingredients": "Flour, butter, brown sugar, chocolate chips, eggs, vanilla",
+      "allergens": "Gluten, Dairy, Eggs, Soy (in chocolate)",
+      "packSize": "Sold individually"
+    }
+  },
+  {
+    "id": 16,
+    "name": "Cinnamon Roll",
+    "category": "Pastry",
+    "price": 3.5,
+    "originalPrice": 4.0,
+    "image": "/images/cinnamon-roll.jpg",
+    "rating": 4.8,
+    "sales": 367,
+    "stock": 60,
+    "description": "Soft rolled pastry with cinnamon sugar and cream cheese frosting.",
+    "specs": {
+      "weight": "150g",
+      "ingredients": "Flour, butter, cinnamon, brown sugar, cream cheese, powdered sugar",
+      "allergens": "Gluten, Dairy, Eggs",
+      "reheat": "Microwave 10 seconds"
+    }
+  },
+  {
+    "id": 17,
+    "name": "New York Cheesecake",
+    "category": "Cake",
+    "price": 18.0,
+    "originalPrice": 22.0,
+    "image": "/images/cheesecake.jpg",
+    "rating": 4.9,
+    "sales": 145,
+    "stock": 15,
+    "description": "Rich and creamy cheesecake with a graham cracker crust.",
+    "specs": {
+      "weight": "1kg",
+      "ingredients": "Cream cheese, sugar, eggs, graham crackers, butter, vanilla",
+      "allergens": "Dairy, Gluten, Eggs",
+      "serving": "10-12 slices"
+    }
+  },
+  {
+    "id": 18,
+    "name": "Glazed Donut",
+    "category": "Donut",
+    "price": 1.5,
+    "originalPrice": 1.75,
+    "image": "/images/donut.jpg",
+    "rating": 4.7,
+    "sales": 598,
+    "stock": 180,
+    "description": "Classic yeast donut with a sweet glaze finish.",
+    "specs": {
+      "weight": "85g",
+      "ingredients": "Flour, sugar, yeast, eggs, milk, glaze",
+      "allergens": "Gluten, Dairy, Eggs",
+      "variants": "Also available in chocolate and sprinkles"
+    }
+  },
+  {
+    "id": 19,
+    "name": "Blueberry Muffin",
+    "category": "Muffin",
+    "price": 2.25,
+    "originalPrice": 2.5,
+    "image": "/images/muffin.jpg",
+    "rating": 4.6,
+    "sales": 274,
+    "stock": 90,
+    "description": "Moist muffin bursting with fresh blueberries.",
+    "specs": {
+      "weight": "120g",
+      "ingredients": "Flour, sugar, butter, eggs, blueberries, milk",
+      "allergens": "Gluten, Dairy, Eggs",
+      "calories": "350"
+    }
+  },
+  {
+    "id": 20,
+    "name": "Scone with Currants",
+    "category": "Scone",
+    "price": 2.8,
+    "originalPrice": 3.0,
+    "image": "/images/scone.jpg",
+    "rating": 4.5,
+    "sales": 187,
+    "stock": 55,
+    "description": "Buttery British scone studded with dried currants, perfect with clotted cream.",
+    "specs": {
+      "weight": "110g",
+      "ingredients": "Flour, butter, currants, sugar, milk, eggs",
+      "allergens": "Gluten, Dairy, Eggs",
+      "serveWith": "Jam and cream"
+    }
+  },
+  {
+    "id": 21,
+    "name": "Plain Bagel",
+    "category": "Bagel",
+    "price": 1.95,
+    "originalPrice": 2.25,
+    "image": "/images/bagel.jpg",
+    "rating": 4.5,
+    "sales": 401,
+    "stock": 130,
+    "description": "Chewy, boiled bagel with a golden crust.",
+    "specs": {
+      "weight": "100g",
+      "ingredients": "Flour, water, yeast, malt syrup, salt",
+      "allergens": "Gluten",
+      "toast": "Recommended"
+    }
+  },
+  {
+    "id": 22,
+    "name": "Soft Pretzel",
+    "category": "Pretzel",
+    "price": 2.5,
+    "originalPrice": 2.75,
+    "image": "/images/pretzel.jpg",
+    "rating": 4.7,
+    "sales": 263,
+    "stock": 85,
+    "description": "Soft, chewy pretzel sprinkled with coarse salt, served warm.",
+    "specs": {
+      "weight": "120g",
+      "ingredients": "Flour, water, yeast, butter, baking soda, salt",
+      "allergens": "Gluten, Dairy",
+      "dip": "Great with mustard or cheese sauce"
+    }
+  },
+  {
+    "id": 23,
+    "name": "Danish Pastry (Raspberry)",
+    "category": "Pastry",
+    "price": 3.25,
+    "originalPrice": 3.75,
+    "image": "/images/danish.jpg",
+    "rating": 4.6,
+    "sales": 210,
+    "stock": 45,
+    "description": "Flaky, buttery Danish filled with raspberry jam and topped with icing.",
+    "specs": {
+      "weight": "130g",
+      "ingredients": "Flour, butter, raspberry jam, sugar, eggs, cream cheese",
+      "allergens": "Gluten, Dairy, Eggs",
+      "variants": "Also available with apricot or cheese"
+    }
+  },
+  {
+    "id": 24,
+    "name": "Chocolate Eclair",
+    "category": "Pastry",
+    "price": 3.75,
+    "originalPrice": 4.25,
+    "image": "/images/eclair.jpg",
+    "rating": 4.8,
+    "sales": 176,
+    "stock": 40,
+    "description": "Choux pastry filled with vanilla custard and topped with chocolate glaze.",
+    "specs": {
+      "weight": "140g",
+      "ingredients": "Flour, butter, eggs, milk, sugar, chocolate, vanilla",
+      "allergens": "Gluten, Dairy, Eggs",
+      "storage": "Refrigerate"
+    }
+  },
+  {
+    "id": 25,
+    "name": "French Macarons (Box of 6)",
+    "category": "Macaron",
+    "price": 12.0,
+    "originalPrice": 15.0,
+    "image": "/images/macaron.jpg",
+    "rating": 4.9,
+    "sales": 158,
+    "stock": 25,
+    "description": "Assorted delicate almond meringue cookies with ganache fillings.",
+    "specs": {
+      "weight": "180g (6 pieces)",
+      "ingredients": "Almond flour, egg whites, sugar, buttercream, ganache",
+      "allergens": "Nuts, Eggs, Dairy",
+      "flavors": "Pistachio, raspberry, chocolate, lemon, vanilla, coffee"
+    }
+  }
+]

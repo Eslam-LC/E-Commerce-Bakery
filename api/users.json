@@ -1,0 +1,152 @@
+[
+  {
+    "id": 1,
+    "name": "Ahmed Al-Mansouri",
+    "email": "ahmed.almansouri@example.com",
+    "password": "$2a$10$X7oYx3yZ8sLqR1tU2vW3eF4gH5iJ6kL7mN8bV9cC0xD1eF2gH3iJ4k"
+  },
+  {
+    "id": 2,
+    "name": "Fatima Zahra",
+    "email": "fatima.zahra@example.com",
+    "password": "$2a$10$Y8pZ4qR5sT6uV7wX8yZ9aB0cD1eF2gH3iJ4kL5mN6oP7qR8sT9uV0w"
+  },
+  {
+    "id": 3,
+    "name": "Omar Khayyam",
+    "email": "omar.khayyam@example.com",
+    "password": "$2a$10$Z9qA5rS6tU7vW8xY9zA0bC1dE2fG3hI4jK5lM6nO7pQ8rS9tU0vW1x"
+  },
+  {
+    "id": 4,
+    "name": "Layla Bint Khalid",
+    "email": "layla.bintkhalid@example.com",
+    "password": "$2a$10$A0rB6sT7uV8wX9yZ0aB1cD2eF3gH4iJ5kL6mN7oP8qR9sT0uV1wX2y"
+  },
+  {
+    "id": 5,
+    "name": "Yusuf Demir",
+    "email": "yusuf.demir@example.com",
+    "password": "$2a$10$B1sC7tU8vW9xY0zA1bC2dE3fG4hI5jK6lM7nO8pQ9rS0tU1vW2xY3z"
+  },
+  {
+    "id": 6,
+    "name": "Aisha Hassan",
+    "email": "aisha.hassan@example.com",
+    "password": "$2a$10$C2tD8uV9wX0yZ1aB2cD3eF4gH5iJ6kL7mN8oP9qQ0rR1sS2tT3uU4v"
+  },
+  {
+    "id": 7,
+    "name": "Karim Benani",
+    "email": "karim.benani@example.com",
+    "password": "$2a$10$D3uE9vW0xY1zA2bC3dE4fG5hI6jK7lM8nO9pP0qQ1rR2sS3tT4uU5v"
+  },
+  {
+    "id": 8,
+    "name": "Nadia Boulad",
+    "email": "nadia.boulad@example.com",
+    "password": "$2a$10$E4vF0wX1yZ2aB3cD4eF5gH6iJ7kL8mN9oP0qQ1rR2sS3tT4uU5vW6w"
+  },
+  {
+    "id": 9,
+    "name": "Hassan El-Sayed",
+    "email": "hassan.elsayed@example.com",
+    "password": "$2a$10$F5wG1xY2zA3bC4dE5fG6hI7jK8lM9nO0pP1qQ2rR3sS4tT5uU6vW7x"
+  },
+  {
+    "id": 10,
+    "name": "Zainab Al-Hashimi",
+    "email": "zainab.alhashimi@example.com",
+    "password": "$2a$10$G6xH2yZ3aB4cD5eF6gH7iJ8kL9mN0oP1qQ2rR3sS4tT5uU6vW7xY8y"
+  },
+  {
+    "id": 11,
+    "name": "Chen Wei",
+    "email": "chen.wei@example.com",
+    "password": "$2a$10$H7yI3zA4bC5dE6fG7hI8jK9lM0nO1pP2qQ3rR4sS5tT6uU7vW8xY9z"
+  },
+  {
+    "id": 12,
+    "name": "Priya Sharma",
+    "email": "priya.sharma@example.com",
+    "password": "$2a$10$I8zJ4aB5cD6eF7gH8iJ9kL0mN1oP2qQ3rR4sS5tT6uU7vW8xY9zA0a"
+  },
+  {
+    "id": 13,
+    "name": "Carlos Rodriguez",
+    "email": "carlos.rodriguez@example.com",
+    "password": "$2a$10$J9aK5bC6dE7fG8hI9jK0lM1nO2pP3qQ4rR5sS6tT7uU8vW9xY0zA1b"
+  },
+  {
+    "id": 14,
+    "name": "Amina Sow",
+    "email": "amina.sow@example.com",
+    "password": "$2a$10$K0bL6cD7eF8gH9iJ0kL1mN2oP3qQ4rR5sS6tT7uU8vW9xY0zA1bC2c"
+  },
+  {
+    "id": 15,
+    "name": "Ivan Petrov",
+    "email": "ivan.petrov@example.com",
+    "password": "$2a$10$L1cM7dE8fG9hI0jK1lM2nO3pP4qQ5rR6sS7tT8uU9vW0xY1zA2bC3c"
+  },
+  {
+    "id": 16,
+    "name": "Mei Lin",
+    "email": "mei.lin@example.com",
+    "password": "$2a$10$M2dN8eF9gH0iJ1kL2mN3oP4qQ5rR6sS7tT8uU9vW0xY1zA2bC3cD4d"
+  },
+  {
+    "id": 17,
+    "name": "Rami Al-Jaber",
+    "email": "rami.aljaber@example.com",
+    "password": "$2a$10$N3eO9fG0hI1jK2lM3nO4pP5qQ6rR7sS8tT9uU0vV1wW2xX3yY4zZ5a"
+  },
+  {
+    "id": 18,
+    "name": "Yara Khoury",
+    "email": "yara.khoury@example.com",
+    "password": "$2a$10$O4fP0gH1iJ2kL3mN4oP5qQ6rR7sS8tT9uU0vV1wW2xX3yY4zZ5aA6b"
+  },
+  {
+    "id": 19,
+    "name": "Tariq Al-Rashid",
+    "email": "tariq.alrashid@example.com",
+    "password": "$2a$10$P5gQ1hI2jK3lM4nO5pP6qQ7rR8sS9tT0uU1vV2wW3xX4yY5zZ6aA7b"
+  },
+  {
+    "id": 20,
+    "name": "Sofia Conti",
+    "email": "sofia.conti@example.com",
+    "password": "$2a$10$Q6hR2iJ3kL4mN5oP6qQ7rR8sS9tT0uU1vV2wW3xX4yY5zZ6aA7bB8c"
+  },
+  {
+    "id": 21,
+    "name": "Mohammed Iqbal",
+    "email": "mohammed.iqbal@example.com",
+    "password": "$2a$10$R7iS3jK4lM5nO6pP7qQ8rR9sS0tT1uU2vV3wW4xX5yY6zZ7aA8bB9c"
+  },
+  {
+    "id": 22,
+    "name": "Noor Al-Mazroui",
+    "email": "noor.almazroui@example.com",
+    "password": "$2a$10$S8jT4kL5mN6oP7qQ8rR9sS0tT1uU2vV3wW4xX5yY6zZ7aA8bB9cC0d"
+  },
+  {
+    "id": 23,
+    "name": "Samira Aziz",
+    "email": "samira.aziz@example.com",
+    "password": "$2a$10$T9kU5lM6nO7pP8qQ9rR0sS1tT2uU3vV4wW5xX6yY7zZ8aA9bB0cC1d"
+  },
+  {
+    "id": 24,
+    "name": "Khalid Al-Otaibi",
+    "email": "khalid.alotaibi@example.com",
+    "password": "$2a$10$U0lV6mN7oP8qQ9rR0sS1tT2uU3vV4wW5xX6yY7zZ8aA9bB0cC1dD2e"
+  },
+  {
+    "id": 25,
+    "name": "Leila Haddad",
+    "email": "leila.haddad@example.com",
+    "password": "$2a$10$V1mW7nO8pP9qQ0rR1sS2tT3uU4vV5wW6xX7yY8zZ9aA0bB1cC2dD3e"
+  }
+]
