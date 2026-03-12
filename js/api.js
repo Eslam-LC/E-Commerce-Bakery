@@ -38,28 +38,29 @@
  *     });
  *
  * ─────────────────────────────────────────────────────────────
-* ─────────────────────────────────────────────────────────────
- *
- * getUrl()
- *
- *   INPUT: None
- * 
- *   OUTPUT:
- *     A Url for either the github page or the python server
- *     or an empty string if both failed.
- *
- *   USAGE EXAMPLE:
- *     fetchJSON(getUrl(), function(products) {
- *         // products is now a JS array — use it here
- *     });
- *
- * ─────────────────────────────────────────────────────────────
  */
 
+// the url is '/api/users.json'
 function fetchJSON(url, onSuccess, onError) {
     // TODO (Person A): write XMLHttpRequest here
-}
+    const XHR = new XMLHttpRequest()
+    XHR.open("GET", url)
+    XHR.responseType = 'json'
+    XHR.send()
+    XHR.onload = () => {
+        if (XHR.status !== 200) {
+            console.error("not ok response")
+            return
+        }
 
-function getUrl() {
-    // TODO get the github page 
+        if (onSuccess) {
+            onSuccess(XHR.response)
+            return
+        }
+
+        if (onError) {
+            onError(XHR.response)
+
+        }
+    }
 }
