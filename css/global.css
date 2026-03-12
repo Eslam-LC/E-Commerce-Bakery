@@ -1,57 +1,419 @@
 /*
  * FILE:    css/global.css
- * OWNER:   Eslam-LC(HEader-Footer), and manage merges to ensure consistancy
+ * OWNER:   Eslam-LC (Header & Footer) and Wael (shared ownership)
  *
  * PURPOSE:
  *   Shared styles used by every page. Defines the visual identity
  *   of BakeHaven so all pages look like they belong to the same site.
  *   Each page can have its own <style> block for page-specific things,
  *   but colors, fonts, and shared components live here.
- * 
- * ─────────────────────────────────────────────────────────────
- * SECTIONS TO WRITE  (add a comment before each section)
- * ─────────────────────────────────────────────────────────────
- *
- *   1. Base reset
- *      — box-sizing, margin/padding 0, body font/background/color
- *      — why: browsers have different default styles, reset removes surprises
- *
- *   2. Layout utilities
- *      — .container  max-width wrapper, centered
- *      — .flex, .flex-center, .flex-between  reusable flex helpers
- *      — .page-main  wrapper for page body content, flex:1 to push footer down
- *      — why: instead of rewriting display:flex on every page
- *
- *   3. Buttons  (.btn, .btn-primary, .btn-outline, .btn:disabled)
- *      — why: every page has buttons — one definition keeps them identical
- *
- *   4. Cards  (.card)
- *      — white background, border-radius, box-shadow
- *      — why: product cards, checkout card, login card all share this look
- *
- *   5. Header  (.site-header, .header-logo, .header-nav, .cart-link,
- *               .cart-badge, .account-btn, .account-dropdown)
- *      — why: the header is on every page — style it once here
- *      — cart-badge is hidden by default (display:none), shown by cart.js
- *      — account-dropdown is hidden by default, shown by user.js
- *
- *   6. Footer  (.site-footer, .footer-grid, .footer-col, .footer-bottom)
- *      — why: footer is on every page
- *
- *   7. Forms  (.form-group, input, textarea, select, :focus state)
- *      — why: login, register, checkout, feedback all have forms
- *      — :focus should use --color-primary as border color
- *
- *   8. Stock labels  (.stock-label, .in-stock, .low-stock, .out-of-stock)
- *      — why: getStatusLabel() in cart.js returns these class names
- *      — in-stock → green, low-stock → orange, out-of-stock → red
- *
- *   9. Feedback modal container  (#feedback-modal-container)
- *      — .modal-overlay  fixed, covers whole screen, dark transparent bg
- *      — .modal-box      white centered card on top of the overlay
- *      — both hidden by default, Person E's JS adds an 'open' class to show them
- *
- * ─────────────────────────────────────────────────────────────
  */
 
-/* SUSGGESTION: shared ownership Eslam-LC and Wael */
+/* -------------------------------------
+   1. Base reset
+   ------------------------------------- */
+* {
+    /* make padding and border inside the width */
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Courier New', Courier, monospace;
+    background-color: #fff;
+    color: #333;
+    /* line height for better readability */
+    line-height: 1.5;
+    /* min-height: 100vh; */
+    /* assuming the rest of the pages will need flex */
+    display: flex;
+    flex-direction: column;
+}
+
+/* -------------------------------------
+   2. Layout utilities (AI Generated)
+   ------------------------------------- */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+    width: 100%;
+}
+
+.flex {
+    display: flex;
+}
+
+.flex-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.flex-between {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.page-main {
+    flex: 1;
+    width: 100%;
+}
+
+/* -------------------------------------
+   3. Buttons
+   ------------------------------------- */
+.btn {
+    display: inline-block;
+    border: none;
+    /* sets the vertical and horizontal padding */
+    padding: 10px 20px;
+    /* padding: 0.6rem 1.2rem; */
+    font-weight: bold;
+    font-size: 18px;
+    /* font-size: 1rem; */
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    background: transparent;
+    color: inherit;
+}
+
+.btn:hover {
+    color: goldenrod;
+    border-bottom: 2px solid goldenrod;
+}
+
+.btn-primary {
+    background-color: goldenrod;
+    color: #fff;
+    border: 2px solid goldenrod;
+}
+
+.btn-primary:hover {
+    background-color: #b8860b;
+    border-color: #b8860b;
+    color: #fff;
+    border-bottom-width: 2px;
+}
+
+.btn-outline {
+    border: 2px solid goldenrod;
+    color: goldenrod;
+    background: transparent;
+}
+
+.btn-outline:hover {
+    background-color: goldenrod;
+    color: #fff;
+    border-bottom-width: 2px;
+}
+
+.btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    pointer-events: none;
+}
+
+/* -------------------------------------
+   4. Cards
+   ------------------------------------- */
+.card {
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    padding: 22.5px;
+    /* padding: 1.5rem; */
+}
+
+/* -------------------------------------
+   5. Header
+   ------------------------------------- */
+.site-header {
+    background: #f8f8f8;
+    border-bottom: 1px solid #eaeaea;
+    padding: 15px 0px;
+    /* padding: 1rem 0; */
+    width: 100%;
+}
+
+.header-logo {
+    font-size: 27px;
+    /* font-size: 1.8rem; */
+    font-weight: bold;
+    color: goldenrod;
+    margin: 0;
+}
+
+.header-nav {
+    display: flex;
+    list-style: none;
+    gap: 22.5px;
+    /* gap: 1.5rem; */
+}
+
+.header-nav a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+    padding: 7.5px 0;
+    /* padding: 0.5rem 0; */
+    transition: color 0.2s;
+    display: inline-block;
+}
+
+.header-nav a:hover {
+    color: goldenrod;
+    border-bottom: 2px solid goldenrod;
+}
+
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    /* gap: 1.2rem; */
+}
+
+.cart-link {
+    text-decoration: none;
+    font-size: 22.5px;
+    /* font-size: 1.5rem; */
+    position: relative;
+    color: #333;
+    border-radius: 50%;
+
+    &:hover {
+        color: goldenrod;
+        border-bottom: 2px solid transparent;
+    }
+}
+
+.cart-badge {
+    position: absolute;
+    top: -8px;
+    right: -12px;
+    background: goldenrod;
+    color: #fff;
+    font-size: 11.25px;
+    /* font-size: 0.75rem; */
+    font-weight: bold;
+    padding: 3px 7.5px;
+    /* padding: 0.2rem 0.5rem; */
+    border-radius: 20px;
+    display: none;
+    /* hidden by default, shown by cart.js */
+}
+
+.account-btn {
+    background: none;
+    border: 2px solid goldenrod;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    font-size: 18;
+    /* font-size: 1.2rem; */
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #333;
+    transition: all 0.2s;
+}
+
+.account-btn:hover {
+    background: goldenrod;
+    color: #fff;
+}
+
+#account-link {
+    text-decoration: none;
+    display: inline-block;
+}
+
+.account-dropdown {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    padding: 7.5px;
+    /* padding: 0.5rem; */
+    min-width: 120px;
+    display: none;
+    /* hidden by default, shown by user.js */
+    z-index: 100;
+}
+
+.account-dropdown button {
+    width: 100%;
+    padding: 7.5px;
+    /* padding: 0.5rem; */
+    background: none;
+    border: none;
+    text-align: left;
+    cursor: pointer;
+    font-size: 13.5px;
+    /* font-size: 0.9rem; */
+}
+
+.account-dropdown button:hover {
+    background: #f0f0f0;
+    color: goldenrod;
+}
+
+/* -------------------------------------
+   6. Footer
+   ------------------------------------- */
+.site-footer {
+    background: #222;
+    color: #fff;
+    padding: 45px 0px 22.5px;
+    margin-top: 45px;
+}
+
+.footer-grid {
+    /* do we want to use grid?? */
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.footer-col h4 {
+    margin-bottom: 15px;
+    color: goldenrod;
+    font-size: 18px;
+    /* font-size: 1.2rem; */
+}
+
+.footer-col p,
+.footer-col ul {
+    margin: 7.5px 0;
+    /* margin: 0.5rem 0; */
+    color: #ccc;
+}
+
+.footer-col ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-col a {
+    color: #ccc;
+    text-decoration: none;
+}
+
+.footer-col a:hover {
+    color: goldenrod;
+}
+
+.footer-bottom {
+    border-top: 1px solid #444;
+    padding-top: 22.5px;
+    /* padding-top: 1.5rem; */
+    text-align: center;
+    font-size: 13.5px;
+    /* font-size: 0.9rem; */
+    color: #aaa;
+}
+
+/* -------------------------------------
+   7. Forms (AI Generated)
+   ------------------------------------- */
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.3rem;
+    font-weight: bold;
+}
+
+input,
+textarea,
+select {
+    width: 100%;
+    padding: 0.6rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-family: inherit;
+    font-size: 1rem;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+    outline: none;
+    border-color: goldenrod;
+    box-shadow: 0 0 0 2px rgba(218, 165, 32, 0.2);
+}
+
+/* -------------------------------------
+   8. Stock labels (AI Generated)
+   ------------------------------------- */
+.stock-label {
+    font-size: 0.85rem;
+    font-weight: bold;
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    display: inline-block;
+}
+
+.in-stock {
+    background: #d4edda;
+    color: #155724;
+}
+
+.low-stock {
+    background: #fff3cd;
+    color: #856404;
+}
+
+.out-of-stock {
+    background: #f8d7da;
+    color: #721c24;
+}
+
+/* -------------------------------------
+   9. Feedback modal container (AI Generated)
+   ------------------------------------- */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.2s ease, visibility 0.2s;
+}
+
+.modal-overlay.open {
+    visibility: visible;
+    opacity: 1;
+}
+
+.modal-box {
+    background: #fff;
+    border-radius: 8px;
+    padding: 2rem;
+    max-width: 500px;
+    width: 90%;
+    max-height: 90vh;
+    overflow-y: auto;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+#feedback-modal-container {
+    /* container for modal HTML – no extra styles needed */
+}

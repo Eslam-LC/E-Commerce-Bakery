@@ -54,22 +54,52 @@
 
 function getSession() {
     // TODO (Person A)
+    // key: 'bh_session'
+    return localStorage.getItem('bh_session')
+
 }
 
 function isLoggedIn() {
     // TODO (Person A)
+    return localStorage.getItem('bh_session') !== null
 }
 
 function login(userData) {
     // TODO (Person A)
+    if (isLoggedIn()) {
+        console.error('Already Logged In.')
+        return
+    } else {
+        localStorage.setItem('bh_session', userData)
+        updateAccountIcon()
+    }
+
 }
 
 function logout() {
     // TODO (Person A)
+    if (!isLoggedIn()) {
+        console.error('Already Logged Out.')
+        return
+    } else {
+        localStorage.removeItem('bh_session')
+        updateAccountIcon()
+    }
 }
 
 function updateAccountIcon() {
     // TODO (Person A)
+    // updateAccountIcon()
+    //  *   INPUT:  nothing
+    //  *   OUTPUT: nothing — changes the header account button based on login state
+    //  *             logged out → shows 👤 icon, clicking goes to login.html
+    //  *             logged in  → shows first letter of email, clicking shows dropdown
+    //  *   NOTE:   call this on every page load
+    if (isLoggedIn()) {
+        // icon logged in
+    } else {
+        // icon logged out
+    }
 }
 
 function validateCredentials(email, password, onSuccess, onFail) {

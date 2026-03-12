@@ -1,0 +1,110 @@
+<!--
+  FILE:    header-footer.snippet.html
+  OWNER:   Eslam-LC
+
+  PURPOSE:
+    Copy the HEADER block and FOOTER block into every page.
+    The cart badge number and account icon behaviour are handled
+    automatically by cart.js and user.js — you just need to call
+    updateCartBadge() and updateAccountIcon() when your page loads.
+
+  IDs that JS depends on — do not rename these:
+    cart-badge           → span inside the cart link, updated by updateCartBadge()
+    account-btn          → the circular account button, updated by updateAccountIcon()
+    account-link         → the <a> wrapping the button, href removed when logged in
+    account-dropdown     → the logout dropdown div, toggled by updateAccountIcon()
+    logout-btn           → button inside the dropdown, wired by updateAccountIcon()
+    feedback-open-btn    → button in footer, wired by Person E on every page
+    feedback-modal-container → empty div in footer, Person E injects modal HTML here
+-->
+<!-- THIS <HTML> SECTION IS ADDED ONLY FOR TESTING
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="./css/global.css">
+</head>
+
+<body>
+
+
+  <script src="/js/api.js"></script>
+  <script src="/js/cart.js"></script>
+  <script src="/js/user.js"></script>
+</body>
+
+</html> -->
+
+<!-- ═══ HEADER — copy from this line ═══════════════════════════════ -->
+<header class="site-header">
+  <div class="container flex-between">
+
+    <h3 class="header-logo">&#127838;BakeHaven</h3>
+
+    <nav>
+      <ul class="header-nav">
+        <li><a href="/index.html">Home</a></li>
+        <li><a href="/products.html">Products</a></li>
+      </ul>
+    </nav>
+
+    <div class="header-actions">
+
+      <a href="/cart.html" class="cart-link">
+        🛒
+        <span class="cart-badge" id="cart-badge">0</span>
+      </a>
+
+      <div style="position:relative;">
+        <a href="/login.html" id="account-link">
+          <button class="account-btn" id="account-btn">👤</button>
+        </a>
+        <div class="account-dropdown" id="account-dropdown">
+          <button id="logout-btn">Logout</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</header>
+<!-- ═══ HEADER — copy to this line ════════════════════════════════ -->
+
+
+<!-- ═══ FOOTER — copy from this line ══════════════════════════════ -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <p>hello@bakehaven.com</p>
+        <p>+1 (800) 555-0199</p>
+      </div>
+
+      <!-- <div class="footer-col">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="/index.html">Home</a></li>
+          <li><a href="/products.html">Products</a></li>
+          <li><a href="/cart.html">Cart</a></li>
+        </ul>
+      </div> -->
+
+      <div class="footer-col">
+        <h4>Feedback</h4>
+        <p>We'd love to hear from you.</p>
+        <button class="btn btn-outline" id="feedback-open-btn">Send Feedback</button>
+      </div>
+
+    </div>
+    <div class="footer-bottom">&copy; 2026 BakeHaven. All rights reserved.</div>
+  </div>
+
+  <!-- Person E: put your modal HTML inside this div -->
+  <div id="feedback-modal-container"></div>
+</footer>
+<!-- ═══ FOOTER — copy to this line ════════════════════════════════ -->
