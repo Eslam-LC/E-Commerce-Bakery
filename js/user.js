@@ -71,7 +71,7 @@ function login(userData) {
         return
     } else {
         localStorage.setItem('bh_session', userData)
-        updateAccountIcon()
+        // updateAccountIcon()
     }
 
 }
@@ -83,7 +83,7 @@ function logout() {
         return
     } else {
         localStorage.removeItem('bh_session')
-        updateAccountIcon()
+        // updateAccountIcon()
     }
 }
 
@@ -97,8 +97,12 @@ function updateAccountIcon() {
     //  *   NOTE:   call this on every page load
     if (isLoggedIn()) {
         // icon logged in
+        document.getElementById('account-btn').style.borderColor = '#e2ab1d'
+
     } else {
         // icon logged out
+        document.getElementById('account-btn').style.borderColor = '#333333'
+
     }
 }
 
