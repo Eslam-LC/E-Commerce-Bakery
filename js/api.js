@@ -49,7 +49,7 @@ function fetchJSON(url, onSuccess, onError) {
     XHR.send()
     XHR.onload = () => {
         if (XHR.status !== 200) {
-            console.error("not ok response")
+            console.error(`not ok response ${XHR.status}`)
             return
         }
 
@@ -60,7 +60,6 @@ function fetchJSON(url, onSuccess, onError) {
 
         if (onError) {
             onError(XHR.response)
-
         }
     }
 }
