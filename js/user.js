@@ -55,7 +55,7 @@
 function getSession() {
     // TODO (Person A)
     // key: 'bh_session'
-    return localStorage.getItem('bh_session')
+    return JSON.parse(localStorage.getItem('bh_session'))
 
 }
 
@@ -70,10 +70,10 @@ function login(userData) {
         console.error('Already Logged In.')
         return
     } else {
-        localStorage.setItem('bh_session', userData)
+        localStorage.setItem('bh_session', JSON.stringify(userData))
         // updateAccountIcon()
     }
-
+    updateAccountIcon()
 }
 
 function logout() {
@@ -85,24 +85,23 @@ function logout() {
         localStorage.removeItem('bh_session')
         // updateAccountIcon()
     }
+    updateAccountIcon()
 }
 
 function updateAccountIcon() {
-    // TODO (Person A)
-    // updateAccountIcon()
-    //  *   INPUT:  nothing
-    //  *   OUTPUT: nothing — changes the header account button based on login state
-    //  *             logged out → shows 👤 icon, clicking goes to login.html
-    //  *             logged in  → shows first letter of email, clicking shows dropdown
-    //  *   NOTE:   call this on every page load
+    var btn = document.getElementById('account-btn');
+    var link = document.getElementById('account-link');
+    if (!btn) return;
+
     if (isLoggedIn()) {
-        // icon logged in
-        document.getElementById('account-btn').style.borderColor = '#e2ab1d'
-
+        var session = getSession();
+        btn.classList.remove('fa-solid', 'fa-user');
+        btn.textContent = session.name.charAt(0).toUpperCase();
+        btn.classList.add('logged-in')
     } else {
-        // icon logged out
-        document.getElementById('account-btn').style.borderColor = '#333333'
-
+        btn.classList.add('fa-solid', 'fa-user');
+        btn.textContent = '';
+        btn.classList.remove('logged-in')
     }
 }
 

@@ -28,6 +28,7 @@ document.addEventListener('DOMContentLoaded', function (e) {
 
     if (loginBtn)
         loginBtn.addEventListener('click', function (e) {
+            // TODO: proper login logic but for tests loggin directky
             login({
                 "id": 1,
                 "name": "Ahmed Al-Mansouri",
@@ -46,11 +47,7 @@ document.addEventListener('DOMContentLoaded', function (e) {
 })
 
 function toggleDropdownMenu() {
-    if (dropdownFlag) {
-        accountDropdown.style.display = 'none'
-        dropdownFlag = false
-    } else {
-        accountDropdown.style.display = 'block'
-        dropdownFlag = true
-    }
+    accountDropdown.classList.toggle('open');
+    // dropdownFlag = accountDropdown.classList.contains('open');
+
 }

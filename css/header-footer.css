@@ -1,16 +1,4 @@
-/*
- * FILE:    css/global.css
- * OWNER:   Eslam-LC (Header & Footer) and Wael (shared ownership)
- *
- * PURPOSE:
- *   Shared styles used by every page. Defines the visual identity
- *   of BakeHaven so all pages look like they belong to the same site.
- *   Each page can have its own <style> block for page-specific things,
- *   but colors, fonts, and shared components live here.
- */
-
 * {
-    /* make padding and border inside the width */
     box-sizing: border-box;
     margin: 0;
     padding: 0;
@@ -20,10 +8,7 @@ body {
     font-family: 'Courier New', Courier, monospace;
     background-color: #fff;
     color: #333;
-    /* line height for better readability */
     line-height: 1.5;
-    /* min-height: 100vh; */
-    /* assuming the rest of the pages will need flex */
     display: flex;
     flex-direction: column;
 }
@@ -32,8 +17,6 @@ body {
     margin: 0;
     padding: 5px 25px;
     width: 100%;
-    /* padding-inline: 25px; */
-    /* padding-block: 5px; */
 }
 
 .flex-between {
@@ -42,68 +25,34 @@ body {
     justify-content: space-between;
 }
 
-/* -------------------------------------
-   3. Buttons
-   ------------------------------------- */
 .btn {
     display: inline-block;
     border: none;
-    /* sets the vertical and horizontal padding */
     padding: 10px 20px;
-    /* padding: 0.6rem 1.2rem; */
     font-weight: bold;
     font-size: 18px;
-    /* font-size: 1rem; */
     border-radius: 4px;
     cursor: pointer;
     transition: all 0.2s ease;
     background: transparent;
     color: inherit;
-}
 
-.btn:hover {
-    color: goldenrod;
-    border-bottom: 2px solid goldenrod;
-}
-
-.btn-primary {
-    background-color: goldenrod;
-    color: #fff;
-    border: 2px solid goldenrod;
-}
-
-.btn-primary:hover {
-    background-color: #b8860b;
-    border-color: #b8860b;
-    color: #fff;
-    border-bottom-width: 2px;
+    &:hover {
+        color: goldenrod;
+        border-bottom: 2px solid goldenrod;
+    }
 }
 
 .btn-outline {
     border: 2px solid goldenrod;
     color: goldenrod;
     background: transparent;
-}
 
-.btn-outline:hover {
-    background-color: goldenrod;
-    color: #fff;
-    border-bottom-width: 2px;
+    &:hover {
+        background-color: goldenrod;
+        color: #fff;
+    }
 }
-
-.btn:disabled {
-    opacity: 0.5;
-    cursor: not-allowed;
-    pointer-events: none;
-}
-
-/* -------------------------------------
-   5. Header
-   ------------------------------------- */
-/* 
-         <!-- site-header container flex-between header-logo header-nav header-actions account-btn account-dropdown site-footer footer-grid footer-col btn btn-outline footer-bottom -->
-         all these were used before modifications
-*/
 
 .site-header {
     background: #f1f1ef;
@@ -207,10 +156,13 @@ body {
     box-shadow: 0 3px 5px rgba(0, 0, 0, 0.3);
     padding: 7.5px;
     min-width: 120px;
-    display: none;
     /* display: block; */
     /* hidden by default, shown by user.js */
     z-index: 100;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-8px);
+    transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s;
 
     &>button {
         width: 100%;
@@ -227,58 +179,55 @@ body {
     }
 }
 
-/* -------------------------------------
-   6. Footer
-   ------------------------------------- */
+.account-dropdown.open {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.account-btn.logged-in {
+    color: #266acf;
+    font-weight: bolder;
+}
+
 .site-footer {
     background: #222;
-    color: #fff;
     padding: 45px 0px 22.5px;
     margin-top: 45px;
 }
 
-.footer-grid {
-    /* do we want to use grid?? */
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 2rem;
-    margin-bottom: 2rem;
-}
+.footer-col {
+    &>h4 {
+        margin-bottom: 15px;
+        color: goldenrod;
+        font-size: 18px;
+    }
 
-.footer-col h4 {
-    margin-bottom: 15px;
-    color: goldenrod;
-    font-size: 18px;
-    /* font-size: 1.2rem; */
-}
+    &>p,
+    &>ul {
+        margin: 7.5px 0;
+        color: #ccc;
+    }
 
-.footer-col p,
-.footer-col ul {
-    margin: 7.5px 0;
-    /* margin: 0.5rem 0; */
-    color: #ccc;
-}
+    &>ul {
+        list-style: none;
+        padding: 0;
+    }
 
-.footer-col ul {
-    list-style: none;
-    padding: 0;
-}
+    & a {
+        color: #ccc;
+        text-decoration: none;
+    }
 
-.footer-col a {
-    color: #ccc;
-    text-decoration: none;
-}
-
-.footer-col a:hover {
-    color: goldenrod;
+    & a:hover {
+        color: goldenrod;
+    }
 }
 
 .footer-bottom {
     border-top: 1px solid #444;
     padding-top: 22.5px;
-    /* padding-top: 1.5rem; */
     text-align: center;
     font-size: 13.5px;
-    /* font-size: 0.9rem; */
     color: #aaa;
 }
