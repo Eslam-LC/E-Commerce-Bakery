@@ -54,61 +54,118 @@
       so they feel clickable — add cursor: pointer too
     - Add page-specific styles inside the <style> block in <head>
 -->
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <title>BakeHaven — Products</title>
-    <link rel="stylesheet" href="/css/global.css">
+    <link rel="stylesheet" href="/css/global.css" />
     <style>
-        /* Person C: page-specific styles go here */
+      /* Person C: page-specific styles go here */
     </style>
-</head>
+  </head>
 
-<body>
+  <body>
+    <header class="site-header">
+      <div class="container flex-between">
+        <h3 class="header-logo">&#127838;BakeHaven</h3>
 
-    <!-- PASTE HEADER FROM header-footer.snippet.html -->
+        <nav>
+          <ul class="header-nav">
+            <li><a href="/index.html">Home</a></li>
+            <li><a href="/products.html">Products</a></li>
+          </ul>
+        </nav>
+
+        <div class="header-actions">
+          <a href="/cart.html" class="cart-link">
+            🛒
+            <span class="cart-badge" id="cart-badge">0</span>
+          </a>
+
+          <div style="position: relative">
+            <a href="/login.html" id="account-link">
+              <button class="account-btn" id="account-btn">👤</button>
+            </a>
+            <div class="account-dropdown" id="account-dropdown">
+              <button id="logout-btn">Logout</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
 
     <main class="page-main">
-        <div class="container">
-            <div id="page-layout">
-                <!-- Left: Sidebar filters -->
-                <aside id="filters-sidebar">
-                    <!-- TODO (Person C): search, checkboxes, price range, slider, clear button -->
-                </aside>
+      <div class="container">
+        <div id="page-layout">
+          <!-- Left: Sidebar filters -->
+          <aside id="filters-sidebar">
+            <!-- TODO (Person C): search, checkboxes, price range, slider, clear button -->
+          </aside>
 
-                <!-- Right: Results + Grid -->
-                <section id="grid-section">
-                    <div id="results-header">
-                        <!-- TODO (Person C): "X products found" text + sort dropdown -->
-                    </div>
-                    <div id="product-grid">
-                        <!-- JS injects product cards here -->
-                    </div>
-                </section>
+          <!-- Right: Results + Grid -->
+          <section id="grid-section">
+            <div id="results-header">
+              <!-- TODO (Person C): "X products found" text + sort dropdown -->
             </div>
+            <div id="product-grid">
+              <!-- JS injects product cards here -->
+            </div>
+          </section>
         </div>
+      </div>
     </main>
 
-    <!-- PASTE FOOTER FROM header-footer.snippet.html -->
+    <footer class="site-footer">
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-col">
+            <h4>Contact</h4>
+            <p>hello@bakehaven.com</p>
+            <p>+1 (800) 555-0199</p>
+          </div>
+
+          <!-- <div class="footer-col">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="/index.html">Home</a></li>
+          <li><a href="/products.html">Products</a></li>
+          <li><a href="/cart.html">Cart</a></li>
+        </ul>
+      </div> -->
+
+          <div class="footer-col">
+            <h4>Feedback</h4>
+            <p>We'd love to hear from you.</p>
+            <button class="btn btn-outline" id="feedback-open-btn">
+              Send Feedback
+            </button>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          &copy; 2026 BakeHaven. All rights reserved.
+        </div>
+      </div>
+
+      <!-- Person E: put your modal HTML inside this div -->
+      <div id="feedback-modal-container"></div>
+    </footer>
 
     <script src="/js/api.js"></script>
     <script src="/js/cart.js"></script>
     <script src="/js/user.js"></script>
     <script>
-        // TODO (Person C): your page script goes here
-        // var allProducts = []   ← store the full list here after fetch
-        //
-        // Step 1 — on load: call updateCartBadge() and updateAccountIcon()
-        // Step 2 — fetchJSON('/api/products.json', function(products) {
-        //              allProducts = products
-        //              renderGrid(allProducts)
-        //              build the category checkboxes from the data
-        //          })
-        // Step 3 — write renderGrid(list) — clears #product-grid and redraws cards
-        // Step 4 — wire each filter to run renderGrid() with a filtered list
+      // TODO (Person C): your page script goes here
+      // var allProducts = []   ← store the full list here after fetch
+      //
+      // Step 1 — on load: call updateCartBadge() and updateAccountIcon()
+      // Step 2 — fetchJSON('/api/products.json', function(products) {
+      //              allProducts = products
+      //              renderGrid(allProducts)
+      //              build the category checkboxes from the data
+      //          })
+      // Step 3 — write renderGrid(list) — clears #product-grid and redraws cards
+      // Step 4 — wire each filter to run renderGrid() with a filtered list
     </script>
-</body>
-
+  </body>
 </html>
