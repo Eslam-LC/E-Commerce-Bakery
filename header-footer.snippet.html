@@ -19,33 +19,33 @@
 -->
 <!-- THIS <HTML> SECTION IS ADDED ONLY FOR TESTING -->
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/header-footer.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+  </head>
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-  <link rel="stylesheet" href="./css/header-footer.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-</head>
-
-<body>
-  <script src="/js/api.js"></script>
-  <script src="/js/cart.js"></script>
-  <script src="/js/user.js"></script>
-  <script src="./js/event.js"></script>
-</body>
-
+  <body>
+    <script src="/js/api.js"></script>
+    <script src="/js/cart.js"></script>
+    <script src="/js/user.js"></script>
+    <script src="./js/event.js"></script>
+  </body>
 </html>
 
 <!-- ═══ HEADER — copy from this line ═══════════════════════════════ -->
 <header class="site-header">
   <div class="container flex-between">
-
     <div class="header-logo">
       <i class="fa fa-bread-slice"></i>
-      <h3> Bake Haven</h3>
+      <h3>Bake Haven</h3>
     </div>
 
     <nav>
@@ -60,26 +60,26 @@
         <span id="cart-badge">0</span>
       </a>
 
-      <div style="position:relative;">
+      <div style="position: relative">
         <a href="./login.html" id="account-link">
-          <button class="account-btn fa-solid fa-user" id="account-btn"></button>
+          <button
+            class="account-btn fa-solid fa-user"
+            id="account-btn"
+          ></button>
         </a>
         <div class="account-dropdown" id="account-dropdown">
           <button id="logout-btn">Logout</button>
         </div>
       </div>
-
     </div>
   </div>
 </header>
 <!-- ═══ HEADER — copy to this line ════════════════════════════════ -->
 
-
 <!-- ═══ FOOTER — copy from this line ══════════════════════════════ -->
 <footer class="site-footer">
   <div class="container">
     <div class="flex-between">
-
       <div class="footer-col">
         <h4>Contact</h4>
         <p>contact@bakehaven.com</p>
@@ -90,8 +90,8 @@
       <div class="footer-col">
         <h4>Social Media</h4>
         <ul>
-          <li><a href="">Instgram</a></li>
-          <li><a href="">TiTok</a></li>
+          <li><a href="">Instagram</a></li>
+          <li><a href="">TikTok</a></li>
           <li><a href="">Facebook</a></li>
         </ul>
       </div>
@@ -101,7 +101,6 @@
         <p>We'd love to hear from you.</p>
         <button class="btn btn-outline" id="feedback-btn">Send Feedback</button>
       </div>
-
     </div>
     <div class="footer-bottom">&copy; 2026 BakeHaven. All rights reserved.</div>
   </div>
