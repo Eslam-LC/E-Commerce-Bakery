@@ -59,49 +59,110 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <title>BakeHaven — Checkout</title>
-    <link rel="stylesheet" href="/css/global.css">
-    <style>
-        /* Person E: page-specific styles go here */
-    </style>
+  <meta charset="UTF-8">
+  <title>BakeHaven — Checkout</title>
+  <link rel="stylesheet" href="/css/global.css">
+  <style>
+    /* Person E: page-specific styles go here */
+  </style>
 </head>
 
 <body>
 
-    <!-- PASTE HEADER FROM header-footer.snippet.html -->
+  <!-- PASTE HEADER FROM header-footer.snippet.html -->
+  <header class="site-header">
+    <div class="container flex-between">
 
-    <main class="page-main flex-center">
-        <div class="card" id="checkout-card">
-            <!-- JS renders either the logged-in view or the guest form here -->
-            <div id="checkout-content">
-                <!-- TODO (Person E) -->
-            </div>
+      <div class="header-logo">
+        <i class="fa fa-bread-slice"></i>
+        <h3> Bake Haven</h3>
+      </div>
+
+      <nav>
+        <ul class="header-nav">
+          <li><a href="/index.html">Home</a></li>
+          <li><a href="/products.html">Products</a></li>
+        </ul>
+      </nav>
+
+      <div class="header-actions">
+        <a href="/cart.html" class="cart-link fa fa-cart-shopping">
+          <span id="cart-badge">0</span>
+        </a>
+
+        <div style="position:relative;">
+          <a href="./login.html" id="account-link">
+            <button class="account-btn fa-solid fa-user" id="account-btn"></button>
+          </a>
+          <div class="account-dropdown" id="account-dropdown">
+            <button id="logout-btn">Logout</button>
+          </div>
         </div>
-    </main>
 
-    <!-- PASTE FOOTER FROM header-footer.snippet.html -->
+      </div>
+    </div>
+  </header>
+
+  <main class="page-main flex-center">
+    <div class="card" id="checkout-card">
+      <!-- JS renders either the logged-in view or the guest form here -->
+      <div id="checkout-content">
+        <!-- TODO (Person E) -->
+      </div>
+    </div>
+  </main>
+
+  <!-- PASTE FOOTER FROM header-footer.snippet.html -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="flex-between">
+
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <p>contact@bakehaven.com</p>
+          <p>+20 15 5555 0199</p>
+          <p>+20 2 2555 0199</p>
+        </div>
+
+        <div class="footer-col">
+          <h4>Social Media</h4>
+          <ul>
+            <li><a href="">Instgram</a></li>
+            <li><a href="">TiTok</a></li>
+            <li><a href="">Facebook</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Feedback</h4>
+          <p>We'd love to hear from you.</p>
+          <button class="btn btn-outline" id="feedback-btn">Send Feedback</button>
+        </div>
+
+      </div>
+      <div class="footer-bottom">&copy; 2026 BakeHaven. All rights reserved.</div>
+    </div>
 
     <script src="/js/api.js"></script>
     <script src="/js/cart.js"></script>
     <script src="/js/user.js"></script>
     <script>
-        // TODO (Person E): your page script goes here
-        //
-        // Step 1 — on load: updateCartBadge(), updateAccountIcon()
-        // Step 2 — var cartItems = getCart()
-        //          if empty → show "cart is empty" message
-        // Step 3 — if (isLoggedIn()):
-        //            show email + "redirecting..." message
-        //            setTimeout(2000, function() {
-        //                cartItems.forEach → decrementStock(id, qty)
-        //                clearCart()
-        //                show success + return button
-        //            })
-        //          else:
-        //            show guest form
-        //            on submit → save to localStorage, show message,
-        //            setTimeout same as above
+      // TODO (Person E): your page script goes here
+      //
+      // Step 1 — on load: updateCartBadge(), updateAccountIcon()
+      // Step 2 — var cartItems = getCart()
+      //          if empty → show "cart is empty" message
+      // Step 3 — if (isLoggedIn()):
+      //            show email + "redirecting..." message
+      //            setTimeout(2000, function() {
+      //                cartItems.forEach → decrementStock(id, qty)
+      //                clearCart()
+      //                show success + return button
+      //            })
+      //          else:
+      //            show guest form
+      //            on submit → save to localStorage, show message,
+      //            setTimeout same as above
     </script>
 </body>
 

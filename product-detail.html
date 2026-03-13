@@ -55,47 +55,108 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <title>BakeHaven — Product</title>
-    <link rel="stylesheet" href="/css/global.css">
-    <style>
-        /* Person D: page-specific styles go here */
-    </style>
+  <meta charset="UTF-8">
+  <title>BakeHaven — Product</title>
+  <link rel="stylesheet" href="/css/global.css">
+  <style>
+    /* Person D: page-specific styles go here */
+  </style>
 </head>
 
 <body>
 
-    <!-- PASTE HEADER FROM header-footer.snippet.html -->
+  <!-- PASTE HEADER FROM header-footer.snippet.html -->
+  <header class="site-header">
+    <div class="container flex-between">
 
-    <main class="page-main">
-        <div class="container">
+      <div class="header-logo">
+        <i class="fa fa-bread-slice"></i>
+        <h3> Bake Haven</h3>
+      </div>
 
-            <a href="/products.html" class="btn btn-outline">← Back to Products</a>
+      <nav>
+        <ul class="header-nav">
+          <li><a href="/index.html">Home</a></li>
+          <li><a href="/products.html">Products</a></li>
+        </ul>
+      </nav>
 
-            <!-- JS fills this in after fetching the product -->
-            <div id="product-detail-content">
-                <!-- TODO (Person D): JS will inject the two-column layout here -->
-            </div>
+      <div class="header-actions">
+        <a href="/cart.html" class="cart-link fa fa-cart-shopping">
+          <span id="cart-badge">0</span>
+        </a>
 
+        <div style="position:relative;">
+          <a href="./login.html" id="account-link">
+            <button class="account-btn fa-solid fa-user" id="account-btn"></button>
+          </a>
+          <div class="account-dropdown" id="account-dropdown">
+            <button id="logout-btn">Logout</button>
+          </div>
         </div>
-    </main>
 
-    <!-- PASTE FOOTER FROM header-footer.snippet.html -->
+      </div>
+    </div>
+  </header>
+
+  <main class="page-main">
+    <div class="container">
+
+      <a href="/products.html" class="btn btn-outline">← Back to Products</a>
+
+      <!-- JS fills this in after fetching the product -->
+      <div id="product-detail-content">
+        <!-- TODO (Person D): JS will inject the two-column layout here -->
+      </div>
+
+    </div>
+  </main>
+
+  <!-- PASTE FOOTER FROM header-footer.snippet.html -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="flex-between">
+
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <p>contact@bakehaven.com</p>
+          <p>+20 15 5555 0199</p>
+          <p>+20 2 2555 0199</p>
+        </div>
+
+        <div class="footer-col">
+          <h4>Social Media</h4>
+          <ul>
+            <li><a href="">Instgram</a></li>
+            <li><a href="">TiTok</a></li>
+            <li><a href="">Facebook</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Feedback</h4>
+          <p>We'd love to hear from you.</p>
+          <button class="btn btn-outline" id="feedback-btn">Send Feedback</button>
+        </div>
+
+      </div>
+      <div class="footer-bottom">&copy; 2026 BakeHaven. All rights reserved.</div>
+    </div>
 
     <script src="/js/api.js"></script>
     <script src="/js/cart.js"></script>
     <script src="/js/user.js"></script>
     <script>
-        // TODO (Person D): your page script goes here
-        //
-        // Step 1 — on load: call updateCartBadge() and updateAccountIcon()
-        // Step 2 — var id = new URLSearchParams(location.search).get('id')
-        // Step 3 — fetchJSON('/api/products.json', function(products) {
-        //              find the product where product.id == id
-        //              render the two-column layout into #product-detail-content
-        //              show stock label using getAvailable() and getStatusLabel()
-        //          })
-        // Step 4 — wire "Add to Cart" button to call addToCart(product.id, quantity)
+      // TODO (Person D): your page script goes here
+      //
+      // Step 1 — on load: call updateCartBadge() and updateAccountIcon()
+      // Step 2 — var id = new URLSearchParams(location.search).get('id')
+      // Step 3 — fetchJSON('/api/products.json', function(products) {
+      //              find the product where product.id == id
+      //              render the two-column layout into #product-detail-content
+      //              show stock label using getAvailable() and getStatusLabel()
+      //          })
+      // Step 4 — wire "Add to Cart" button to call addToCart(product.id, quantity)
     </script>
 </body>
 
