@@ -54,8 +54,9 @@
 <head>
   <meta charset="UTF-8">
   <title>BakeHaven — Fresh Baked Goods</title>
-  <link rel="stylesheet" href="/css/global.css">
-  <link rel="stylesheet" href="/css/home.css">
+  <link rel="stylesheet" href="/css/header-footer.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  
   <style>
     /* Person B: page-specific styles go here or in a separate css file*/
   </style>
@@ -63,12 +64,14 @@
 
 <body>
 
-  <!-- ----------------------------------header--------------------------------------------- -->
-
+  <!-- PASTE HEADER FROM header-footer.snippet.html -->
   <header class="site-header">
     <div class="container flex-between">
 
-      <h3 class="header-logo">&#127838;BakeHaven</h3>
+      <div class="header-logo">
+        <i class="fa fa-bread-slice"></i>
+        <h3> Bake Haven</h3>
+      </div>
 
       <nav>
         <ul class="header-nav">
@@ -78,15 +81,13 @@
       </nav>
 
       <div class="header-actions">
-
-        <a href="/cart.html" class="cart-link">
-          🛒
-          <span class="cart-badge" id="cart-badge">0</span>
+        <a href="/cart.html" class="cart-link fa fa-cart-shopping">
+          <span id="cart-badge">0</span>
         </a>
 
         <div style="position:relative;">
-          <a href="/login.html" id="account-link">
-            <button class="account-btn" id="account-btn">👤</button>
+          <a href="./login.html" id="account-link">
+            <button class="account-btn fa-solid fa-user" id="account-btn"></button>
           </a>
           <div class="account-dropdown" id="account-dropdown">
             <button id="logout-btn">Logout</button>
@@ -96,7 +97,6 @@
       </div>
     </div>
   </header>
-
 
   <main class="page-main">
 
@@ -181,17 +181,47 @@
   </main>
 
   <!-- PASTE FOOTER FROM header-footer.snippet.html -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="flex-between">
 
-  <script src="/js/api.js"></script>
-  <script src="/js/cart.js"></script>
-  <script src="/js/user.js"></script>
-  <script>
-    // TODO (Person B): your page script goes here or in separate js file
-    // Step 1 — on load, call updateCartBadge() and updateAccountIcon()
-    // Step 2 — fetchJSON('/api/products.json', function(products) {
-    //              build carousel cards and put them in #carousel-container
-    //          })
-  </script>
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <p>contact@bakehaven.com</p>
+          <p>+20 15 5555 0199</p>
+          <p>+20 2 2555 0199</p>
+        </div>
+
+        <div class="footer-col">
+          <h4>Social Media</h4>
+          <ul>
+            <li><a href="">Instgram</a></li>
+            <li><a href="">TiTok</a></li>
+            <li><a href="">Facebook</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Feedback</h4>
+          <p>We'd love to hear from you.</p>
+          <button class="btn btn-outline" id="feedback-btn">Send Feedback</button>
+        </div>
+
+      </div>
+      <div class="footer-bottom">&copy; 2026 BakeHaven. All rights reserved.</div>
+    </div>
+
+    <script src="/js/api.js"></script>
+    <script src="/js/cart.js"></script>
+    <script src="/js/user.js"></script>
+    <script src="/js/event.js"></script>
+    <script>
+      // TODO (Person B): your page script goes here or in separate js file
+      // Step 1 — on load, call updateCartBadge() and updateAccountIcon()
+      // Step 2 — fetchJSON('/api/products.json', function(products) {
+      //              build carousel cards and put them in #carousel-container
+      //          })
+    </script>
 </body>
 
 </html>
