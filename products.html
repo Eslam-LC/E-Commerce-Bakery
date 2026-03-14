@@ -64,6 +64,10 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <style>
     /* Person C: page-specific styles go here */
+    .header-selected {
+      border-bottom: 2px solid goldenrod;
+      color: goldenrod;
+    }
   </style>
 </head>
 
@@ -80,7 +84,7 @@
       <nav>
         <ul class="header-nav">
           <li><a href="/index.html">Home</a></li>
-          <li><a href="/products.html">Products</a></li>
+          <li><a href="/products.html" class="header-selected">Products</a></li>
         </ul>
       </nav>
 
@@ -158,7 +162,7 @@
     <script src="/js/cart.js"></script>
     <script src="/js/user.js"></script>
     <script src="/js/event.js"></script>
-    <script>
+    <script src="./js/products-page.js">
       // TODO (Person C): your page script goes here
       // var allProducts = []   ← store the full list here after fetch
       //
@@ -171,5 +175,6 @@
       // Step 3 — write renderGrid(list) — clears #product-grid and redraws cards
       // Step 4 — wire each filter to run renderGrid() with a filtered list
     </script>
-  </body>
+</body>
+
 </html>
