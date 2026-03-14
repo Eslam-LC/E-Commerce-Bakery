@@ -3,7 +3,7 @@
     "id": 1,
     "name": "Croissant",
     "category": "Pastry",
-    "thumbnail": "/images/Croissant.webp",
+    "thumbnail": "/api/images/Croissant.webp",
     "originalPrice": 3.5,
     "price": 2.95,
     "rating": 4.8,
