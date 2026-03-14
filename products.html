@@ -54,7 +54,7 @@
       so they feel clickable — add cursor: pointer too
     - Add page-specific styles inside the <style> block in <head>
 -->
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 
 <head>
@@ -64,12 +64,15 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <style>
     /* Person C: page-specific styles go here */
+    .header-selected {
+      border-bottom: 2px solid goldenrod;
+      color: goldenrod;
+    }
   </style>
 </head>
 
 <body>
 
-  <!-- PASTE HEADER FROM header-footer.snippet.html -->
   <header class="site-header">
     <div class="container flex-between">
 
@@ -81,7 +84,7 @@
       <nav>
         <ul class="header-nav">
           <li><a href="/index.html">Home</a></li>
-          <li><a href="/products.html">Products</a></li>
+          <li><a href="/products.html" class="header-selected">Products</a></li>
         </ul>
       </nav>
 
@@ -124,7 +127,7 @@
     </div>
   </main>
 
-  <!-- PASTE FOOTER FROM header-footer.snippet.html -->
+
   <footer class="site-footer">
     <div class="container">
       <div class="flex-between">
@@ -139,8 +142,8 @@
         <div class="footer-col">
           <h4>Social Media</h4>
           <ul>
-            <li><a href="">Instgram</a></li>
-            <li><a href="">TiTok</a></li>
+            <li><a href="">Instagram</a></li>
+            <li><a href="">TikTok</a></li>
             <li><a href="">Facebook</a></li>
           </ul>
         </div>
@@ -159,7 +162,7 @@
     <script src="/js/cart.js"></script>
     <script src="/js/user.js"></script>
     <script src="/js/event.js"></script>
-    <script>
+    <script src="./js/products-page.js">
       // TODO (Person C): your page script goes here
       // var allProducts = []   ← store the full list here after fetch
       //
