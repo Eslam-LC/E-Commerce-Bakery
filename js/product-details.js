@@ -2,12 +2,12 @@
 // // var id =params.get("id")
 // // console.log(id)
 
-var id = 19
+var id = 22
 
 
 
 var xhr = new XMLHttpRequest();
-xhr.open('GET', `./api/products.json`);
+xhr.open('GET', `./api/products`);
 xhr.responseType = "json";
 xhr.send();
 xhr.onload = function () {
@@ -86,7 +86,7 @@ xhr.onload = function () {
         }
     }
 
-    
+
     // ////****************************************************** */
 
 
@@ -122,10 +122,8 @@ document.getElementsByClassName("add-to-cart")[0].addEventListener('click'  ,fun
 
 
     if (existing) {
-        // المنتج موجود → زود الكمية بس
         existing.quantity += qty;
     } else {
-        // مش موجود → ضيف منتج جديد
         cart.push({
             id: product.id,
             name: product.name,
