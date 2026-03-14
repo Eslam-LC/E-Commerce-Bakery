@@ -40,9 +40,7 @@
  * ─────────────────────────────────────────────────────────────
  */
 
-// the url is '/api/users.json'
 function fetchJSON(url, onSuccess, onError) {
-    // TODO (Person A): write XMLHttpRequest here
     const XHR = new XMLHttpRequest()
     XHR.open("GET", url)
     XHR.responseType = 'json'
