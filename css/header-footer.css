@@ -1,0 +1,233 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Courier New', Courier, monospace;
+    background-color: #fff;
+    color: #333;
+    line-height: 1.5;
+    display: flex;
+    flex-direction: column;
+}
+
+.container {
+    margin: 0;
+    padding: 5px 25px;
+    width: 100%;
+}
+
+.flex-between {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.btn {
+    display: inline-block;
+    border: none;
+    padding: 10px 20px;
+    font-weight: bold;
+    font-size: 18px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    background: transparent;
+    color: inherit;
+
+    &:hover {
+        color: goldenrod;
+        border-bottom: 2px solid goldenrod;
+    }
+}
+
+.btn-outline {
+    border: 2px solid goldenrod;
+    color: goldenrod;
+    background: transparent;
+
+    &:hover {
+        background-color: goldenrod;
+        color: #fff;
+    }
+}
+
+.site-header {
+    background: #f1f1ef;
+    border-bottom: 1px solid #eaeaea;
+    padding: 5px 0px;
+    width: 100%;
+}
+
+/* logo */
+.header-logo {
+    font-size: 25px;
+    font-weight: bold;
+
+    &>h3 {
+        display: inline-block;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    &>i {
+        color: goldenrod;
+        font-size: 40px;
+    }
+}
+
+/* nav section */
+.header-nav {
+    list-style: none;
+    display: flex;
+
+    &>li>a {
+        padding-inline: 5px;
+        text-decoration: none;
+        color: #333;
+        font-weight: bold;
+        font-size: larger;
+        transition: color 0.3s;
+
+        &:hover {
+            color: goldenrod;
+            border-bottom: 2px solid goldenrod;
+        }
+    }
+}
+
+/* cart and account buttons */
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+}
+
+.cart-link {
+    text-decoration: none;
+    font-size: 25px;
+    position: relative;
+    color: #333;
+    border-radius: 50%;
+
+    &:hover {
+        color: goldenrod;
+        border-bottom: 2px solid transparent;
+    }
+
+    &>span {
+        position: absolute;
+        top: -8px;
+        right: -12px;
+        background: goldenrod;
+        color: #612121;
+        font-size: 11.25px;
+        font-weight: bold;
+        padding: 3px 7.5px;
+        border-radius: 20px;
+        /* display: none; */
+    }
+
+}
+
+.account-btn {
+    border-radius: 50%;
+    font-size: 20px;
+    padding: 7px;
+    cursor: pointer;
+    color: #333;
+    transition: all 0.3s;
+
+    &:hover {
+        background: goldenrod;
+        color: #fff;
+    }
+}
+
+.account-dropdown {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background: #f1f1ef;
+    border: 1px solid #f1f1ef;
+    border-top: 0;
+    border-radius: 4px;
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.3);
+    padding: 7.5px;
+    min-width: 120px;
+    /* display: block; */
+    /* hidden by default, shown by user.js */
+    z-index: 100;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-8px);
+    transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s;
+
+    &>button {
+        width: 100%;
+        padding: 7.5px;
+        background: none;
+        border: none;
+        text-align: left;
+        cursor: pointer;
+        font-size: 13.5px;
+
+        &:hover {
+            color: goldenrod;
+        }
+    }
+}
+
+.account-dropdown.open {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.account-btn.logged-in {
+    color: #266acf;
+    font-weight: bolder;
+}
+
+.site-footer {
+    background: #222;
+    padding: 45px 0px 22.5px;
+    margin-top: 45px;
+}
+
+.footer-col {
+    &>h4 {
+        margin-bottom: 15px;
+        color: goldenrod;
+        font-size: 18px;
+    }
+
+    &>p,
+    &>ul {
+        margin: 7.5px 0;
+        color: #ccc;
+    }
+
+    &>ul {
+        list-style: none;
+        padding: 0;
+    }
+
+    & a {
+        color: #ccc;
+        text-decoration: none;
+    }
+
+    & a:hover {
+        color: goldenrod;
+    }
+}
+
+.footer-bottom {
+    border-top: 1px solid #444;
+    padding-top: 22.5px;
+    text-align: center;
+    font-size: 13.5px;
+    color: #aaa;
+}

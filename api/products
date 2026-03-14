@@ -2,7 +2,7 @@
   {
     "id": 1,
     "name": "Croissant",
-    "category": "Viennoiserie",
+    "category": "Pastry",
     "thumbnail": "/images/Croissant.webp",
     "originalPrice": 3.5,
     "price": 2.95,
@@ -50,7 +50,7 @@
   {
     "id": 3,
     "name": "Pain au Chocolate",
-    "category": "Viennoiserie",
+    "category": "Pastry",
     "thumbnail": "/images/Pain au Chocolate.webp",
     "originalPrice": 3.75,
     "price": 3.25,
@@ -97,7 +97,7 @@
   {
     "id": 5,
     "name": "Cruffin",
-    "category": "Viennoiserie",
+    "category": "Pastry",
     "thumbnail": "/images/Cruffin.webp",
     "originalPrice": 4.25,
     "price": 3.75,
@@ -121,7 +121,7 @@
   {
     "id": 6,
     "name": "Cheese Croissant",
-    "category": "Viennoiserie",
+    "category": "Pastry",
     "thumbnail": "/images/Cheese Croissant.webp",
     "originalPrice": 4.0,
     "price": 3.5,
@@ -145,7 +145,7 @@
   {
     "id": 7,
     "name": "Almond Croissant",
-    "category": "Viennoiserie",
+    "category": "Pastry",
     "thumbnail": "/images/Almond Croissant.webp",
     "originalPrice": 4.5,
     "price": 3.95,
@@ -169,7 +169,7 @@
   {
     "id": 8,
     "name": "Almond-Chocolate Croissant",
-    "category": "Viennoiserie",
+    "category": "Pastry",
     "thumbnail": "/images/Almond-Chocolate Croissant.webp",
     "originalPrice": 4.75,
     "price": 4.25,
@@ -193,7 +193,7 @@
   {
     "id": 9,
     "name": "Turkey+Cheese Croissant",
-    "category": "Viennoiserie",
+    "category": "Pastry",
     "thumbnail": "/images/Turkey+Cheese Croissant.webp",
     "originalPrice": 5.0,
     "price": 4.5,
@@ -239,7 +239,7 @@
   {
     "id": 11,
     "name": "Custard Danish",
-    "category": "Viennoiserie",
+    "category": "Pastry",
     "thumbnail": "/images/Custard Danish.webp",
     "originalPrice": 3.75,
     "price": 3.25,
@@ -261,7 +261,7 @@
   {
     "id": 12,
     "name": "Cherry Danish",
-    "category": "Viennoiserie",
+    "category": "Pastry",
     "thumbnail": "/images/Cherry Danish.webp",
     "originalPrice": 3.75,
     "price": 3.25,
@@ -282,7 +282,7 @@
   {
     "id": 13,
     "name": "Croissant Loaf",
-    "category": "Viennoiserie",
+    "category": "Pastry",
     "thumbnail": "/images/Croissant Loaf.webp",
     "originalPrice": 4.5,
     "price": 4.0,
@@ -304,7 +304,7 @@
   {
     "id": 14,
     "name": "Mini Pretzel Croissant",
-    "category": "Viennoiserie",
+    "category": "Pastry",
     "thumbnail": "/images/Mini Pretzel Croissant.webp",
     "originalPrice": 3.25,
     "price": 2.75,
@@ -326,7 +326,7 @@
   {
     "id": 15,
     "name": "Donut Hole Muffins",
-    "category": "Muffin",
+    "category": "Pastry",
     "thumbnail": "/images/Donut Hole Muffins.webp",
     "originalPrice": 4.0,
     "price": 3.5,
@@ -349,7 +349,7 @@
   {
     "id": 16,
     "name": "Everything Danish",
-    "category": "Viennoiserie",
+    "category": "Pastry",
     "thumbnail": "/images/Everything Danish.webp",
     "originalPrice": 4.5,
     "price": 3.95,
@@ -372,7 +372,7 @@
   {
     "id": 17,
     "name": "Blueberry Muffin",
-    "category": "Muffin",
+    "category": "Pastry",
     "thumbnail": "/images/Blueberry Muffin.webp",
     "originalPrice": 2.5,
     "price": 2.25,

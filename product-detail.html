@@ -60,6 +60,7 @@
   <!-- <link rel="stylesheet" href="/css/global.css"> -->
 
   <link rel="stylesheet" href="./css/product-details.css">
+  <link rel="stylesheet" href="./css/header-footer.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <style>
     /* Person D: page-specific styles go here */
@@ -69,6 +70,38 @@
 <body>
 
   <!-- PASTE HEADER FROM header-footer.snippet.html -->
+   <header class="site-header">
+    <div class="container flex-between">
+
+      <div class="header-logo">
+        <i class="fa fa-bread-slice"></i>
+        <h3> Bake Haven</h3>
+      </div>
+
+      <nav>
+        <ul class="header-nav">
+          <li><a href="/index.html">Home</a></li>
+          <li><a href="/products.html">Products</a></li>
+        </ul>
+      </nav>
+
+      <div class="header-actions">
+        <a href="/cart.html" class="cart-link fa fa-cart-shopping">
+          <span id="cart-badge">0</span>
+        </a>
+
+        <div style="position:relative;">
+          <a href="./login.html" id="account-link">
+            <button class="account-btn fa-solid fa-user" id="account-btn"></button>
+          </a>
+          <div class="account-dropdown" id="account-dropdown">
+            <button id="logout-btn">Logout</button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </header>
 
   <!-- <main class="page-main">
         <div class="container">
@@ -203,47 +236,54 @@
             <span class="spec-value">Eco-friendly insulated box</span>
           </div>
         </div>
-
-
+        
       </div>
-
-
-
-
-
-
+      
     </div>
 
   </div>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
   <a href="/products.html" class="btn btn-outline">← Back to Products</a>
 
 
-
-
-  <script src="./js/product-details.js"></script>
-
   <!-- PASTE FOOTER FROM header-footer.snippet.html -->
+<footer class="site-footer">
+    <div class="container">
+      <div class="flex-between">
 
-  <!-- <script src="/js/api.js"></script>
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <p>contact@bakehaven.com</p>
+          <p>+20 15 5555 0199</p>
+          <p>+20 2 2555 0199</p>
+        </div>
+
+        <div class="footer-col">
+          <h4>Social Media</h4>
+          <ul>
+            <li><a href="">Instagram</a></li>
+            <li><a href="">TikTok</a></li>
+            <li><a href="">Facebook</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Feedback</h4>
+          <p>We'd love to hear from you.</p>
+          <button class="btn btn-outline" id="feedback-btn">Send Feedback</button>
+        </div>
+
+      </div>
+      <div class="footer-bottom">&copy; 2026 BakeHaven. All rights reserved.</div>
+    </div>
+
+
+  <script src="/js/api.js"></script>
   <script src="/js/cart.js"></script>
-  <script src="/js/user.js"></script> -->
+  <script src="/js/user.js"></script>
+  <script src="/js/event.js"></script>
+  <script src="./js/product-details.js"></script>
+  
   <script>
     // TODO (Person D): your page script goes here
     //
