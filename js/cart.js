@@ -78,37 +78,120 @@
  *   INPUT:  productId - number - the id of the product
  *           quantity  - number - how many were purchased
  *   OUTPUT: nothing — saves the offset to localStorage
+ * ─────────────────────────────────────────────────────────────
+ * STOCK FUNCTIONS
+ * ─────────────────────────────────────────────────────────────
+ *
+ * getAvailable(product)
+ *   INPUT:  product - object - a full product object from products.json
+ *   OUTPUT: number — how many are actually available right now
+ *           (product.stock minus anything purchased this session)
+ *
+ * getStatusLabel(available)
+ *   INPUT:  available - number - result of getAvailable()
+ *   OUTPUT: object with two fields:
+ *             text     - string - what to display  e.g. "Only 2 left!"
+ *             cssClass - string - CSS class to apply e.g. "low-stock"
+ *
+ *   The three possible cssClass values (defined in global.css):
+ *     "in-stock"     → available > 5
+ *     "low-stock"    → available is 1 to 5
+ *     "out-of-stock" → available is 0
+ *
+ * decrementStock(productId, quantity)
+ *   INPUT:  productId - number - the id of the product
+ *           quantity  - number - how many were purchased
+ *   OUTPUT: nothing — saves the offset to localStorage
  *   NOTE:   called by Person E for each cart item after checkout
  *
  * ─────────────────────────────────────────────────────────────
  */
 
 function getCart() {
-    // TODO (Person A)
+    var cartString = localStorage.getItem('bh_cart')
+    if (cartString != null) {
+        return JSON.parse(cartString)
+    } else {
+        var cart = []
+        localStorage.setItem('bh_cart', JSON.stringify(cart))
+        return cart
+    }
 }
 
 function addToCart(productId, quantity) {
-    // TODO (Person A)
+    var cart = getCart(), flag = false
+    for (const p of cart) {
+        if (p.productId == productId) {
+            p.quantity += quantity
+            flag = true
+            break
+        }
+    }
+    if (!flag) {
+        cart.push({ productId, quantity })
+    }
+    localStorage.setItem('bh_cart', JSON.stringify(cart))
+    updateCartBadge()
 }
 
 function removeFromCart(productId) {
-    // TODO (Person A)
+    var cart = getCart()
+    for (const key in cart) {
+        const p = cart[key]
+        if (p.productId == productId) {
+            cart.splice(key, 1)
+            break
+        }
+    }
+    localStorage.setItem('bh_cart', JSON.stringify(cart))
+    updateCartBadge()
 }
 
 function updateQuantity(productId, newQuantity) {
-    // TODO (Person A)
+
+    //  * updateQuantity(productId, newQuantity)
+    //  *   INPUT:  productId   - number - the id of the product
+    //  *           newQuantity - number - the new quantity to set
+    //  *   OUTPUT: nothing — if newQuantity <= 0 the item is removed entirely
+
+    var cart = getCart()
+    for (const p of cart) {
+        if (p.productId == productId) {
+            if (newQuantity <= 0) {
+                removeFromCart(productId)
+            } else {
+                p.quantity = newQuantity
+            }
+            break
+        }
+    }
+    localStorage.setItem('bh_cart', JSON.stringify(cart))
+    updateCartBadge()
 }
 
 function clearCart() {
-    // TODO (Person A)
+    localStorage.removeItem('bh_cart')
+    updateCartBadge()
 }
 
 function getItemCount() {
-    // TODO (Person A)
+
+    //  * STORAGE FORMAT (what gets saved in localStorage):
+    //  *   key: 'bh_cart'
+    //  *   value: a JSON array like [ { productId: 1, quantity: 2 }, { productId: 5, quantity: 1 } ]
+    //  *
+    var cart = getCart()
+    var sum = 0
+    for (const p of cart) {
+        sum += p.quantity
+    }
+    return sum
 }
 
 function updateCartBadge() {
-    // TODO (Person A)
+    var badge = document.getElementById('cart-badge')
+    if (!badge) return
+    badge.innerText = `${getItemCount()}`
 }
 
 function getAvailable(product) {
