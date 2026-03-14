@@ -60,7 +60,7 @@
 <head>
   <meta charset="UTF-8">
   <title>BakeHaven — Products</title>
-  <link rel="stylesheet" href="/css/header-footer.css">
+  <link rel="stylesheet" href="./css/header-footer.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <style>
     /* Person C: page-specific styles go here */
@@ -226,27 +226,27 @@
 
 <body>
 
+  <!-- ═══ HEADER — copy from this line ═══════════════════════════════ -->
   <header class="site-header">
     <div class="container flex-between">
-
       <div class="header-logo">
         <i class="fa fa-bread-slice"></i>
-        <h3> Bake Haven</h3>
+        <h3>Bake Haven</h3>
       </div>
 
       <nav>
         <ul class="header-nav">
-          <li><a href="/index.html">Home</a></li>
-          <li><a href="/products.html" class="header-selected">Products</a></li>
+          <li><a href="./index.html">Home</a></li>
+          <li><a href="./products.html">Products</a></li>
         </ul>
       </nav>
 
       <div class="header-actions">
-        <a href="/cart.html" class="cart-link fa fa-cart-shopping">
+        <a href="./cart.html" class="cart-link fa fa-cart-shopping">
           <span id="cart-badge">0</span>
         </a>
 
-        <div style="position:relative;">
+        <div style="position: relative">
           <a href="./login.html" id="account-link">
             <button class="account-btn fa-solid fa-user" id="account-btn"></button>
           </a>
@@ -254,10 +254,10 @@
             <button id="logout-btn">Logout</button>
           </div>
         </div>
-
       </div>
     </div>
   </header>
+  <!-- ═══ HEADER — copy to this line ════════════════════════════════ -->
 
   <main class="page-main">
     <div class="container">
@@ -311,10 +311,10 @@
       <div class="footer-bottom">&copy; 2026 BakeHaven. All rights reserved.</div>
     </div>
 
-    <script src="/js/api.js"></script>
-    <script src="/js/cart.js"></script>
-    <script src="/js/user.js"></script>
-    <script src="/js/event.js"></script>
+    <script src="./js/api.js"></script>
+    <script src="./js/cart.js"></script>
+    <script src="./js/user.js"></script>
+    <script src="./js/event.js"></script>
     <script src="./js/products-page.js">
       // TODO (Person C): your page script goes here
       // var allProducts = []   ← store the full list here after fetch

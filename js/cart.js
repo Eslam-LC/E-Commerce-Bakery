@@ -135,6 +135,7 @@ function updateQuantity(productId, newQuantity) {
         if (p.productId == productId) {
             if (newQuantity <= 0) {
                 removeFromCart(productId)
+                return
             } else {
                 p.quantity = newQuantity
             }
