@@ -57,7 +57,10 @@
 <head>
   <meta charset="UTF-8">
   <title>BakeHaven — Product</title>
-  <link rel="stylesheet" href="/css/header-footer.css">
+  <!-- <link rel="stylesheet" href="/css/global.css"> -->
+
+  <link rel="stylesheet" href="./css/product-details.css">
+  <link rel="stylesheet" href="./css/header-footer.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <style>
     /* Person D: page-specific styles go here */
@@ -66,28 +69,27 @@
 
 <body>
 
-  <!-- PASTE HEADER FROM header-footer.snippet.html -->
+  <!-- ═══ HEADER — copy from this line ═══════════════════════════════ -->
   <header class="site-header">
     <div class="container flex-between">
-
       <div class="header-logo">
         <i class="fa fa-bread-slice"></i>
-        <h3> Bake Haven</h3>
+        <h3>Bake Haven</h3>
       </div>
 
       <nav>
         <ul class="header-nav">
-          <li><a href="/index.html">Home</a></li>
-          <li><a href="/products.html">Products</a></li>
+          <li><a href="./index.html">Home</a></li>
+          <li><a href="./products.html">Products</a></li>
         </ul>
       </nav>
 
       <div class="header-actions">
-        <a href="/cart.html" class="cart-link fa fa-cart-shopping">
+        <a href="./cart.html" class="cart-link fa fa-cart-shopping">
           <span id="cart-badge">0</span>
         </a>
 
-        <div style="position:relative;">
+        <div style="position: relative">
           <a href="./login.html" id="account-link">
             <button class="account-btn fa-solid fa-user" id="account-btn"></button>
           </a>
@@ -95,23 +97,153 @@
             <button id="logout-btn">Logout</button>
           </div>
         </div>
-
       </div>
     </div>
   </header>
+  <!-- ═══ HEADER — copy to this line ════════════════════════════════ -->
 
-  <main class="page-main">
-    <div class="container">
+  <!-- <main class="page-main">
+        <div class="container">
 
-      <a href="/products.html" class="btn btn-outline">← Back to Products</a>
+          
+     JS fills this in after fetching the product -->
+  <!-- <div id="product-detail-content">
+               TODO (Person D): JS will inject the two-column layout here -->
+  <!-- </div>
 
-      <!-- JS fills this in after fetching the product -->
-      <div id="product-detail-content">
-        <!-- TODO (Person D): JS will inject the two-column layout here -->
+        </div>
+    </main> -->
+
+
+
+  <div class="container">
+
+    <div class="main-image">
+
+      <img src="" class="main-img">
+
+
+      <div class="images">
+        <img src="" class="small-images">
+        <img src="" class="small-images">
+        <img src="" class="small-images">
+        <img src="" class="small-images">
+      </div>
+
+
+    </div>
+
+
+    <div class="info">
+
+      <h2 class="title">Product Name</h2>
+      <div class="rating">
+        <div class="stars">
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-regular fa-star"></i>
+        </div>
+        <span class="rating-value">4.0</span>
+        <span class="rating-count">(124 reviews)</span>
+      </div>
+      <p class="price">$120</p>
+
+
+
+      <p class="description">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit.
+        This is a simple description for the product.
+      </p>
+      <br>
+
+      <!-- ******************************* -->
+
+
+      <div class="cart-section">
+        <p class="stock-alert"><i class="fa-solid fa-fire"></i> ONLY <span class="stock-num">3</span> LEFT IN STOCK!</p>
+
+        <p class="quantity-label">QUANTITY</p>
+        <div class="cart-actions">
+          <div class="quantity-control">
+            <button class="qty-btn" id="minus">−</button>
+            <span id="qty-value">1</span>
+            <button class="qty-btn" id="plus">+</button>
+          </div>
+          <button class="add-to-cart">
+            <i class="fa-solid fa-cart-shopping"></i> Add to Cart
+          </button>
+        </div>
+      </div>
+      <br>
+      <!-- ************************ -->
+
+
+
+
+
+      <!-- في الـ HTML -->
+
+
+      <div class="tabs">
+        <button class="tab " onclick="showTab('details')">Details</button>
+        <button class="tab active" onclick="showTab('ingredients')">Ingredients</button>
+        <button class="tab" onclick="showTab('shipping')">Shipping</button>
+      </div>
+
+      <div class="tab-content" id="details">
+        <div class="specs-grid">
+          <div class="spec-item">
+            <span class="spec-label">WEIGHT</span>
+            <span class="spec-value" id="weight"></span>
+          </div>
+          <div class="spec-item">
+            <span class="spec-label">SHELF LIFE</span>
+            <span class="spec-value">3-5 days (refrigerated)</span>
+          </div>
+        </div>
+
+
+      </div>
+
+      <div class="tab-content" id="ingredients" style="display:none">
+        <div class="allergens">
+          <span class="spec-label">ALLERGEN INFORMATION</span>
+          <div class="allergen-tags">
+            <span class="tag">Contains Eggs</span>
+            <span class="tag">Contains Dairy</span>
+            <span class="tag">Gluten (Wheat)</span>
+            <span class="tag highlight">Nut-Free Facility</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="tab-content" id="shipping" style="display:none">
+
+        <div class="specs-grid">
+          <div class="spec-item">
+            <span class="spec-label">DELIVERY TIME</span>
+            <span class="spec-value">Same-day if ordered before 12PM</span>
+          </div>
+          <div class="spec-item">
+            <span class="spec-label">DELIVERY FEE</span>
+            <span class="spec-value">$3.99 (Free over $30)</span>
+          </div>
+          <div class="spec-item">
+            <span class="spec-label">PACKAGING</span>
+            <span class="spec-value">Eco-friendly insulated box</span>
+          </div>
+        </div>
+
       </div>
 
     </div>
-  </main>
+
+  </div>
+
+  <a href="./products.html" class="btn btn-outline">← Back to Products</a>
+
 
   <!-- PASTE FOOTER FROM header-footer.snippet.html -->
   <footer class="site-footer">
@@ -128,8 +260,8 @@
         <div class="footer-col">
           <h4>Social Media</h4>
           <ul>
-            <li><a href="">Instgram</a></li>
-            <li><a href="">TiTok</a></li>
+            <li><a href="">Instagram</a></li>
+            <li><a href="">TikTok</a></li>
             <li><a href="">Facebook</a></li>
           </ul>
         </div>
@@ -144,10 +276,13 @@
       <div class="footer-bottom">&copy; 2026 BakeHaven. All rights reserved.</div>
     </div>
 
-    <script src="/js/api.js"></script>
-    <script src="/js/cart.js"></script>
-    <script src="/js/user.js"></script>
-    <script src="/js/event.js"></script>
+
+    <script src="./js/api.js"></script>
+    <script src="./js/cart.js"></script>
+    <script src="./js/user.js"></script>
+    <script src="./js/event.js"></script>
+    <script src="./js/product-details.js"></script>
+
     <script>
       // TODO (Person D): your page script goes here
       //

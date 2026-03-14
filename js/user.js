@@ -86,6 +86,7 @@ function logout() {
         // updateAccountIcon()
     }
     updateAccountIcon()
+    window.location.href = '../index.html'
 }
 
 function updateAccountIcon() {
@@ -106,5 +107,15 @@ function updateAccountIcon() {
 }
 
 function validateCredentials(email, password, onSuccess, onFail) {
-    // TODO (Person A)
+    // not fully implemented yet
+    var valid = false
+    fetchJSON('../api/users', (response) => {
+        for (const u of response) {
+            if (u.email == email && u.password == password) {
+                valid = true
+                break
+            }
+        }
+    }, null)
+    return valid
 }

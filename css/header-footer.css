@@ -55,7 +55,11 @@ body {
 }
 
 .site-header {
-    background: #f1f1ef;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: #f1f0efa4;
+    backdrop-filter: blur(12px);
     border-bottom: 1px solid #eaeaea;
     padding: 5px 0px;
     width: 100%;

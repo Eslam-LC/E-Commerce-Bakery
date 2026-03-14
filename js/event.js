@@ -34,7 +34,7 @@ document.addEventListener('DOMContentLoaded', function (e) {
                 "name": "Ahmed Al-Mansouri",
                 "email": "ahmed.almansouri@example.com"
             })
-            location.href = '../header-footer.snippet.html'
+            location.href = '../index.html'
         })
 
     if (logoutBtn)

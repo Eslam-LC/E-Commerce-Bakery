@@ -326,7 +326,7 @@
   {
     "id": 15,
     "name": "Donut Hole Muffins",
-    "category": "Muffin",
+    "category": "Pastry",
     "thumbnail": "/images/Donut Hole Muffins.webp",
     "originalPrice": 4.0,
     "price": 3.5,
@@ -372,7 +372,7 @@
   {
     "id": 17,
     "name": "Blueberry Muffin",
-    "category": "Muffin",
+    "category": "Pastry",
     "thumbnail": "/images/Blueberry Muffin.webp",
     "originalPrice": 2.5,
     "price": 2.25,
