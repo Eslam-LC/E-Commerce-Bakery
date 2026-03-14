@@ -1,0 +1,251 @@
+#hero {
+    background-image: url("./Gemini_Generated_Image_f9a8kcf9a8kcf9a8.png");
+    height: 620px;
+    margin-left: 52px;
+    margin-right: 52px;
+    border-radius: 30px;
+    background-size: cover;
+    position: relative;
+
+
+}
+
+#hero_overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg,
+            rgba(15, 6, 2, 0.82) 0%,
+            rgba(15, 6, 2, 0.344) 50%,
+            rgba(15, 6, 2, 0) 100%);
+    z-index: 1;
+    border-radius: 30px;
+}
+
+#hero_content {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    /* display: flex;
+  flex-direction: column;
+  justify-content: center; */
+    padding: 70px 72px;
+    width: 900px;
+    /* border: 3px solid red; */
+}
+
+#hero_label {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 900;
+    letter-spacing: 3px;
+    color: #BD590E;
+    background: #bd5a0e34;
+    border-radius: 20px;
+    padding: 5px 14px;
+    margin-bottom: 20px;
+    font-family: sans-serif;
+    letter-spacing: 0.2cap;
+
+
+}
+
+#hero_title {
+    color: aliceblue;
+    font-size: 60px;
+    font-weight: 900;
+    font-family: sans-serif;
+    letter-spacing: -1px;
+
+
+}
+
+#hero_title_color {
+    color: #BD590E
+}
+
+#hero_sub {
+
+    color: lightgray;
+    font-size: 18px;
+    font-weight: 100q;
+    margin-bottom: 60px;
+    font-family: sans-serif;
+    letter-spacing: 2q;
+
+
+}
+
+#btn {
+    text-decoration: none;
+    padding: 15px 25px;
+    background-color: #BD590E;
+    color: aliceblue;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-weight: 600;
+    font-family: sans-serif;
+
+}
+
+#btn:hover {
+
+    background-color: #da762a;
+}
+
+.categories {
+    max-width: 1200px;
+    margin: 60px auto;
+    padding: 0 24px;
+}
+
+#categories-header {
+
+    padding: 50px 52px;
+    color: #292B38;
+    font-size: 20px;
+    font-family: sans-serif;
+
+}
+.sec-title{
+ font-weight: 800;
+}
+
+#categories-see-all {
+    float: right;
+    color: #BD590E;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+#categories-see-all:hover {
+    color:#292B38
+}
+
+.sec-sub {
+    color: rgb(163, 163, 163);
+    font-weight: 300;
+}
+
+
+
+
+.categories-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+}
+
+.category-card {
+    position: relative;
+    display: block;
+    height: 320px;
+    border-radius: 12px;
+    overflow: hidden;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.category-card-img {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    transition: transform 0.5s ease;
+}
+
+.category-card:hover .category-card-img {
+    transform: scale(1.07);
+}
+
+.category-card-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top,
+            rgba(15, 6, 2, 0.80) 0%,
+            rgba(15, 6, 2, 0) 55%,
+            transparent 100%);
+
+}
+
+
+
+.category-card-name {
+    position: absolute;
+    bottom: 18px;
+    left: 18px;
+    font-size: 17px;
+    font-weight: 700;
+    color: #fff;
+    z-index: 2;
+    transition: bottom 0.3s ease;
+}
+
+.category-card:hover .category-card-name {
+    bottom: 22px;
+}
+/* ------------------------------------------------------------------------------- */
+.deals-header {
+    padding: 50px 52px 24px;
+    color: #292B38;
+    font-size: 20px;
+    font-family: sans-serif;
+}
+ 
+#carousel-container {
+    display: flex;
+    gap: 20px;
+    overflow-x: auto;
+    padding: 0 52px 32px;
+    /* scrollbar-width: thin;
+    scrollbar-color: #BD590E #f0ebe5; */
+}
+ 
+/* #carousel-container::-webkit-scrollbar {
+    height: 5px;
+}
+#carousel-container::-webkit-scrollbar-track {
+    background: #f0ebe5;
+    border-radius: 4px;
+}
+#carousel-container::-webkit-scrollbar-thumb {
+    background: #BD590E;
+    border-radius: 4px;
+} */
+
+.deal-card {
+    flex: 0 0 220px;
+    background: #fff;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid rgba(0, 0, 0, 0.07);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+ 
+.deal-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.10);
+}
+ 
+.deal-card-img {
+    width: 100%;
+    height: 160px;
+    background-size: cover;
+    background-position: center;
+}
+ 
+.deal-card-body {
+    padding: 14px 16px 18px;
+}
+ 
+.deal-card-name {
+    font-size: 14px;
+    font-weight: 600;
+    color: #1a0a04;
+    margin-bottom: 6px;
+    font-family: sans-serif;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+ 

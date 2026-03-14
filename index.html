@@ -34,7 +34,7 @@
 
   YOUR JS TASK:
     - On page load: call updateCartBadge() and updateAccountIcon()
-    - Call fetchJSON('/api/products.json', function(products) { ... })
+    - Call fetchJSON('/apiroducts.json', function(products) { ... })
     - Inside the callback: pick some products and build carousel card HTML
     - Inject the cards into #carousel-container using innerHTML or appendChild
     - Wire the View buttons to navigate to product-detail.html?id=X
@@ -56,6 +56,8 @@
   <title>BakeHaven — Fresh Baked Goods</title>
   <link rel="stylesheet" href="./css/header-footer.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+   <link rel="stylesheet" href="./css/home.css">
+  
   <style>
     /* Person B: page-specific styles go here or in a separate css file*/
   </style>
@@ -74,7 +76,7 @@
       <nav>
         <ul class="header-nav">
           <li><a href="./index.html">Home</a></li>
-          <li><a href="./products.html">Products</a></li>
+          <li><a href=".roducts.html">Products</a></li>
         </ul>
       </nav>
 
@@ -98,15 +100,84 @@
 
   <main class="page-main">
 
-    <!-- Section 1: Hero -->
-    <!-- TODO (Person B) -->
+    <!-- Section 1: hero -->
+
+    <section id="hero">
+      <div id="hero_overlay"></div>
+
+      <div id="hero_content">
+        <span id="hero_label">Baked Fresh Every Morning</span>
+        <h1 id="hero_title">
+          Freshly Baked <span id="hero_title_color"> <br> Happiness </span> Delivered <br> to Your Door<br>
+        </h1>
+        <p id="hero_sub">Discover the warmth of artisanal breads and decadent<br> pastries made with organic ingredients
+          and a dash of love.<>
+
+        <div class="hero__actions">
+          <a href=".roducts.html" id='btn'>Shop Now → </a>
+        </div>
+      </div>
+
+
+    </section>
 
     <!-- Section 2: Featured Categories -->
-    <!-- TODO (Person B) -->
+
+    <section id="Featured Categories">
+
+      <div id="categories-header">
+        <div>
+          <h2 class="sec-title">Shop by Category</h2>
+          <a href=".roducts.html" id="categories-see-all">See All →</a>
+          <p class="sec-sub">Our most loved artisanal collections<>
+
+        </div>
+        <br>
+
+        <div class="categories-grid">
+
+          <a href="./products.html" class="category-card">
+            <div class="category-card-img" style="background-image: url('./api/images/bread-catigory.png')"></div>
+            <div class="category-card-overlay"></div>
+            <span class="category-card-name">Artisan Breads</span>
+          </a>
+          <a href="./products.html" class="category-card">
+            <div class="category-card-img" style="background-image: url('./api/images/pastry.png')"></div>
+            <div class="category-card-overlay"></div>
+            <span class="category-card-name">Our Pastries</span>
+          </a>
+
+          <a href="./products.html" class="category-card">
+            <div class="category-card-img" style="background-image: url('./api/images/cake_catigory.png')"></div>
+            <div class="category-card-overlay"></div>
+            <span class="category-card-name">Celebration Cakes</span>
+          </a>
+
+          <a href="./products.html" class="category-card">
+            <div class="category-card-img" style="background-image: url('./api/images/cooki\ catigory.png')"></div>
+            <div class="category-card-overlay"></div>
+            <span class="category-card-name">Gourmet Cookies</span>
+          </a>
+
+        </div>
+
+
+    </section>
 
     <!-- Section 3: Deals of the Day — JS injects cards into this div -->
-    <div id="carousel-container"></div>
+    <section id="deals">
 
+      <div class="deals-header">
+
+        <h2 class="sec-title">Deals of the Day 🔥</h2>
+        <p class="sec-sub">Limited time offers, ending soon</p>
+
+      </div>
+
+
+
+      <div id="carousel-container"></div>
+    </section>
   </main>
 
   <!-- PASTE FOOTER FROM header-footer.snippet.html -->
