@@ -1,0 +1,243 @@
+.container{
+    display: flex;
+    width: 90%;
+     padding:30px;
+     gap: 30px;
+}
+.main-image{
+    width: 50%;
+    position: relative;
+}
+.main-img{
+
+ width: 100%;
+    height: 430px;
+    object-fit: cover;      /* ← المهم - بيخلي الصورة تتملي بدون تشويه */
+    border-radius: 12px;
+   
+}
+.info{
+
+    width: 50%;
+}
+.title{
+    margin-top: 0PX;
+        font-size:35px;
+    margin-bottom:10px;
+}
+.price{
+    font-size:30px;
+     font-weight:lighter ;
+    color:#bd590e;
+    font-weight:bold;
+}
+
+.stock{
+    color:green;
+    margin:10px 0;
+}
+
+.description{
+    margin-top:20px;
+    margin-bottom: 20px;
+    line-height:1.6;
+    color:#555;
+    font-size: 18px;
+}
+.images{
+    
+    display:flex;
+    gap:10px;
+    margin-top:15px;
+    width: 100%;
+
+}
+.small-images{
+
+ flex: 1;            /* ← كل صورة تاخد ربع المساحة تلقائي */
+    height: 100px;
+    object-fit: cover;
+    border-radius: 8px;
+    cursor: pointer;
+}
+.cart{
+
+     margin-top:20px;
+    padding:12px 25px;
+    background:black;
+    color:white;
+    border:none;
+}
+
+/********rating */
+
+.rating {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 10px 0;
+}
+
+.stars i {
+    color:#bd590e;
+    font-size: 18px;
+}
+
+.rating-value {
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.rating-count {
+    color:black;
+    font-size: 14px;
+}
+
+/****************************stock*******************************/
+
+.cart-section {
+    background:#f6eeeb;
+    border-radius: 12px;
+    padding: 20px;
+    margin-top: 20px;
+}
+
+.stock-alert {
+    color: #c0392b;
+    font-weight: bold;
+    font-size: 14px;
+    margin-bottom: 15px;
+}
+
+.stock-alert i {
+    color: #bd590e;
+}
+
+.quantity-label {
+    font-size: 12px;
+    font-weight: bold;
+    color: #888;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+}
+
+.cart-actions {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.quantity-control {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    background: white;
+    border-radius: 50px;
+    padding: 10px 20px;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.qty-btn {
+    background: none;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    color: #333;
+    line-height: 1;
+}
+
+.qty-btn:hover {
+    color: #c0392b;
+}
+
+.add-to-cart {
+    flex: 1;
+    background:#bd590e;
+    color: white;
+    border: none;
+    border-radius: 50px;
+    padding: 14px 30px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.add-to-cart:hover {
+    background: #a14906;
+}
+
+
+/********************************************/
+.tabs {
+    display: flex;
+    gap: 20px;
+    border-bottom: 2px solid #eee;
+    margin: 20px 0;
+}
+
+.tab {
+    background: none;
+    border: none;
+    padding: 10px 0;
+    font-size: 15px;
+    cursor: pointer;
+    color: #888;
+    border-bottom: 2px solid transparent;
+    margin-bottom: -2px;
+}
+
+.tab.active {
+    color: #bd590e;
+    border-bottom: 2px solid #bd590e;
+    font-weight: bold;
+}
+
+.specs-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin: 20px 0;
+}
+
+.spec-label {
+    display: block;
+    font-size: 11px;
+    font-weight: bold;
+    color: #aaa;
+    letter-spacing: 1px;
+    margin-bottom: 5px;
+}
+
+.spec-value {
+    font-size: 15px;
+    color: #333;
+}
+
+.allergens {
+    margin-top: 15px;
+}
+
+.allergen-tags {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-top: 8px;
+}
+
+.tag {
+    padding: 5px 12px;
+    border: 1px solid #ddd;
+    border-radius: 20px;
+    font-size: 13px;
+    color: #555;
+}
+
+.tag.highlight {
+    border-color: #bd590e;
+    color: #bd590e;
+}
