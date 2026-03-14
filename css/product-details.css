@@ -28,7 +28,7 @@
 .price{
     font-size:30px;
      font-weight:lighter ;
-    color:#bd590e;
+    color:goldenrod;
     font-weight:bold;
 }
 
@@ -79,7 +79,7 @@
 }
 
 .stars i {
-    color:#bd590e;
+    color:goldenrod;
     font-size: 18px;
 }
 
@@ -110,7 +110,7 @@
 }
 
 .stock-alert i {
-    color: #bd590e;
+    color: goldenrod;
 }
 
 .quantity-label {
@@ -153,7 +153,7 @@
 
 .add-to-cart {
     flex: 1;
-    background:#bd590e;
+    background:goldenrod;
     color: white;
     border: none;
     border-radius: 50px;
@@ -192,8 +192,8 @@
 }
 
 .tab.active {
-    color: #bd590e;
-    border-bottom: 2px solid #bd590e;
+    color: goldenrod;
+    border-bottom: 2px solid goldenrod;
     font-weight: bold;
 }
 
@@ -238,6 +238,6 @@
 }
 
 .tag.highlight {
-    border-color: #bd590e;
-    color: #bd590e;
+    border-color: goldenrod;
+    color: goldenrod;
 }

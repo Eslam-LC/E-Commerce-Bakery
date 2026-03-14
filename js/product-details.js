@@ -2,7 +2,7 @@
 // // var id =params.get("id")
 // // console.log(id)
 
-var id = 22
+var id = 19
 
 
 
