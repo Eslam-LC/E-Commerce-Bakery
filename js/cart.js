@@ -78,30 +78,6 @@
  *   INPUT:  productId - number - the id of the product
  *           quantity  - number - how many were purchased
  *   OUTPUT: nothing — saves the offset to localStorage
- * ─────────────────────────────────────────────────────────────
- * STOCK FUNCTIONS
- * ─────────────────────────────────────────────────────────────
- *
- * getAvailable(product)
- *   INPUT:  product - object - a full product object from products.json
- *   OUTPUT: number — how many are actually available right now
- *           (product.stock minus anything purchased this session)
- *
- * getStatusLabel(available)
- *   INPUT:  available - number - result of getAvailable()
- *   OUTPUT: object with two fields:
- *             text     - string - what to display  e.g. "Only 2 left!"
- *             cssClass - string - CSS class to apply e.g. "low-stock"
- *
- *   The three possible cssClass values (defined in global.css):
- *     "in-stock"     → available > 5
- *     "low-stock"    → available is 1 to 5
- *     "out-of-stock" → available is 0
- *
- * decrementStock(productId, quantity)
- *   INPUT:  productId - number - the id of the product
- *           quantity  - number - how many were purchased
- *   OUTPUT: nothing — saves the offset to localStorage
  *   NOTE:   called by Person E for each cart item after checkout
  *
  * ─────────────────────────────────────────────────────────────
