@@ -1,72 +1,82 @@
-.container{
+.container {
     display: flex;
     width: 90%;
-     padding:30px;
-     gap: 30px;
+    padding: 30px;
+    gap: 30px;
 }
-.main-image{
+
+.main-image {
     width: 50%;
     position: relative;
 }
-.main-img{
 
- width: 100%;
+.main-img {
+
+    width: 100%;
     height: 430px;
-    object-fit: cover;      /* ← المهم - بيخلي الصورة تتملي بدون تشويه */
+    object-fit: cover;
+    /* ← المهم - بيخلي الصورة تتملي بدون تشويه */
     border-radius: 12px;
-   
+
 }
-.info{
+
+.info {
 
     width: 50%;
 }
-.title{
+
+.title {
     margin-top: 0PX;
-        font-size:35px;
-    margin-bottom:10px;
-}
-.price{
-    font-size:30px;
-     font-weight:lighter ;
-    color:goldenrod;
-    font-weight:bold;
+    font-size: 35px;
+    margin-bottom: 10px;
 }
 
-.stock{
-    color:green;
-    margin:10px 0;
+.price {
+    font-size: 30px;
+    font-weight: lighter;
+    color: goldenrod;
+    font-weight: bold;
 }
 
-.description{
-    margin-top:20px;
+.stock {
+    color: green;
+    margin: 10px 0;
+}
+
+.description {
+    margin-top: 20px;
     margin-bottom: 20px;
-    line-height:1.6;
-    color:#555;
+    line-height: 1.6;
+    color: #555;
     font-size: 18px;
 }
-.images{
-    
-    display:flex;
-    gap:10px;
-    margin-top:15px;
+
+.images {
+
+    display: flex;
+    gap: 10px;
+    margin-top: 15px;
     width: 100%;
 
 }
-.small-images{
 
- flex: 1;            /* ← كل صورة تاخد ربع المساحة تلقائي */
+.small-images {
+
+    flex: 1;
+    /* ← كل صورة تاخد ربع المساحة تلقائي */
     height: 100px;
     object-fit: cover;
     border-radius: 8px;
     cursor: pointer;
 }
-.cart{
 
-     margin-top:20px;
-    padding:12px 25px;
-    background:black;
-    color:white;
-    border:none;
+.cart {
+
+    margin-top: 20px;
+    padding: 12px 25px;
+    background: black;
+    color: white;
+    border: none;
 }
 
 /********rating */
@@ -79,7 +89,7 @@
 }
 
 .stars i {
-    color:goldenrod;
+    color: goldenrod;
     font-size: 18px;
 }
 
@@ -89,14 +99,14 @@
 }
 
 .rating-count {
-    color:black;
+    color: black;
     font-size: 14px;
 }
 
 /****************************stock*******************************/
 
 .cart-section {
-    background:#f6eeeb;
+    background: #f6eeeb;
     border-radius: 12px;
     padding: 20px;
     margin-top: 20px;
@@ -153,7 +163,7 @@
 
 .add-to-cart {
     flex: 1;
-    background:goldenrod;
+    background: goldenrod;
     color: white;
     border: none;
     border-radius: 50px;
