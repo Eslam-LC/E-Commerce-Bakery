@@ -60,7 +60,7 @@ function fetchJSON(url, onSuccess, onError) {
             onError(XHR.response)
         }
     }
-    // XHR.onerror = function () {
-    //     if (onError) onError('Network error — is the server running?')
-    // }
+    XHR.onerror = function () {
+        if (onError) onError('Network error — is the server running?')
+    }
 }

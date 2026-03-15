@@ -1,0 +1,554 @@
+/* ── Page layout ──────────────────────────────────────────── */
+.checkout-wrapper {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 40px 24px 80px;
+    display: grid;
+    grid-template-columns: 1fr 420px;
+    gap: 48px;
+    align-items: start;
+}
+
+/* ── Breadcrumb ───────────────────────────────────────────── */
+.breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 13px;
+    margin-bottom: 28px;
+    color: #aaa;
+}
+
+.breadcrumb a {
+    color: #aaa;
+    text-decoration: none;
+}
+
+.breadcrumb a:hover {
+    color: #BD590E;
+}
+
+.breadcrumb .current {
+    color: #333;
+    font-weight: 600;
+}
+
+.breadcrumb i {
+    font-size: 11px;
+}
+
+h1.checkout-title {
+    font-size: 32px;
+    font-weight: 900;
+    letter-spacing: -0.5px;
+    margin-bottom: 36px;
+}
+
+/* ── Sections ─────────────────────────────────────────────── */
+.checkout-section {
+    margin-bottom: 36px;
+}
+
+.checkout-section h2 {
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 16px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #eee;
+}
+
+/* ── Contact card (logged-in state) ───────────────────────── */
+.contact-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 20px;
+    border: 1px solid #eee;
+    border-radius: 10px;
+    background: #fafafa;
+}
+
+.contact-card-info {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.contact-avatar {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: #BD590E;
+    color: #fff;
+    font-weight: 900;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.contact-name {
+    font-weight: 700;
+    font-size: 15px;
+}
+
+.contact-email {
+    font-size: 13px;
+    color: #888;
+    margin-top: 2px;
+}
+
+/* ── Address grid ─────────────────────────────────────────── */
+.address-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+}
+
+.address-grid .full-width {
+    grid-column: 1 / -1;
+}
+
+.form-group label {
+    display: block;
+    font-size: 13px;
+    font-weight: 600;
+    color: #666;
+    margin-bottom: 6px;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+}
+
+.form-group input,
+.form-group select {
+    width: 100%;
+    padding: 10px 14px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-family: inherit;
+    font-size: 14px;
+    background: #fff;
+    transition: border-color 0.2s;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+    outline: none;
+    border-color: #BD590E;
+    box-shadow: 0 0 0 3px rgba(218, 165, 32, 0.15);
+}
+
+/* ── Payment card ─────────────────────────────────────────── */
+.payment-card {
+    border: 1px solid #eee;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.payment-card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 20px;
+    background: #fdf8f0;
+    border-bottom: 1px solid #eee;
+}
+
+.payment-card-header .left {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 700;
+    font-size: 15px;
+}
+
+.payment-card-header .left i {
+    color: #BD590E;
+}
+
+.payment-card-body {
+    padding: 20px;
+    background: #fff;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.card-number-wrap {
+    position: relative;
+}
+
+.card-number-wrap input {
+    padding-right: 40px;
+}
+
+.card-number-wrap i {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #ccc;
+    font-size: 14px;
+}
+
+.payment-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+}
+
+/* ── Complete purchase button ─────────────────────────────── */
+.complete-btn {
+    width: 100%;
+    padding: 16px;
+    background: #BD590E;
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    margin-top: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    transition: background 0.2s, transform 0.1s;
+}
+
+.complete-btn:hover {
+    background: #b8860b;
+}
+
+.complete-btn:active {
+    transform: scale(0.99);
+}
+
+.secure-note {
+    text-align: center;
+    font-size: 12px;
+    color: #aaa;
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+}
+
+/* ── Order summary (right column) ────────────────────────── */
+.order-summary {
+    background: #fdf8f0;
+    border: 1px solid #f0e8d8;
+    border-radius: 14px;
+    padding: 28px;
+    position: sticky;
+    top: 90px;
+}
+
+.order-summary h2 {
+    font-size: 17px;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+/* ── Compact item list ────────────────────────────────────── */
+.order-items {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    margin-bottom: 20px;
+    border: 1px solid #ede5d8;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.order-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 11px 14px;
+    font-size: 13px;
+    border-bottom: 1px solid #ede5d8;
+    background: #fff;
+}
+
+.order-item:last-child {
+    border-bottom: none;
+}
+
+.order-item-left {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex: 1;
+}
+
+.order-item-qty {
+    background: #BD590E;
+    color: #fff;
+    font-size: 11px;
+    font-weight: 700;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.order-item-name {
+    font-weight: 600;
+    color: #333;
+}
+
+.order-item-price {
+    font-weight: 700;
+    color: #333;
+    white-space: nowrap;
+    margin-left: 10px;
+}
+
+.order-empty {
+    padding: 20px;
+    text-align: center;
+    color: #aaa;
+    font-size: 13px;
+    background: #fff;
+}
+
+/* ── Donation row ─────────────────────────────────────────── */
+.donation-row {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 20px;
+    padding: 14px 16px;
+    background: #fff;
+    border: 1px solid #ede5d8;
+    border-radius: 8px;
+}
+
+.donation-label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    font-weight: 600;
+    color: #555;
+}
+
+.donation-label i {
+    color: #BD590E;
+}
+
+.donation-options {
+    display: flex;
+    gap: 8px;
+}
+
+.donation-btn {
+    flex: 1;
+    padding: 8px 0;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    background: #fff;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    color: #555;
+    transition: all 0.15s;
+}
+
+.donation-btn:hover {
+    border-color: #BD590E;
+    color: #BD590E;
+}
+
+.donation-btn.selected {
+    background: #BD590E;
+    border-color: #BD590E;
+    color: #fff;
+}
+
+/* ── Pricing breakdown ────────────────────────────────────── */
+.pricing-breakdown {
+    border-top: 1px solid #ede5d8;
+    padding-top: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.pricing-row {
+    display: flex;
+    justify-content: space-between;
+    font-size: 13px;
+}
+
+.pricing-row .label {
+    color: #888;
+}
+
+.pricing-row .value {
+    font-weight: 600;
+}
+
+.pricing-total {
+    display: flex;
+    justify-content: space-between;
+    font-size: 18px;
+    font-weight: 900;
+    padding-top: 14px;
+    border-top: 1px solid #ede5d8;
+    margin-top: 4px;
+}
+
+.pricing-total .total-amount {
+    color: #BD590E;
+}
+
+/* ── Processing / Success overlay ────────────────────────── */
+#checkout-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(255, 255, 255, 0.92);
+    z-index: 999;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    text-align: center;
+    padding: 40px;
+}
+
+#checkout-overlay.active {
+    display: flex;
+}
+
+.overlay-icon {
+    font-size: 56px;
+    color: #BD590E;
+}
+
+.overlay-title {
+    font-size: 28px;
+    font-weight: 900;
+}
+
+.overlay-subtitle {
+    font-size: 15px;
+    color: #888;
+    max-width: 360px;
+}
+
+.spinner {
+    width: 44px;
+    height: 44px;
+    border: 4px solid #f0e8d8;
+    border-top-color: #BD590E;
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* ── Feedback modal ───────────────────────────────────────── */
+.modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.45);
+    z-index: 500;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.2s, visibility 0.2s;
+}
+
+.modal-overlay.open {
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal-box {
+    background: #fff;
+    border-radius: 14px;
+    padding: 36px;
+    width: 100%;
+    max-width: 460px;
+    box-shadow: 0 8px 40px rgba(0, 0, 0, 0.12);
+    position: relative;
+    transform: translateY(12px);
+    transition: transform 0.25s;
+}
+
+.modal-overlay.open .modal-box {
+    transform: translateY(0);
+}
+
+.modal-close {
+    position: absolute;
+    top: 16px;
+    right: 18px;
+    background: none;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    color: #aaa;
+    line-height: 1;
+}
+
+.modal-close:hover {
+    color: #333;
+}
+
+.modal-box h3 {
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 6px;
+}
+
+.modal-box .modal-subtitle {
+    font-size: 13px;
+    color: #888;
+    margin-bottom: 22px;
+}
+
+.modal-success {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    padding: 20px 0;
+    text-align: center;
+}
+
+.modal-success i {
+    font-size: 40px;
+    color: #BD590E;
+}
+
+.modal-success p {
+    font-weight: 600;
+    font-size: 15px;
+}
+
+/* ── Responsive ───────────────────────────────────────────── */
+@media (max-width: 860px) {
+    .checkout-wrapper {
+        grid-template-columns: 1fr;
+    }
+
+    .order-summary {
+        position: static;
+        order: -1;
+    }
+}
