@@ -1,72 +1,104 @@
-.container{
+.container2 {
     display: flex;
     width: 90%;
-     padding:30px;
-     gap: 30px;
+    padding: 30px;
+    /* margin-top: 50px; */
+    gap: 30px;
+    
 }
-.main-image{
+
+.main-image {
     width: 50%;
     position: relative;
-}
-.main-img{
+    /* margin-right: 30px; */
 
- width: 100%;
-    height: 430px;
-    object-fit: cover;      /* ← المهم - بيخلي الصورة تتملي بدون تشويه */
-    border-radius: 12px;
-   
 }
-.info{
+
+.main-img {
+
+    width: 100%;
+    height: 430px;
+    object-fit: cover;
+    /* ← المهم - بيخلي الصورة تتملي بدون تشويه */
+    border-radius: 12px;
+    transition: transform 0.5s ease;
+
+}
+.main-img:hover{
+
+    
+transform: scale(1.02);
+border: 1px solid #BD590E;
+
+}
+
+.info {
 
     width: 50%;
+   margin-right: 0px;
+   margin-left: 30px;
 }
-.title{
+
+.title {
     margin-top: 0PX;
-        font-size:35px;
-    margin-bottom:10px;
-}
-.price{
-    font-size:30px;
-     font-weight:lighter ;
-    color:goldenrod;
-    font-weight:bold;
+    font-size: 35px;
+    margin-bottom: 10px;
 }
 
-.stock{
-    color:green;
-    margin:10px 0;
+.price {
+    font-size: 30px;
+    font-weight: lighter;
+    color: #BD590E;
+    font-weight: bold;
 }
 
-.description{
-    margin-top:20px;
+.stock {
+    color: green;
+    margin: 10px 0;
+}
+
+.description {
+    margin-top: 20px;
     margin-bottom: 20px;
-    line-height:1.6;
-    color:#555;
+    line-height: 1.6;
+    color: #555;
     font-size: 18px;
 }
-.images{
-    
-    display:flex;
-    gap:10px;
-    margin-top:15px;
+
+.images {
+
+    display: flex;
+    gap: 10px;
+    margin-top: 15px;
     width: 100%;
 
 }
-.small-images{
 
- flex: 1;            /* ← كل صورة تاخد ربع المساحة تلقائي */
+.small-images {
+
+    flex: 1;
+    /* ← كل صورة تاخد ربع المساحة تلقائي */
     height: 100px;
     object-fit: cover;
     border-radius: 8px;
     cursor: pointer;
+    transition: transform 0.4s ease;
 }
-.cart{
+.small-images:hover{
 
-     margin-top:20px;
-    padding:12px 25px;
-    background:black;
-    color:white;
-    border:none;
+transform: scale(1.08);
+border: 1px solid #BD590E;
+
+
+}
+
+.cart {
+
+    margin-top: 20px;
+    padding: 12px 25px;
+    background: black;
+    color: white;
+    border: none;
 }
 
 /********rating */
@@ -79,7 +111,7 @@
 }
 
 .stars i {
-    color:goldenrod;
+    color: #BD590E;
     font-size: 18px;
 }
 
@@ -89,14 +121,14 @@
 }
 
 .rating-count {
-    color:black;
+    color: black;
     font-size: 14px;
 }
 
 /****************************stock*******************************/
 
 .cart-section {
-    background:#f6eeeb;
+    background: #f6eeeb;
     border-radius: 12px;
     padding: 20px;
     margin-top: 20px;
@@ -110,7 +142,7 @@
 }
 
 .stock-alert i {
-    color: goldenrod;
+    color: #BD590E;
 }
 
 .quantity-label {
@@ -153,7 +185,7 @@
 
 .add-to-cart {
     flex: 1;
-    background:goldenrod;
+    background: #BD590E;
     color: white;
     border: none;
     border-radius: 50px;
@@ -165,10 +197,12 @@
     align-items: center;
     justify-content: center;
     gap: 10px;
+    transition: transform 0.5s ease;
 }
 
 .add-to-cart:hover {
-    background: #a14906;
+    background: #e06609;
+    transform: scale(1.06);
 }
 
 
@@ -192,8 +226,8 @@
 }
 
 .tab.active {
-    color: goldenrod;
-    border-bottom: 2px solid goldenrod;
+    color: #BD590E;
+    border-bottom: 2px solid #BD590E;
     font-weight: bold;
 }
 
@@ -238,6 +272,100 @@
 }
 
 .tag.highlight {
-    border-color: goldenrod;
-    color: goldenrod;
+    border-color: #BD590E;
+    color: #BD590E;
+}
+
+
+/* *******************"reviews-section"******************************* */
+
+
+.reviews-section {
+    width: 70%;
+    margin: 20px auto;
+    margin-bottom: 50px;
+}
+
+.reviews-section h2 {
+    font-size: 25px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: black;
+}
+
+.reviews-container {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+}
+
+.reviews-left {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+    min-width: 130px;
+}
+
+.big-rating {
+    font-size: 56px;
+    font-weight: bold;
+    color: #BD590E;
+    line-height: 1;
+    margin: 0;
+}
+
+.reviews-left .stars {
+    display: flex;
+    gap: 3px;
+}
+
+.reviews-left .stars i {
+    color: #BD590E;
+    font-size: 16px;
+}
+
+.reviews-count {
+    color: #888;
+    font-size: 13px;
+    margin: 0;
+}
+
+.reviews-right {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.bar-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 13px;
+    color: #555;
+}
+
+.bar-row span:first-child {
+    min-width: 10px;
+    text-align: right;
+}
+
+.bar-row span:last-child {
+    min-width: 35px;
+    color: #888;
+}
+
+.bar-track {
+    flex: 1;
+    height: 8px;
+    background: #f0e8e0;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.bar-fill {
+    height: 100%;
+    background: #BD590E;
+    border-radius: 10px;
 }
