@@ -1,8 +1,8 @@
-// // var params=new URLSearchParams(location.search);
-// // var id =params.get("id")
-// // console.log(id)
+var params=new URLSearchParams(location.search);
+var id =params.get("id")
+console.log(id)
 
-var id = 19
+// var id = 26
 
 
 
@@ -138,7 +138,8 @@ document.getElementsByClassName("add-to-cart")[0].addEventListener('click'  ,fun
 
 
     localStorage.setItem("cart", JSON.stringify(cart));
-    alert(`Added ${qty} item(s) to Cart!`);
+   window.location.href = "./cart.html";
+
 
     });
     

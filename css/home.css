@@ -192,6 +192,9 @@
     }
 
     /* ------------------------------------------------------------------------------- */
+    #deals{
+        background-color: #F6EEEB;
+    }
     .deals-header {
         padding: 50px 52px 24px;
         color: #292B38;
@@ -204,11 +207,12 @@
         gap: 20px;
         overflow-x: auto;
         padding: 0 52px 32px;
-        /* scrollbar-width: thin;
-    scrollbar-color: #BD590E #f0ebe5; */
+
+        scrollbar-width: thin;
+    scrollbar-color: #BD590E #f0ebe5;
     }
 
-    /* #carousel-container::-webkit-scrollbar {
+    #carousel-container::-webkit-scrollbar {
     height: 5px;
 }
 #carousel-container::-webkit-scrollbar-track {
@@ -218,9 +222,11 @@
 #carousel-container::-webkit-scrollbar-thumb {
     background: #BD590E;
     border-radius: 4px;
-} */
+}
 
     .deal-card {
+        position: relative;
+        font-family: sans-serif;
         flex: 0 0 220px;
         background: #fff;
         border-radius: 12px;
@@ -232,6 +238,18 @@
     .deal-card:hover {
         transform: translateY(-4px);
         box-shadow: 0 12px 32px rgba(0, 0, 0, 0.10);
+    }
+
+    .deal-badge {
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        background: #e03232;
+        color: #fff;
+        font-size: 11px;
+        font-weight: 700;
+        padding: 4px 10px;
+        border-radius: 20px;
     }
 
     .deal-card-img {
@@ -247,11 +265,62 @@
 
     .deal-card-name {
         font-size: 14px;
-        font-weight: 600;
+        font-weight: 900;
         color: #1a0a04;
         margin-bottom: 6px;
         font-family: sans-serif;
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
+    }
+
+    .deal-card-stars {
+        font-size: 17px;
+        color: goldenrod;
+        margin-bottom: 10px;
+    }
+
+
+    .deal-card-stars span {
+        color: #999;
+        font-size: 12px;
+    }
+
+    .deal-card-pricing {
+        display: flex;
+        align-items: baseline;
+        gap: 8px;
+        margin-bottom: 14px;
+    }
+
+    .deal-card-price {
+        font-size: 17px;
+        font-weight: 900;
+        color: #BD590E;
+        ;
+    }
+
+    .deal-card-original {
+        font-size: 13px;
+        color: #bbb;
+        text-decoration: line-through;
+    }
+
+    .deal-card-btn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 36px;
+        height: 40px;
+        background: #BD590E;
+        color: #fff;
+        border-radius: 25%;
+        text-decoration: none;
+        transition: background 0.2s;
+        float: right;
+        margin-left: 45px;
+    }
+
+    .deal-card-btn:hover {
+        background: #292B38;
     }
