@@ -125,7 +125,7 @@
           Freshly Baked <span id="hero_title_color"> <br> Happiness </span> Delivered <br> to Your Door<br>
         </h1>
         <p id="hero_sub">Discover the warmth of artisanal breads and decadent<br> pastries made with organic ingredients
-          and a dash of love.<>
+          and a dash of love.</p>
 
             <div class="hero__actions">
               <a href="./products.html" id='btn'>Shop Now → </a>
@@ -143,25 +143,25 @@
         <div>
           <h2 class="sec-title">Shop by Category</h2>
           <a href="./products.html" id="categories-see-all">See All →</a>
-          <p class="sec-sub">Our most loved artisanal collections<>
+          <p class="sec-sub">Our most loved artisanal collections</p>
 
         </div>
         <br>
 
         <div class="categories-grid">
 
-          <a href="./products.html" class="category-card">
+          <a href="./products.html?category=Bread" class="category-card">
             <div class="category-card-img" style="background-image: url('./api/images/bread-catigory.png')"></div>
             <div class="category-card-overlay"></div>
             <span class="category-card-name">Artisan Breads</span>
           </a>
-          <a href="./products.html" class="category-card">
+          <a href="./products.html?category=Pastry" class="category-card">
             <div class="category-card-img" style="background-image: url('./api/images/pastry.png')"></div>
             <div class="category-card-overlay"></div>
             <span class="category-card-name">Our Pastries</span>
           </a>
 
-          <a href="./products.html" class="category-card">
+          <a href="./products.html?category=Cake" class="category-card">
             <div class="category-card-img" style="background-image: url('./api/images/cake_catigory.png')"></div>
             <div class="category-card-overlay"></div>
             <span class="category-card-name">Celebration Cakes</span>
@@ -225,10 +225,51 @@
       <div class="footer-bottom">&copy; 2026 BakeHaven. All rights reserved.</div>
     </div>
 
+
+    <!-- FEEDBACK MODAL -->
+    <div class="modal-overlay" id="feedback-modal">
+      <div class="modal-box">
+        <button class="modal-close" id="feedback-close-btn">&times;</button>
+
+        <!-- Form view -->
+        <div id="feedback-form-view">
+          <h3>Send us feedback</h3>
+          <p class="modal-subtitle">We read every message and use it to improve.</p>
+
+          <div class="form-group">
+            <label>Name</label>
+            <input type="text" id="fb-name" placeholder="Your name">
+          </div>
+          <div class="form-group">
+            <label>Email</label>
+            <input type="email" id="fb-email" placeholder="you@example.com">
+          </div>
+          <div class="form-group">
+            <label>Message</label>
+            <textarea id="fb-message" rows="4"
+              style="width:100%; padding:10px 14px; border:1px solid #ddd; border-radius:8px; font-family:inherit; font-size:14px; resize:vertical;"
+              placeholder="Tell us what you think…"></textarea>
+          </div>
+          <p id="fb-error" style="color:#c0392b; font-size:13px; display:none; margin-bottom:12px;"></p>
+          <button class="btn btn-primary" style="width:100%;" onclick="submitFeedback()">
+            Submit Feedback
+          </button>
+        </div>
+
+        <!-- Success view (hidden until submitted) -->
+        <div class="modal-success" id="feedback-success-view">
+          <i class="fa fa-circle-check"></i>
+          <p>Thank you for your feedback!</p>
+          <span style="font-size:13px; color:#888;">This window will close automatically.</span>
+        </div>
+      </div>
+    </div>
+
     <script src="./js/api.js"></script>
     <script src="./js/cart.js"></script>
     <script src="./js/user.js"></script>
     <script src="./js/event.js"></script>
+    <script src="./js/home.js"></script>
     <script>
       // TODO (Person B): your page script goes here or in separate js file
       // Step 1 — on load, call updateCartBadge() and updateAccountIcon()
