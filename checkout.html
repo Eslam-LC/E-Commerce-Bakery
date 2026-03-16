@@ -1,171 +1,313 @@
 <!--
-  PAGE:     checkout.html  (Checkout)
-  OWNER:    Person E
+  PAGE:     checkout.html
+  OWNER:    Person A (Eslam-LC)
 
-  WHAT THIS PAGE IS:
-    The final step before "purchasing". It opens in a new tab.
-    It behaves differently depending on whether the user is logged in.
-    After the simulated payment, the cart is cleared and stock is decremented.
+  LAYOUT:   Two-column (Stitch-inspired)
+              Left  (~58%): contact info + shipping address + payment method
+              Right (~42%): compact itemized order summary (sticky)
 
-  WHAT THE USER CAN DO HERE:
-    (if logged in)
-      - See their email address
-      - Watch a "processing payment" message for 2 seconds
-      - See a success message and a "Return to Store" button
-
-    (if not logged in / guest)
-      - Fill in email, name, address
-      - Submit the form
-      - Watch a "processing payment" message for 2 seconds
-      - See a success message and a "Return to Store" button
+  FLOWS:
+    Logged-in  → contact section shows name + email + logout button
+                 address + payment forms shown
+                 "Complete Purchase" → 2s delay → clearCart() + decrementStock() → success view
+    Guest      → contact section shows email input
+                 address + payment forms shown
+                 same completion flow
 
   CONNECTS TO:
-    ← cart.html      (arrived via "Proceed to Checkout" — this tab was opened)
-    → index.html     ("Return to Store" button — tries to close tab, falls back to home)
+    ← cart.html      (opened via "Proceed to Checkout" target="_blank")
+    → index.html     ("Return to Store" — tries window.close() first)
 
-  YOUR JS TASK:
-    - On page load: call updateCartBadge() and updateAccountIcon()
-    - var cartItems = getCart()
-    - If cartItems is empty → show "Nothing to checkout" message
-    - If isLoggedIn():
-        show "Logged in as [email]" message
-        show "Redirecting to payment gateway..."
-        setTimeout 2000ms then:
-          for each item in cartItems → call decrementStock(item.productId, item.quantity)
-          call clearCart()
-          show success message + Return to Store button
-    - If not logged in:
-        show the guest form
-        on form submit:
-          save guest info to localStorage (key: 'bh_guest_checkout')
-          show "Redirecting to payment gateway..."
-          setTimeout 2000ms then:
-            same decrement + clearCart + success as above
-
-    - "Return to Store" button:
-        window.close()   ← closes the tab if it was opened by another tab
-        if that doesn't work: window.location.href = '/index.html'
-
-  CSS GUIDELINES:
-    - Very minimal page — centred card, max-width around 500px
-    - Use .card and .flex-center on the main wrapper
-    - Use .form-group for each guest form field
-    - Use .btn .btn-primary for the submit and return buttons
-    - The "processing" and "success" messages should replace the form content
-      not appear alongside it — hide the form, show the message
-    - Add page-specific styles inside the <style> block in <head>
+  DEPENDS ON: css/header-footer.css, js/api.js, js/cart.js, js/user.js
+  SERVER:     Serve via python -m http.server 8000 or GitHub Pages
 -->
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
   <meta charset="UTF-8">
-  <title>BakeHaven — Checkout</title>
-  <link rel="stylesheet" href="/css/header-footer.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Checkout | BakeHaven</title>
+  <link rel="stylesheet" href="./css/header-footer.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-  <style>
-    /* Person E: page-specific styles go here */
-  </style>
+  <link rel="stylesheet" href="./css/checkout.css">
 </head>
 
 <body>
 
-  <!-- PASTE HEADER FROM header-footer.snippet.html -->
+  <!-- HEADER -->
   <header class="site-header">
     <div class="container flex-between">
-
       <div class="header-logo">
-        <i class="fa fa-bread-slice"></i>
-        <h3> Bake Haven</h3>
+        <div class="dark-bg">
+          <svg width="200" height="72" viewBox="0 0 200 72" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M 60 28 Q 100 8 140 28" stroke="#BD590E" stroke-width="1.2" fill="none" stroke-linecap="round"
+              opacity="0.7" />
+            <circle cx="60" cy="28" r="2" fill="#BD590E" opacity="0.6" />
+            <circle cx="80" cy="17" r="2" fill="#BD590E" opacity="0.6" />
+            <circle cx="100" cy="13" r="2.5" fill="#BD590E" />
+            <circle cx="120" cy="17" r="2" fill="#BD590E" opacity="0.6" />
+            <circle cx="140" cy="28" r="2" fill="#BD590E" opacity="0.6" />
+            <text x="100" y="46" text-anchor="middle" font-family="'Playfair Display', serif" font-weight="700"
+              font-size="26" fill="#333" letter-spacing="8">BAKE</text>
+            <line x1="52" y1="52" x2="148" y2="52" stroke="#BD590E" stroke-width="0.8" opacity="0.6" />
+            <text x="100" y="66" text-anchor="middle" font-family="'Cormorant Garamond', serif" font-weight="300"
+              font-size="14" fill="#BD590E" letter-spacing="10">HAVEN</text>
+          </svg>
+        </div>
       </div>
-
       <nav>
         <ul class="header-nav">
-          <li><a href="/index.html">Home</a></li>
-          <li><a href="/products.html">Products</a></li>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="products.html">Products</a></li>
         </ul>
       </nav>
-
       <div class="header-actions">
-        <a href="/cart.html" class="cart-link fa fa-cart-shopping">
+        <a href="cart.html" class="cart-link fa fa-cart-shopping">
           <span id="cart-badge">0</span>
         </a>
-
         <div style="position:relative;">
-          <a href="./login.html" id="account-link">
+          <a href="login.html" id="account-link">
             <button class="account-btn fa-solid fa-user" id="account-btn"></button>
           </a>
           <div class="account-dropdown" id="account-dropdown">
             <button id="logout-btn">Logout</button>
           </div>
         </div>
-
       </div>
     </div>
   </header>
 
-  <main class="page-main flex-center">
-    <div class="card" id="checkout-card">
-      <!-- JS renders either the logged-in view or the guest form here -->
-      <div id="checkout-content">
-        <!-- TODO (Person E) -->
+  <!-- CHECKOUT PROCESSING / SUCCESS OVERLAY -->
+  <div id="checkout-overlay">
+    <div class="spinner" id="overlay-spinner"></div>
+    <i class="fa fa-circle-check overlay-icon" id="overlay-icon" style="display:none;"></i>
+    <div class="overlay-title" id="overlay-title">Processing payment…</div>
+    <div class="overlay-subtitle" id="overlay-subtitle">Please wait while we confirm your order.</div>
+    <button class="btn btn-primary" id="overlay-return-btn" style="display:none; margin-top:10px;"
+      onclick="returnToStore()">
+      Return to Store
+    </button>
+  </div>
+
+  <!-- MAIN -->
+  <main class="page-main">
+    <div class="checkout-wrapper">
+
+      <!-- ═══ LEFT COLUMN ═══════════════════════════════════════ -->
+      <div>
+        <!-- Breadcrumb -->
+        <nav class="breadcrumb">
+          <a href="cart.html">Cart</a>
+          <i class="fa fa-chevron-right"></i>
+          <span class="current">Checkout</span>
+        </nav>
+
+        <h1 class="checkout-title">Checkout</h1>
+
+        <!-- Contact Information -->
+        <div class="checkout-section">
+          <h2>Contact Information</h2>
+          <div id="contact-section">
+            <!-- JS renders either logged-in card or email input here -->
+          </div>
+        </div>
+
+        <!-- Shipping Address -->
+        <div class="checkout-section">
+          <h2>Shipping Address</h2>
+          <div class="address-grid">
+            <div class="form-group">
+              <label>First Name</label>
+              <input type="text" id="ship-fname" placeholder="Jane">
+            </div>
+            <div class="form-group">
+              <label>Last Name</label>
+              <input type="text" id="ship-lname" placeholder="Smith">
+            </div>
+            <div class="form-group full-width">
+              <label>Address</label>
+              <input type="text" id="ship-address" placeholder="123 Sourdough Lane">
+            </div>
+            <div class="form-group full-width">
+              <label>Apartment, suite, etc. (optional)</label>
+              <input type="text" id="ship-apt" placeholder="Apt 4B">
+            </div>
+            <div class="form-group">
+              <label>City</label>
+              <input type="text" id="ship-city" placeholder="Cairo">
+            </div>
+            <div class="form-group">
+              <label>Country</label>
+              <input type="text" id="ship-country" placeholder="Egypt">
+            </div>
+          </div>
+        </div>
+
+        <!-- Payment Method -->
+        <div class="checkout-section">
+          <h2>Payment Method</h2>
+          <div class="payment-card">
+            <div class="payment-card-header">
+              <div class="left">
+                <i class="fa fa-credit-card"></i>
+                Credit Card
+              </div>
+              <div style="display:flex; gap:8px; opacity:0.4; font-size:20px;">
+                <i class="fa-brands fa-cc-visa"></i>
+                <i class="fa-brands fa-cc-mastercard"></i>
+              </div>
+            </div>
+            <div class="payment-card-body">
+              <div class="form-group card-number-wrap">
+                <label>Card Number</label>
+                <input type="text" id="card-number" placeholder="0000 0000 0000 0000" maxlength="19">
+                <i class="fa fa-lock"></i>
+              </div>
+              <div class="payment-row">
+                <div class="form-group">
+                  <label>Expiration Date</label>
+                  <input type="text" id="card-expiry" placeholder="MM / YY" maxlength="7">
+                </div>
+                <div class="form-group">
+                  <label>CVV</label>
+                  <input type="text" id="card-cvv" placeholder="123" maxlength="4">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Complete Purchase button -->
+        <button class="complete-btn" id="complete-btn" onclick="completePurchase()">
+          <i class="fa fa-bag-shopping"></i>
+          <span id="complete-btn-label">Complete Purchase</span>
+        </button>
+        <p class="secure-note">
+          <i class="fa fa-shield-halved"></i>
+          Encrypted and secure checkout
+        </p>
+
       </div>
+
+      <!-- ═══ RIGHT COLUMN — Order Summary ══════════════════════ -->
+      <aside class="order-summary">
+        <h2>Order Summary</h2>
+
+        <!-- Compact itemized list — JS renders this -->
+        <div class="order-items" id="order-items-list">
+          <div class="order-empty">Loading cart…</div>
+        </div>
+
+        <!-- Charity donation -->
+        <div class="donation-row">
+          <div class="donation-label">
+            <i class="fa fa-heart"></i>
+            <span>Donate to charity?</span>
+          </div>
+          <div class="donation-options">
+            <button class="donation-btn" data-amount="1" onclick="selectDonation(this)">$1</button>
+            <button class="donation-btn" data-amount="2" onclick="selectDonation(this)">$2</button>
+            <button class="donation-btn" data-amount="5" onclick="selectDonation(this)">$5</button>
+            <button class="donation-btn" data-amount="0" onclick="selectDonation(this)">None</button>
+          </div>
+        </div>
+        <!-- Pricing breakdown -->
+        <div class="pricing-breakdown">
+          <div class="pricing-row">
+            <span class="label">Subtotal</span>
+            <span class="value" id="summary-subtotal">—</span>
+          </div>
+          <div class="pricing-row">
+            <span class="label">Shipping</span>
+            <span class="value" id="summary-shipping">$4.50</span>
+          </div>
+          <div class="pricing-row">
+            <span class="label">Donation</span>
+            <span class="value" id="summary-donation">—</span>
+          </div>
+          <div class="pricing-total">
+            <span>Total</span>
+            <span class="total-amount" id="summary-total">—</span>
+          </div>
+        </div>
+      </aside>
+
     </div>
   </main>
 
-  <!-- PASTE FOOTER FROM header-footer.snippet.html -->
+  <!-- FOOTER -->
   <footer class="site-footer">
     <div class="container">
       <div class="flex-between">
-
         <div class="footer-col">
           <h4>Contact</h4>
           <p>contact@bakehaven.com</p>
           <p>+20 15 5555 0199</p>
-          <p>+20 2 2555 0199</p>
         </div>
-
         <div class="footer-col">
-          <h4>Social Media</h4>
+          <h4>Quick Links</h4>
           <ul>
-            <li><a href="">Instagram</a></li>
-            <li><a href="">TikTok</a></li>
-            <li><a href="">Facebook</a></li>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="products.html">Products</a></li>
+            <li><a href="cart.html">Cart</a></li>
           </ul>
         </div>
-
         <div class="footer-col">
           <h4>Feedback</h4>
           <p>We'd love to hear from you.</p>
           <button class="btn btn-outline" id="feedback-btn">Send Feedback</button>
         </div>
-
       </div>
       <div class="footer-bottom">&copy; 2026 BakeHaven. All rights reserved.</div>
     </div>
 
-    <script src="./js/api.js"></script>
-    <script src="./js/cart.js"></script>
-    <script src="./js/user.js"></script>
-    <script src="./js/event.js"></script>
-    <script>
-      // TODO (Person E): your page script goes here
-      //
-      // Step 1 — on load: updateCartBadge(), updateAccountIcon()
-      // Step 2 — var cartItems = getCart()
-      //          if empty → show "cart is empty" message
-      // Step 3 — if (isLoggedIn()):
-      //            show email + "redirecting..." message
-      //            setTimeout(2000, function() {
-      //                cartItems.forEach → decrementStock(id, qty)
-      //                clearCart()
-      //                show success + return button
-      //            })
-      //          else:
-      //            show guest form
-      //            on submit → save to localStorage, show message,
-      //            setTimeout same as above
-    </script>
+    <!-- FEEDBACK MODAL -->
+    <div class="modal-overlay" id="feedback-modal">
+      <div class="modal-box">
+        <button class="modal-close" id="feedback-close-btn">&times;</button>
+
+        <!-- Form view -->
+        <div id="feedback-form-view">
+          <h3>Send us feedback</h3>
+          <p class="modal-subtitle">We read every message and use it to improve.</p>
+
+          <div class="form-group">
+            <label>Name</label>
+            <input type="text" id="fb-name" placeholder="Your name">
+          </div>
+          <div class="form-group">
+            <label>Email</label>
+            <input type="email" id="fb-email" placeholder="you@example.com">
+          </div>
+          <div class="form-group">
+            <label>Message</label>
+            <textarea id="fb-message" rows="4"
+              style="width:100%; padding:10px 14px; border:1px solid #ddd; border-radius:8px; font-family:inherit; font-size:14px; resize:vertical;"
+              placeholder="Tell us what you think…"></textarea>
+          </div>
+          <p id="fb-error" style="color:#c0392b; font-size:13px; display:none; margin-bottom:12px;"></p>
+          <button class="btn btn-primary" style="width:100%;" onclick="submitFeedback()">
+            Submit Feedback
+          </button>
+        </div>
+
+        <!-- Success view (hidden until submitted) -->
+        <div class="modal-success" id="feedback-success-view">
+          <i class="fa fa-circle-check"></i>
+          <p>Thank you for your feedback!</p>
+          <span style="font-size:13px; color:#888;">This window will close automatically.</span>
+        </div>
+      </div>
+    </div>
+
+  </footer>
+
+  <script src="./js/api.js"></script>
+  <script src="./js/cart.js"></script>
+  <script src="./js/user.js"></script>
+  <script src="./js/event.js"></script>
+  <script src="./js/checkout.js"></script>
 </body>
 
 </html>
