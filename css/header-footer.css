@@ -5,7 +5,7 @@
 }
 
 body {
-    font-family: 'Courier New', Courier, monospace;
+    font-family: sans-serif;
     background-color: #fff;
     color: #333;
     line-height: 1.5;
@@ -61,9 +61,10 @@ body {
     background: #f1f0efa4;
     backdrop-filter: blur(12px);
     border-bottom: 1px solid #eaeaea;
-    padding: 5px 0px;
+    padding: 0px 25px;
     width: 100%;
     border-bottom: 2px solid goldenrod;
+    margin-bottom: 25px;
 }
 
 /* logo */
@@ -92,7 +93,7 @@ body {
         text-decoration: none;
         color: #333;
         font-weight: bold;
-        font-size: larger;
+        font-size: large;
         transition: color 0.3s;
 
         &:hover {
@@ -235,4 +236,65 @@ body {
     text-align: center;
     font-size: 13.5px;
     color: #aaa;
+}
+
+/* ── Feedback Modal ───────────────────────────────────────── */
+.modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.45);
+    z-index: 500;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.2s ease, visibility 0.2s;
+}
+
+.modal-overlay.open {
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal-overlay .card {
+    width: 100%;
+    max-width: 460px;
+    position: relative;
+    transform: translateY(12px);
+    transition: transform 0.25s;
+}
+
+.modal-overlay.open .card {
+    transform: translateY(0);
+}
+
+.modal-close {
+    position: absolute;
+    top: 16px;
+    right: 18px;
+    background: none;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    color: #aaa;
+    line-height: 1;
+}
+
+.modal-close:hover {
+    color: #333;
+}
+
+.modal-success {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    padding: 20px 0;
+    text-align: center;
+}
+
+.modal-success i {
+    font-size: 40px;
+    color: #BD590E;
 }

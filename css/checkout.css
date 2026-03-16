@@ -57,17 +57,11 @@ h1.checkout-title {
     border-bottom: 1px solid #eee;
 }
 
-/* ── Contact card (logged-in state) ───────────────────────── */
-.contact-card {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 16px 20px;
-    border: 1px solid #eee;
-    border-radius: 10px;
-    background: #fafafa;
-}
-
+/* ── Contact card ─────────────────────────────────────────── */
+/*
+    In HTML: <div class="card flex-between"> replaces .contact-card
+    Only the inner parts need rules here.
+*/
 .contact-card-info {
     display: flex;
     align-items: center;
@@ -110,42 +104,12 @@ h1.checkout-title {
     grid-column: 1 / -1;
 }
 
-.form-group label {
-    display: block;
-    font-size: 13px;
-    font-weight: 600;
-    color: #666;
-    margin-bottom: 6px;
-    text-transform: uppercase;
-    letter-spacing: 0.4px;
-}
-
-.form-group input,
-.form-group select {
-    width: 100%;
-    padding: 10px 14px;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    font-family: inherit;
-    font-size: 14px;
-    background: #fff;
-    transition: border-color 0.2s;
-}
-
-.form-group input:focus,
-.form-group select:focus {
-    outline: none;
-    border-color: #BD590E;
-    box-shadow: 0 0 0 3px rgba(218, 165, 32, 0.15);
-}
-
 /* ── Payment card ─────────────────────────────────────────── */
-.payment-card {
-    border: 1px solid #eee;
-    border-radius: 10px;
-    overflow: hidden;
-}
-
+/*
+    In HTML: <div class="card"> replaces .payment-card
+    The negative margins on .payment-card-header pull it flush
+    against the .card padding so the header bleeds to the edges.
+*/
 .payment-card-header {
     display: flex;
     align-items: center;
@@ -153,6 +117,7 @@ h1.checkout-title {
     padding: 14px 20px;
     background: #fdf8f0;
     border-bottom: 1px solid #eee;
+    margin: -22.5px -22.5px 20px;
 }
 
 .payment-card-header .left {
@@ -168,8 +133,6 @@ h1.checkout-title {
 }
 
 .payment-card-body {
-    padding: 20px;
-    background: #fff;
     display: flex;
     flex-direction: column;
     gap: 14px;
@@ -199,26 +162,20 @@ h1.checkout-title {
 }
 
 /* ── Complete purchase button ─────────────────────────────── */
+/*
+    In HTML: class="btn btn-primary complete-btn"
+    .btn and .btn-primary come from header-footer.css.
+    Only the checkout-specific overrides live here.
+*/
 .complete-btn {
     width: 100%;
-    padding: 16px;
-    background: #BD590E;
-    color: #fff;
-    border: none;
-    border-radius: 10px;
-    font-size: 16px;
-    font-weight: 700;
-    cursor: pointer;
-    margin-top: 8px;
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 10px;
-    transition: background 0.2s, transform 0.1s;
-}
-
-.complete-btn:hover {
-    background: #b8860b;
+    margin-top: 8px;
+    border-radius: 10px;
+    font-size: 16px;
 }
 
 .complete-btn:active {
@@ -236,12 +193,13 @@ h1.checkout-title {
     gap: 5px;
 }
 
-/* ── Order summary (right column) ────────────────────────── */
+/* ── Order summary ────────────────────────────────────────── */
+/*
+    In HTML: class="card order-summary"
+    .card comes from header-footer.css.
+    Only sticky positioning override needed here.
+*/
 .order-summary {
-    background: #fdf8f0;
-    border: 1px solid #f0e8d8;
-    border-radius: 14px;
-    padding: 28px;
     position: sticky;
     top: 90px;
 }
@@ -457,88 +415,6 @@ h1.checkout-title {
     to {
         transform: rotate(360deg);
     }
-}
-
-/* ── Feedback modal ───────────────────────────────────────── */
-.modal-overlay {
-    position: fixed;
-    inset: 0;
-    background: rgba(0, 0, 0, 0.45);
-    z-index: 500;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.2s, visibility 0.2s;
-}
-
-.modal-overlay.open {
-    opacity: 1;
-    visibility: visible;
-}
-
-.modal-box {
-    background: #fff;
-    border-radius: 14px;
-    padding: 36px;
-    width: 100%;
-    max-width: 460px;
-    box-shadow: 0 8px 40px rgba(0, 0, 0, 0.12);
-    position: relative;
-    transform: translateY(12px);
-    transition: transform 0.25s;
-}
-
-.modal-overlay.open .modal-box {
-    transform: translateY(0);
-}
-
-.modal-close {
-    position: absolute;
-    top: 16px;
-    right: 18px;
-    background: none;
-    border: none;
-    font-size: 20px;
-    cursor: pointer;
-    color: #aaa;
-    line-height: 1;
-}
-
-.modal-close:hover {
-    color: #333;
-}
-
-.modal-box h3 {
-    font-size: 20px;
-    font-weight: 700;
-    margin-bottom: 6px;
-}
-
-.modal-box .modal-subtitle {
-    font-size: 13px;
-    color: #888;
-    margin-bottom: 22px;
-}
-
-.modal-success {
-    display: none;
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
-    padding: 20px 0;
-    text-align: center;
-}
-
-.modal-success i {
-    font-size: 40px;
-    color: #BD590E;
-}
-
-.modal-success p {
-    font-weight: 600;
-    font-size: 15px;
 }
 
 /* ── Responsive ───────────────────────────────────────────── */
