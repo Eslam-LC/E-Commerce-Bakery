@@ -1,3 +1,49 @@
+<!--
+  PAGE:     cart.html  (Shopping Cart)
+  OWNER:    Person D
+
+  WHAT THIS PAGE IS:
+    Shows everything the user has added to their cart.
+    The cart data lives in localStorage, so it comes from getCart()
+    not from the server. But you still need to fetch products.json
+    to get the names, images, and prices to display.
+
+  WHAT THE USER CAN DO HERE:
+    - See all their cart items (image, name, price, quantity, subtotal)
+    - Increase or decrease quantity of an item
+    - Remove an item
+    - See the total price
+    - Go back to browsing
+    - Proceed to checkout (opens in a new tab)
+    - If cart is empty: see a message with a link back to products
+
+  CONNECTS TO:
+    ← Any page       (arrived via cart icon in header)
+    → products.html  ("Continue Shopping" button)
+    → checkout.html  ("Proceed to Checkout" — opens in new tab with target="_blank")
+
+  YOUR JS TASK:
+    - On page load: call updateCartBadge() and updateAccountIcon()
+    - var cartItems = getCart()   → [ { productId, quantity }, ... ]
+    - If cartItems is empty, show the empty state
+    - fetchJSON('/api/products.json', function(products) { ... })
+    - Match each cart item to its product using productId
+    - Render the item rows with quantity +/- buttons and a remove button
+    - On quantity change: call updateQuantity(productId, newQty) then re-render
+    - On remove: call removeFromCart(productId) then re-render
+    - Calculate and display the total by summing price × quantity for each item
+
+  CSS GUIDELINES:
+    - Centre the content with a max-width around 800px
+    - Use .card for the main cart wrapper
+    - Use a <table> or a series of flex rows for the item list
+      (a table works well here — each row has clearly defined columns)
+    - Quantity +/- buttons can be small and borderless, just numbers in a row
+    - The total should be visually heavier — larger font, bold
+    - "Continue Shopping" → .btn .btn-outline
+    - "Proceed to Checkout" → .btn .btn-primary
+    - Add page-specific styles inside the <style> block in <head>
+-->
 <!DOCTYPE html>
 <html lang="en">
 
@@ -262,109 +308,131 @@
           <li><a href="./products.html">Products</a></li>
         </ul>
       </nav>
+      <nav>
+        <ul class="header-nav">
+          <li><a href="./index.html">Home</a></li>
+          <li><a href="./products.html">Products</a></li>
+        </ul>
+      </nav>
 
       <div class="header-actions">
         <a href="./cart.html" class="cart-link fa fa-cart-shopping">
           <span id="cart-badge">0</span>
         </a>
-
-        <div style="position: relative">
-          <a href="./login.html" id="account-link">
-            <button class="account-btn fa-solid fa-user" id="account-btn"></button>
+        <div class="header-actions">
+          <a href="./cart.html" class="cart-link fa fa-cart-shopping">
+            <span id="cart-badge">0</span>
           </a>
-          <div class="account-dropdown" id="account-dropdown">
-            <button id="logout-btn">Logout</button>
+
+          <div style="position: relative">
+            <a href="./login.html" id="account-link">
+              <button class="account-btn fa-solid fa-user" id="account-btn"></button>
+            </a>
+            <div class="account-dropdown" id="account-dropdown">
+              <button id="logout-btn">Logout</button>
+            </div>
           </div>
         </div>
       </div>
-    </div>
   </header>
   <!-- ═══ HEADER — copy to this line ════════════════════════════════ -->
 
   <main class="page-main">
     <div class="container">
       <h1>Your Cart</h1>
+      <main class="page-main">
+        <div class="container">
+          <h1>Your Cart</h1>
 
-      <div id="cart-content">
+          <div id="cart-content">
 
-      </div>
-
-    </div>
-  </main>
-  <!-- ═══ FOOTER — copy from this line ══════════════════════════════ -->
-  <footer class="site-footer">
-    <div class="container">
-      <div class="flex-between">
-        <div class="footer-col">
-          <h4>Contact</h4>
-          <p>contact@bakehaven.com</p>
-          <p>+20 15 5555 0199</p>
-          <p>+20 2 2555 0199</p>
-        </div>
-
-        <div class="footer-col">
-          <h4>Social Media</h4>
-          <ul>
-            <li><a href="">Instagram</a></li>
-            <li><a href="">TikTok</a></li>
-            <li><a href="">Facebook</a></li>
-          </ul>
-        </div>
-
-        <div class="footer-col">
-          <h4>Feedback</h4>
-          <p>We'd love to hear from you.</p>
-          <button class="btn btn-outline" id="feedback-btn">Send Feedback</button>
-        </div>
-      </div>
-      <div class="footer-bottom">&copy; 2026 BakeHaven. All rights reserved.</div>
-    </div>
-
-    <!-- FEEDBACK MODAL -->
-    <div id="feedback-modal-container">
-
-      <div class="modal-overlay" id="feedback-modal">
-        <div class="card">
-          <button class="modal-close" id="feedback-close-btn">&times;</button>
-
-          <div id="feedback-form-view">
-            <h3>Send us feedback</h3>
-            <p style="font-size:13px; color:#888; margin-bottom:22px;">
-              We read every message and use it to improve.
-            </p>
-            <div class="form-group">
-              <label>Name</label>
-              <input type="text" id="fb-name" placeholder="Your name">
-            </div>
-            <div class="form-group">
-              <label>Email</label>
-              <input type="email" id="fb-email" placeholder="you@example.com">
-            </div>
-            <div class="form-group">
-              <label>Message</label>
-              <textarea id="fb-message" rows="4" placeholder="Tell us what you think…"></textarea>
-            </div>
-            <p id="fb-error" style="color:#c0392b; font-size:13px; display:none; margin-bottom:12px;"></p>
-            <button class="btn btn-primary" style="width:100%;" onclick="submitFeedback()">
-              Submit Feedback
-            </button>
           </div>
 
-          <div class="modal-success" id="feedback-success-view">
-            <i class="fa fa-circle-check"></i>
-            <p style="font-weight:600; font-size:15px;">Thank you for your feedback!</p>
-            <span style="font-size:13px; color:#888;">This window will close automatically.</span>
-          </div>
         </div>
-      </div>
+      </main>
+      <!-- ═══ FOOTER — copy from this line ══════════════════════════════ -->
+      <footer class="site-footer">
+        <div class="container">
+          <div class="flex-between">
+            <div class="footer-col">
+              <h4>Contact</h4>
+              <p>contact@bakehaven.com</p>
+              <p>+20 15 5555 0199</p>
+              <p>+20 2 2555 0199</p>
+            </div>
 
-    </div>
-  </footer>
-  <!-- ═══ FOOTER — copy to this line ════════════════════════════════ -->
-  <script src="./js/api.js"></script>
-  <script src="./js/cart.js"></script>
-  <script src="./js/user.js"></script>
-  <script src="./js/event.js"></script>
+            <div class="footer-col">
+              <h4>Social Media</h4>
+              <ul>
+                <li><a href="">Instagram</a></li>
+                <li><a href="">TikTok</a></li>
+                <li><a href="">Facebook</a></li>
+              </ul>
+            </div>
+            <div class="footer-col">
+              <h4>Social Media</h4>
+              <ul>
+                <li><a href="">Instagram</a></li>
+                <li><a href="">TikTok</a></li>
+                <li><a href="">Facebook</a></li>
+              </ul>
+            </div>
+
+            <div class="footer-col">
+              <h4>Feedback</h4>
+              <p>We'd love to hear from you.</p>
+              <button class="btn btn-outline" id="feedback-btn">Send Feedback</button>
+            </div>
+          </div>
+          <div class="footer-bottom">&copy; 2026 BakeHaven. All rights reserved.</div>
+        </div>
+
+        <!-- FEEDBACK MODAL -->
+        <div id="feedback-modal-container">
+
+          <div class="modal-overlay" id="feedback-modal">
+            <div class="card">
+              <button class="modal-close" id="feedback-close-btn">&times;</button>
+
+              <div id="feedback-form-view">
+                <h3>Send us feedback</h3>
+                <p style="font-size:13px; color:#888; margin-bottom:22px;">
+                  We read every message and use it to improve.
+                </p>
+                <div class="form-group">
+                  <label>Name</label>
+                  <input type="text" id="fb-name" placeholder="Your name">
+                </div>
+                <div class="form-group">
+                  <label>Email</label>
+                  <input type="email" id="fb-email" placeholder="you@example.com">
+                </div>
+                <div class="form-group">
+                  <label>Message</label>
+                  <textarea id="fb-message" rows="4" placeholder="Tell us what you think…"></textarea>
+                </div>
+                <p id="fb-error" style="color:#c0392b; font-size:13px; display:none; margin-bottom:12px;"></p>
+                <button class="btn btn-primary" style="width:100%;" onclick="submitFeedback()">
+                  Submit Feedback
+                </button>
+              </div>
+
+              <div class="modal-success" id="feedback-success-view">
+                <i class="fa fa-circle-check"></i>
+                <p style="font-weight:600; font-size:15px;">Thank you for your feedback!</p>
+                <span style="font-size:13px; color:#888;">This window will close automatically.</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </footer>
+      <!-- ═══ FOOTER — copy to this line ════════════════════════════════ -->
+      <script src="./js/api.js"></script>
+      <script src="./js/cart.js"></script>
+      <script src="./js/user.js"></script>
+      <script src="./js/event.js"></script>
 </body>
+
 
 </html>
