@@ -101,13 +101,13 @@ function renderCart() {
         box.innerHTML =
             '<div class="empty-state">' +
             '<p>Your cart is empty 🛒</p>' +
-            '<a href="/products.html" class="btn btn-primary">Browse Products</a>' +
+            '<a href="./products.html" class="btn btn-primary">Browse Products</a>' +
             '</div>';
         return;
     }
 
     var xhr = new XMLHttpRequest();
-    xhr.open("GET", "https://raw.githubusercontent.com/Eslam-LC/E-Commerce-Bakery/refs/heads/main/api/products");
+    xhr.open("GET", "./api/products");
     xhr.onload = function () {
         if (xhr.status === 200) {
             var products = JSON.parse(xhr.responseText);
@@ -158,8 +158,7 @@ function renderCart() {
                     '</div>';
             }
 
-            var tax = subtotal * 0.08;
-            var total = subtotal + 5 + tax;
+            var total = subtotal;
 
             box.innerHTML =
                 '<div class="cart-layout">' +
@@ -174,8 +173,6 @@ function renderCart() {
                 '<div class="cart-right"><div class="order-summary">' +
                 '<h3>Order Summary</h3>' +
                 '<div class="summary-row"><span>Subtotal</span><span>$' + subtotal.toFixed(2) + '</span></div>' +
-                '<div class="summary-row"><span>Shipping</span><span>$5.00</span></div>' +
-                '<div class="summary-row"><span>Tax (8%)</span><span>$' + tax.toFixed(2) + '</span></div>' +
                 '<hr>' +
                 '<div class="summary-row total"><span>Total</span><span>$' + total.toFixed(2) + '</span></div>' +
                 '<a href="/checkout.html" target="_blank" class="btn btn-primary checkout-btn">Proceed to Checkout</a>' +
@@ -189,3 +186,4 @@ window.addEventListener("load", function () {
     updateCartBadge();
     renderCart();
 });
+// renderCart()
