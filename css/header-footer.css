@@ -213,9 +213,6 @@ body {
     &>ul {
         margin: 7.5px 0;
         color: #ccc;
-    }
-
-    &>ul {
         list-style: none;
         padding: 0;
     }

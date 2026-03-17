@@ -49,7 +49,7 @@
   <link rel="stylesheet" href="./css/main.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
-  
+
 </head>
 
 <body>
@@ -102,86 +102,72 @@
   <!-- ═══ HEADER — copy to this line ════════════════════════════════ -->
 
   <main class="page-main flex-center">
-    <div class="card" id="login-card">
-      <h2>Sign In</h2>
-
-  <section class="login-card">
-
-    <div class="card-image"></div>
-
-    <div class="card-content">
-
-      <h2>Welcome Back</h2>
-
-      <p class="subtitle">
-        Freshly baked treats are just a login away.
-      </p>
-
-      <form>
-
-        <label>Email Address</label>
-
-        <div class="input-group">
-          <i class="fa-solid fa-envelope"></i>
-          <input type="email" id="login-email" placeholder="mohammed@example.com">
-        </div>
 
 
-        <label>Password</label>
+    <section class="login-card">
 
-        <div class="input-group">
-          <i class="fa-solid fa-lock"></i>
-          <input type="password" id="login-password" placeholder="********">
-        </div>
+      <!-- <div class="card-image"></div> -->
 
+      <div class="card-content">
 
-        <div class="options">
+        <h2>Welcome Back</h2>
 
-          <label class="remember">
-            <input type="checkbox" id="remember-me">
-            Remember me
-          </label>
+        <p class="subtitle">
+          Freshly baked treats are just a login away.
+        </p>
 
-          <a href="#" id="forgot-link">Forgot password?</a>
+        <form>
 
-        </div>
+          <label>Email Address</label>
 
-        <p id="login-error" style="color:red; font-size:13px; display:none;"></p>
-
-        <button type="button" class="login-btn" id="login-btn">
-          Sign In
-          <i class="fa-solid fa-arrow-right"></i>
-        </button>
-
-      </form>
+          <div class="input-group">
+            <i class="fa-solid fa-envelope"></i>
+            <input type="email" id="login-email" placeholder="mohammed@example.com">
+          </div>
 
 
-      <p class="create-account">
-        New to BakeHaven?
-        <a href="register.html">Create an Account</a>
-      </p>
+          <label>Password</label>
 
-    </div>
+          <div class="input-group">
+            <i class="fa-solid fa-lock"></i>
+            <input type="password" id="login-password" placeholder="********">
+          </div>
 
-  </section>
 
-  <!-- ═══ FOOTER — copy from this line ══════════════════════════════ -->
-      <!-- Hidden by default — shown by JS when login fails -->
-      <p id="login-error" style="display:none; color:var(--color-danger);"></p>
+          <div class="options">
 
-      <div class="form-group">
-        <label for="login-email">Email</label>
-        <input type="email" id="login-email" placeholder="you@example.com">
-      </div>
+            <label class="remember">
+              <input type="checkbox" id="remember-me">
+              Remember me
+            </label>
 
-      <div class="form-group">
-        <label for="login-password">Password</label>
-        <input type="password" id="login-password" placeholder="••••••••">
-      </div>
+            <a href="#" id="forgot-link">Forgot password?</a>
 
-      <button class="btn btn-primary" id="login-btn">Login</button>
+          </div>
 
-      <p>Don't have an account? <a href="./register.html">Register</a></p>
+          <p id="login-error" style="color:red; font-size:13px; display:none;"></p>
+
+          <button type="button" class="login-btn" id="login-btn">
+            Sign In
+            <i class="fa-solid fa-arrow-right"></i>
+          </button>
+
+        </form>
+
+
+        <p class="create-account">
+          New to BakeHaven?
+          <a href="register.html">Create an Account</a>
+        </p>
+
+
+
+    </section>
+
+    <!-- Hidden by default — shown by JS when login fails -->
+    <p id="login-error" style="display:none; color:var(--color-danger);"></p>
+
+
     </div>
   </main>
 

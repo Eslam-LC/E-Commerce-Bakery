@@ -607,5 +607,150 @@
       "https://i.pinimg.com/736x/e4/22/66/e42266f90069d454578e121407968996.jpg",
       "https://i.pinimg.com/736x/07/d7/cb/07d7cb8ea873f1b7a6d169fea0099eb0.jpg"
     ]
+  },
+  {
+    "id": 27,
+    "name": "Chocolate Cookies",
+    "category": "Cookie",
+    "thumbnail": "/images/chocolate cookies.jpg",
+    "originalPrice": 3.5,
+    "price": 2.95,
+    "rating": 4.7,
+    "sales": 210,
+    "stock": 120,
+    "description": "Rich and decadent chocolate cookies, perfect for satisfying your sweet tooth.",
+    "specs": {
+      "weight": "250g (pack of 8)",
+      "ingredients": "Flour, cocoa powder, butter, sugar, eggs, chocolate chips",
+      "allergens": "Gluten, Dairy, Eggs",
+      "shelfLife": "5 days"
+    },
+    "images": [
+      "https://i.pinimg.com/1200x/11/33/a7/1133a7302f65a10d38995446be3e07ac.jpg",
+      "https://i.pinimg.com/736x/fb/d3/4c/fbd34c360b7c81201c314724b66770fd.jpg",
+      "https://i.pinimg.com/736x/f8/4b/17/f84b17969db330c846fd64a7a22b4df2.jpg",
+      "https://i.pinimg.com/736x/cb/95/96/cb959603783b927c2040c7b8a3477326.jpg"
+    ]
+  },
+  {
+    "id": 28,
+    "name": "Chocolate Chip Cookies",
+    "category": "Cookie",
+    "thumbnail": "/images/Chocolate Chip.jpg",
+    "originalPrice": 3.75,
+    "price": 3.25,
+    "rating": 4.8,
+    "sales": 305,
+    "stock": 150,
+    "description": "Classic chocolate chip cookies with a perfect balance of chewy texture and semi-sweet chocolate chunks.",
+    "specs": {
+      "weight": "300g (pack of 10)",
+      "ingredients": "Flour, butter, brown sugar, white sugar, eggs, vanilla, chocolate chips, baking soda",
+      "allergens": "Gluten, Dairy, Eggs",
+      "shelfLife": "1 week"
+    },
+    "images": [
+      "https://i.pinimg.com/1200x/32/9f/60/329f60eab5726eda79dcc7b6e320c5f0.jpg",
+      "https://i.pinimg.com/736x/0e/fd/1a/0efd1a579043ba15374334b5e6100598.jpg",
+      "https://i.pinimg.com/1200x/40/d5/5b/40d55b94d42bb19a4e97c5f85a141ff5.jpg",
+      "https://i.pinimg.com/736x/e6/1d/78/e61d78f904f423605674140750dd5c11.jpg"
+    ]
+  },
+  {
+    "id": 29,
+    "name": "Oatmeal Raisin Cookies",
+    "category": "Cookie",
+    "thumbnail": "/images/Oatmeal Raisin.jpg",
+    "originalPrice": 3.5,
+    "price": 2.95,
+    "rating": 4.6,
+    "sales": 180,
+    "stock": 90,
+    "description": "Hearty oatmeal cookies studded with juicy raisins and a hint of cinnamon.",
+    "specs": {
+      "weight": "280g (pack of 9)",
+      "ingredients": "Flour, oats, butter, brown sugar, eggs, raisins, cinnamon, baking soda",
+      "allergens": "Gluten, Dairy, Eggs",
+      "shelfLife": "5 days"
+    },
+    "images": [
+      "https://i.pinimg.com/736x/1b/29/84/1b2984bb7235ff17c7af7b13bfd6bf1a.jpg",
+      "https://i.pinimg.com/736x/16/e7/ad/16e7ad96a68828353eecbd6b80464531.jpg",
+      "https://i.pinimg.com/1200x/09/5c/48/095c48294e764231372894427b3c7442.jpg",
+      "https://i.pinimg.com/1200x/c3/ad/7a/c3ad7a6f414303d2c7acb7acaeff06d5.jpg"
+    ]
+  },
+  {
+    "id": 30,
+    "name": "Oatmeal Raisin Walnut Cookies",
+    "category": "Cookie",
+    "thumbnail": "/images/Oatmeal Raisin.jpg",
+    "originalPrice": 3.75,
+    "price": 3.25,
+    "rating": 4.7,
+    "sales": 145,
+    "stock": 75,
+    "description": "Chewy oatmeal cookies with raisins and crunchy walnuts, spiced with cinnamon.",
+    "specs": {
+      "weight": "300g (pack of 9)",
+      "ingredients": "Flour, oats, butter, brown sugar, eggs, raisins, walnuts, cinnamon, baking soda",
+      "allergens": "Gluten, Dairy, Eggs, Tree Nuts (Walnuts)",
+      "containsNuts": true,
+      "shelfLife": "5 days"
+    },
+    "images": [
+      "https://i.pinimg.com/1200x/7a/76/d8/7a76d8c23ab4d0df3b4502cdf50e8706.jpg",
+      "https://i.pinimg.com/1200x/c3/41/64/c341642415bc4d3b7fe9e6e751471a57.jpg",
+      "https://i.pinimg.com/1200x/4e/f1/14/4ef114e3da445a476246ff303c9266aa.jpg",
+      "https://i.pinimg.com/1200x/25/59/68/255968117751c042f7eea43abba50bdf.jpg"
+    ]
+  },
+  {
+    "id": 31,
+    "name": "Crinkle Cookies",
+    "category": "Cookie",
+    "thumbnail": "/images/Crinkle Cookies.jpg",
+    "originalPrice": 3.5,
+    "price": 2.95,
+    "rating": 4.8,
+    "sales": 165,
+    "stock": 85,
+    "description": "Soft and fudgy chocolate cookies coated in powdered sugar, with a beautiful crinkled top.",
+    "specs": {
+      "weight": "250g (pack of 8)",
+      "ingredients": "Flour, cocoa powder, butter, sugar, eggs, vanilla, powdered sugar",
+      "allergens": "Gluten, Dairy, Eggs",
+      "shelfLife": "1 week"
+    },
+    "images": [
+      "https://i.pinimg.com/736x/28/3e/23/283e23eb437b41830aa6b79a720bb987.jpg",
+      "https://i.pinimg.com/736x/85/90/d8/8590d80e61e8765da327e32cf0b6eab9.jpg",
+      "https://i.pinimg.com/1200x/66/a5/67/66a567dbbe8ead2d1a81b6acd3fb2824.jpg",
+      "https://i.pinimg.com/1200x/b0/c2/6f/b0c26f54241df6c582e7591450d5b876.jpg"
+    ]
+  },
+  {
+    "id": 32,
+    "name": "Thumbprint Cookies",
+    "category": "Cookie",
+    "thumbnail": "/images/Thumbprint.jpg",
+    "originalPrice": 4.0,
+    "price": 3.5,
+    "rating": 4.7,
+    "sales": 140,
+    "stock": 70,
+    "description": "Buttery shortbread cookies with a thumbprint filled with sweet fruit jam.",
+    "specs": {
+      "weight": "220g (pack of 12)",
+      "ingredients": "Flour, butter, sugar, eggs, vanilla, raspberry jam",
+      "allergens": "Gluten, Dairy, Eggs",
+      "shelfLife": "1 week"
+    },
+    "images": [
+      "https://i.pinimg.com/1200x/90/7d/59/907d5906b1f2a863b4f2c05f185e0e88.jpg",
+      "https://i.pinimg.com/736x/12/eb/e2/12ebe2607834c128aa3fa55dc78f9e38.jpg",
+      "https://i.pinimg.com/1200x/20/56/43/20564349134e5f8ea800b0c6e52a0446.jpg",
+      "https://i.pinimg.com/736x/32/e7/74/32e7743bebb43eea058fca911a319507.jpg"
+    ]
   }
 ]
