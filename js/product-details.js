@@ -115,7 +115,6 @@ xhr.onload = function () {
 
         var cart = JSON.parse(localStorage.getItem("bh_cart")) || []
 
-
         var existing = cart.find(function (item) {
             return item.id == product.id;
         });
@@ -133,17 +132,10 @@ xhr.onload = function () {
             });
         }
 
-
-
-
-
         localStorage.setItem("bh_cart", JSON.stringify(cart));
         window.location.href = "./cart.html";
-        updateCartBadge();
+        updateCartBadge()
     });
-
-
-
 }
 
 
