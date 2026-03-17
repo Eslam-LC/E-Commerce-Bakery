@@ -108,7 +108,6 @@
       margin-right: 8px;
       accent-color: #c46b1c;
       cursor: pointer;
-
     }
 
     /* RESULTS HEADER */
@@ -251,7 +250,7 @@
       <nav>
         <ul class="header-nav">
           <li><a href="./index.html">Home</a></li>
-          <li class="current-page"><a href="./products.html">Products</a></li>
+          <li><a class="current-page" href="./products.html">Products</a></li>
         </ul>
       </nav>
 
@@ -295,10 +294,10 @@
   </main>
 
 
+  <!-- ═══ FOOTER — copy from this line ══════════════════════════════ -->
   <footer class="site-footer">
     <div class="container">
       <div class="flex-between">
-
         <div class="footer-col">
           <h4>Contact</h4>
           <p>contact@bakehaven.com</p>
@@ -320,67 +319,69 @@
           <p>We'd love to hear from you.</p>
           <button class="btn btn-outline" id="feedback-btn">Send Feedback</button>
         </div>
-
       </div>
       <div class="footer-bottom">&copy; 2026 BakeHaven. All rights reserved.</div>
     </div>
 
     <!-- FEEDBACK MODAL -->
-    <div class="modal-overlay" id="feedback-modal">
-      <div class="modal-box">
-        <button class="modal-close" id="feedback-close-btn">&times;</button>
+    <div id="feedback-modal-container">
 
-        <!-- Form view -->
-        <div id="feedback-form-view">
-          <h3>Send us feedback</h3>
-          <p class="modal-subtitle">We read every message and use it to improve.</p>
+      <div class="modal-overlay" id="feedback-modal">
+        <div class="card">
+          <button class="modal-close" id="feedback-close-btn">&times;</button>
 
-          <div class="form-group">
-            <label>Name</label>
-            <input type="text" id="fb-name" placeholder="Your name">
+          <div id="feedback-form-view">
+            <h3>Send us feedback</h3>
+            <p style="font-size:13px; color:#888; margin-bottom:22px;">
+              We read every message and use it to improve.
+            </p>
+            <div class="form-group">
+              <label>Name</label>
+              <input type="text" id="fb-name" placeholder="Your name">
+            </div>
+            <div class="form-group">
+              <label>Email</label>
+              <input type="email" id="fb-email" placeholder="you@example.com">
+            </div>
+            <div class="form-group">
+              <label>Message</label>
+              <textarea id="fb-message" rows="4" placeholder="Tell us what you think…"></textarea>
+            </div>
+            <p id="fb-error" style="color:#c0392b; font-size:13px; display:none; margin-bottom:12px;"></p>
+            <button class="btn btn-primary" style="width:100%;" onclick="submitFeedback()">
+              Submit Feedback
+            </button>
           </div>
-          <div class="form-group">
-            <label>Email</label>
-            <input type="email" id="fb-email" placeholder="you@example.com">
-          </div>
-          <div class="form-group">
-            <label>Message</label>
-            <textarea id="fb-message" rows="4"
-              style="width:100%; padding:10px 14px; border:1px solid #ddd; border-radius:8px; font-family:inherit; font-size:14px; resize:vertical;"
-              placeholder="Tell us what you think…"></textarea>
-          </div>
-          <p id="fb-error" style="color:#c0392b; font-size:13px; display:none; margin-bottom:12px;"></p>
-          <button class="btn btn-primary" style="width:100%;" onclick="submitFeedback()">
-            Submit Feedback
-          </button>
-        </div>
 
-        <!-- Success view (hidden until submitted) -->
-        <div class="modal-success" id="feedback-success-view">
-          <i class="fa fa-circle-check"></i>
-          <p>Thank you for your feedback!</p>
-          <span style="font-size:13px; color:#888;">This window will close automatically.</span>
+          <div class="modal-success" id="feedback-success-view">
+            <i class="fa fa-circle-check"></i>
+            <p style="font-weight:600; font-size:15px;">Thank you for your feedback!</p>
+            <span style="font-size:13px; color:#888;">This window will close automatically.</span>
+          </div>
         </div>
       </div>
-    </div>
 
-    <script src="./js/api.js"></script>
-    <script src="./js/cart.js"></script>
-    <script src="./js/user.js"></script>
-    <script src="./js/event.js"></script>
-    <script src="./js/products-page.js">
-      // TODO (Person C): your page script goes here
-      // var allProducts = []   ← store the full list here after fetch
-      //
-      // Step 1 — on load: call updateCartBadge() and updateAccountIcon()
-      // Step 2 — fetchJSON('/api/products.json', function(products) {
-      //              allProducts = products
-      //              renderGrid(allProducts)
-      //              build the category checkboxes from the data
-      //          })
-      // Step 3 — write renderGrid(list) — clears #product-grid and redraws cards
-      // Step 4 — wire each filter to run renderGrid() with a filtered list
-    </script>
+    </div>
+  </footer>
+  <!-- ═══ FOOTER — copy to this line ════════════════════════════════ -->
+
+  <script src="./js/api.js"></script>
+  <script src="./js/cart.js"></script>
+  <script src="./js/user.js"></script>
+  <script src="./js/event.js"></script>
+  <script src="./js/products-page.js">
+    // TODO (Person C): your page script goes here
+    // var allProducts = []   ← store the full list here after fetch
+    //
+    // Step 1 — on load: call updateCartBadge() and updateAccountIcon()
+    // Step 2 — fetchJSON('/api/products.json', function(products) {
+    //              allProducts = products
+    //              renderGrid(allProducts)
+    //              build the category checkboxes from the data
+    //          })
+    // Step 3 — write renderGrid(list) — clears #product-grid and redraws cards
+    // Step 4 — wire each filter to run renderGrid() with a filtered list
+  </script>
 </body>
 
 </html>

@@ -45,21 +45,15 @@ function fetchJSON(url, onSuccess, onError) {
     XHR.open("GET", url)
     XHR.responseType = 'json'
     XHR.send()
-    XHR.onload = () => {
+
+    XHR.onload = function () {
         if (XHR.status !== 200) {
-            console.error(`not ok response ${XHR.status}`)
+            if (onError) onError('Request failed: ' + XHR.status)
             return
         }
-
-        if (onSuccess) {
-            onSuccess(XHR.response)
-            return
-        }
-
-        if (onError) {
-            onError(XHR.response)
-        }
+        if (onSuccess) onSuccess(XHR.response)
     }
+
     XHR.onerror = function () {
         if (onError) onError('Network error — is the server running?')
     }

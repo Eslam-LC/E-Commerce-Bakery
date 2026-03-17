@@ -42,38 +42,37 @@
 <html lang="en">
 
 <head>
+
   <meta charset="UTF-8">
   <title>BakeHaven — Sign In</title>
   <link rel="stylesheet" href="./css/header-footer.css">
+  <link rel="stylesheet" href="./css/main.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-  <style>
-    /* Person E: page-specific styles go here */
-  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+  
 </head>
 
 <body>
 
-  <!-- PASTE HEADER FROM header-footer.snippet.html -->
+
+  <!-- ═══ HEADER — copy from this line ═══════════════════════════════ -->
   <header class="site-header">
     <div class="container flex-between">
-
-      <div class="header-logo">
-        <div class="dark-bg">
-          <svg width="200" height="72" viewBox="0 0 200 72" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M 60 28 Q 100 8 140 28" stroke="#BD590E" stroke-width="1.2" fill="none" stroke-linecap="round"
-              opacity="0.7" />
-            <circle cx="60" cy="28" r="2" fill="#BD590E" opacity="0.6" />
-            <circle cx="80" cy="17" r="2" fill="#BD590E" opacity="0.6" />
-            <circle cx="100" cy="13" r="2.5" fill="#BD590E" />
-            <circle cx="120" cy="17" r="2" fill="#BD590E" opacity="0.6" />
-            <circle cx="140" cy="28" r="2" fill="#BD590E" opacity="0.6" />
-            <text x="100" y="46" text-anchor="middle" font-family="'Playfair Display', serif" font-weight="700"
-              font-size="26" fill="#333" letter-spacing="8">BAKE</text>
-            <line x1="52" y1="52" x2="148" y2="52" stroke="#BD590E" stroke-width="0.8" opacity="0.6" />
-            <text x="100" y="66" text-anchor="middle" font-family="'Cormorant Garamond', serif" font-weight="300"
-              font-size="14" fill="#BD590E" letter-spacing="10">HAVEN</text>
-          </svg>
-        </div>
+      <div class="dark-bg">
+        <svg width="160" height="57" viewBox="0 6 200 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M 60 28 Q 100 8 140 28" stroke="#DAA520" stroke-width="1.2" fill="none" stroke-linecap="round"
+            opacity="0.7" />
+          <circle cx="60" cy="28" r="2" fill="#DAA520" opacity="0.6" />
+          <circle cx="80" cy="17" r="2" fill="#DAA520" opacity="0.6" />
+          <circle cx="100" cy="13" r="2.5" fill="#DAA520" />
+          <circle cx="120" cy="17" r="2" fill="#DAA520" opacity="0.6" />
+          <circle cx="140" cy="28" r="2" fill="#DAA520" opacity="0.6" />
+          <text x="100" y="46" text-anchor="middle" font-family="'Playfair Display', serif" font-weight="700"
+            font-size="26" fill="#1a1008" letter-spacing="8">BAKE</text>
+          <line x1="52" y1="52" x2="148" y2="52" stroke="#DAA520" stroke-width="0.8" opacity="0.6" />
+          <text x="100" y="66" text-anchor="middle" font-family="'Cormorant Garamond', serif" font-weight="300"
+            font-size="14" fill="#8B6914" letter-spacing="10">HAVEN</text>
+        </svg>
       </div>
 
       <nav>
@@ -100,11 +99,73 @@
       </div>
     </div>
   </header>
+  <!-- ═══ HEADER — copy to this line ════════════════════════════════ -->
 
   <main class="page-main flex-center">
     <div class="card" id="login-card">
       <h2>Sign In</h2>
 
+  <section class="login-card">
+
+    <div class="card-image"></div>
+
+    <div class="card-content">
+
+      <h2>Welcome Back</h2>
+
+      <p class="subtitle">
+        Freshly baked treats are just a login away.
+      </p>
+
+      <form>
+
+        <label>Email Address</label>
+
+        <div class="input-group">
+          <i class="fa-solid fa-envelope"></i>
+          <input type="email" id="login-email" placeholder="mohammed@example.com">
+        </div>
+
+
+        <label>Password</label>
+
+        <div class="input-group">
+          <i class="fa-solid fa-lock"></i>
+          <input type="password" id="login-password" placeholder="********">
+        </div>
+
+
+        <div class="options">
+
+          <label class="remember">
+            <input type="checkbox" id="remember-me">
+            Remember me
+          </label>
+
+          <a href="#" id="forgot-link">Forgot password?</a>
+
+        </div>
+
+        <p id="login-error" style="color:red; font-size:13px; display:none;"></p>
+
+        <button type="button" class="login-btn" id="login-btn">
+          Sign In
+          <i class="fa-solid fa-arrow-right"></i>
+        </button>
+
+      </form>
+
+
+      <p class="create-account">
+        New to BakeHaven?
+        <a href="register.html">Create an Account</a>
+      </p>
+
+    </div>
+
+  </section>
+
+  <!-- ═══ FOOTER — copy from this line ══════════════════════════════ -->
       <!-- Hidden by default — shown by JS when login fails -->
       <p id="login-error" style="display:none; color:var(--color-danger);"></p>
 
@@ -156,60 +217,54 @@
     </div>
 
     <!-- FEEDBACK MODAL -->
-    <div class="modal-overlay" id="feedback-modal">
-      <div class="modal-box">
-        <button class="modal-close" id="feedback-close-btn">&times;</button>
+    <div id="feedback-modal-container">
 
-        <!-- Form view -->
-        <div id="feedback-form-view">
-          <h3>Send us feedback</h3>
-          <p class="modal-subtitle">We read every message and use it to improve.</p>
+      <div class="modal-overlay" id="feedback-modal">
+        <div class="card">
+          <button class="modal-close" id="feedback-close-btn">&times;</button>
 
-          <div class="form-group">
-            <label>Name</label>
-            <input type="text" id="fb-name" placeholder="Your name">
+          <div id="feedback-form-view">
+            <h3>Send us feedback</h3>
+            <p style="font-size:13px; color:#888; margin-bottom:22px;">
+              We read every message and use it to improve.
+            </p>
+            <div class="form-group">
+              <label>Name</label>
+              <input type="text" id="fb-name" placeholder="Your name">
+            </div>
+            <div class="form-group">
+              <label>Email</label>
+              <input type="email" id="fb-email" placeholder="you@example.com">
+            </div>
+            <div class="form-group">
+              <label>Message</label>
+              <textarea id="fb-message" rows="4" placeholder="Tell us what you think…"></textarea>
+            </div>
+            <p id="fb-error" style="color:#c0392b; font-size:13px; display:none; margin-bottom:12px;"></p>
+            <button class="btn btn-primary" style="width:100%;" onclick="submitFeedback()">
+              Submit Feedback
+            </button>
           </div>
-          <div class="form-group">
-            <label>Email</label>
-            <input type="email" id="fb-email" placeholder="you@example.com">
-          </div>
-          <div class="form-group">
-            <label>Message</label>
-            <textarea id="fb-message" rows="4"
-              style="width:100%; padding:10px 14px; border:1px solid #ddd; border-radius:8px; font-family:inherit; font-size:14px; resize:vertical;"
-              placeholder="Tell us what you think…"></textarea>
-          </div>
-          <p id="fb-error" style="color:#c0392b; font-size:13px; display:none; margin-bottom:12px;"></p>
-          <button class="btn btn-primary" style="width:100%;" onclick="submitFeedback()">
-            Submit Feedback
-          </button>
-        </div>
 
-        <!-- Success view (hidden until submitted) -->
-        <div class="modal-success" id="feedback-success-view">
-          <i class="fa fa-circle-check"></i>
-          <p>Thank you for your feedback!</p>
-          <span style="font-size:13px; color:#888;">This window will close automatically.</span>
+          <div class="modal-success" id="feedback-success-view">
+            <i class="fa fa-circle-check"></i>
+            <p style="font-weight:600; font-size:15px;">Thank you for your feedback!</p>
+            <span style="font-size:13px; color:#888;">This window will close automatically.</span>
+          </div>
         </div>
       </div>
-    </div>
 
-    <script src="./js/api.js"></script>
-    <script src="./js/cart.js"></script>
-    <script src="./js/user.js"></script>
-    <script src="./js/event.js"></script>
-    <script>
-      // TODO (Person E): your page script goes here
-      //
-      // Step 1 — on load: updateCartBadge(), updateAccountIcon()
-      // Step 2 — if (isLoggedIn()) window.location.href = '/index.html'
-      // Step 3 — wire login-btn click:
-      //            read email and password values
-      //            validateCredentials(email, password,
-      //              function(userData) { login(userData); redirect to home },
-      //              function(msg)      { show msg in #login-error }
-      //            )
-    </script>
+    </div>
+  </footer>
+  <!-- ═══ FOOTER — copy to this line ════════════════════════════════ -->
+
+  <script src="./js/api.js"></script>
+  <script src="./js/cart.js"></script>
+  <script src="./js/user.js"></script>
+  <script src="./js/event.js"></script>
+  <script src="./js/login.js"></script>
+
+
 </body>
 
 </html>

@@ -5,7 +5,7 @@ var allProducts = []
 var categoryParam = null
 
 var xhr = new XMLHttpRequest()
-xhr.open('GET', 'https://raw.githubusercontent.com/Eslam-LC/E-Commerce-Bakery/refs/heads/main/api/products')
+xhr.open('GET', './api/products')
 xhr.responseType = "json"
 xhr.send()
 

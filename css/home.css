@@ -1,6 +1,6 @@
     .current-page {
-        border-bottom: 2px solid goldenrod;
-        color: goldenrod;
+        border-bottom: 2px solid #BD590E;
+        color: #BD590E;
     }
 
     #hero {
@@ -192,9 +192,10 @@
     }
 
     /* ------------------------------------------------------------------------------- */
-    #deals{
+    #deals {
         background-color: #F6EEEB;
     }
+
     .deals-header {
         padding: 50px 52px 24px;
         color: #292B38;
@@ -209,20 +210,22 @@
         padding: 0 52px 32px;
 
         scrollbar-width: thin;
-    scrollbar-color: #BD590E #f0ebe5;
+        scrollbar-color: #BD590E #f0ebe5;
     }
 
     #carousel-container::-webkit-scrollbar {
-    height: 5px;
-}
-#carousel-container::-webkit-scrollbar-track {
-    background: #f0ebe5;
-    border-radius: 4px;
-}
-#carousel-container::-webkit-scrollbar-thumb {
-    background: #BD590E;
-    border-radius: 4px;
-}
+        height: 5px;
+    }
+
+    #carousel-container::-webkit-scrollbar-track {
+        background: #f0ebe5;
+        border-radius: 4px;
+    }
+
+    #carousel-container::-webkit-scrollbar-thumb {
+        background: #BD590E;
+        border-radius: 4px;
+    }
 
     .deal-card {
         position: relative;
@@ -276,7 +279,7 @@
 
     .deal-card-stars {
         font-size: 17px;
-        color: goldenrod;
+        color: #BD590E;
         margin-bottom: 10px;
     }
 

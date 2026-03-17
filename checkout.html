@@ -35,39 +35,40 @@
 
 <body>
 
-  <!-- HEADER -->
+  <!-- ═══ HEADER — copy from this line ═══════════════════════════════ -->
   <header class="site-header">
     <div class="container flex-between">
-      <div class="header-logo">
-        <div class="dark-bg">
-          <svg width="200" height="72" viewBox="0 0 200 72" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M 60 28 Q 100 8 140 28" stroke="#BD590E" stroke-width="1.2" fill="none" stroke-linecap="round"
-              opacity="0.7" />
-            <circle cx="60" cy="28" r="2" fill="#BD590E" opacity="0.6" />
-            <circle cx="80" cy="17" r="2" fill="#BD590E" opacity="0.6" />
-            <circle cx="100" cy="13" r="2.5" fill="#BD590E" />
-            <circle cx="120" cy="17" r="2" fill="#BD590E" opacity="0.6" />
-            <circle cx="140" cy="28" r="2" fill="#BD590E" opacity="0.6" />
-            <text x="100" y="46" text-anchor="middle" font-family="'Playfair Display', serif" font-weight="700"
-              font-size="26" fill="#333" letter-spacing="8">BAKE</text>
-            <line x1="52" y1="52" x2="148" y2="52" stroke="#BD590E" stroke-width="0.8" opacity="0.6" />
-            <text x="100" y="66" text-anchor="middle" font-family="'Cormorant Garamond', serif" font-weight="300"
-              font-size="14" fill="#BD590E" letter-spacing="10">HAVEN</text>
-          </svg>
-        </div>
+      <div class="dark-bg">
+        <svg width="160" height="57" viewBox="0 6 200 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M 60 28 Q 100 8 140 28" stroke="#DAA520" stroke-width="1.2" fill="none" stroke-linecap="round"
+            opacity="0.7" />
+          <circle cx="60" cy="28" r="2" fill="#DAA520" opacity="0.6" />
+          <circle cx="80" cy="17" r="2" fill="#DAA520" opacity="0.6" />
+          <circle cx="100" cy="13" r="2.5" fill="#DAA520" />
+          <circle cx="120" cy="17" r="2" fill="#DAA520" opacity="0.6" />
+          <circle cx="140" cy="28" r="2" fill="#DAA520" opacity="0.6" />
+          <text x="100" y="46" text-anchor="middle" font-family="'Playfair Display', serif" font-weight="700"
+            font-size="26" fill="#1a1008" letter-spacing="8">BAKE</text>
+          <line x1="52" y1="52" x2="148" y2="52" stroke="#DAA520" stroke-width="0.8" opacity="0.6" />
+          <text x="100" y="66" text-anchor="middle" font-family="'Cormorant Garamond', serif" font-weight="300"
+            font-size="14" fill="#8B6914" letter-spacing="10">HAVEN</text>
+        </svg>
       </div>
+
       <nav>
         <ul class="header-nav">
-          <li><a href="index.html">Home</a></li>
-          <li><a href="products.html">Products</a></li>
+          <li><a href="./index.html">Home</a></li>
+          <li><a href="./products.html">Products</a></li>
         </ul>
       </nav>
+
       <div class="header-actions">
-        <a href="cart.html" class="cart-link fa fa-cart-shopping">
+        <a href="./cart.html" class="cart-link fa fa-cart-shopping">
           <span id="cart-badge">0</span>
         </a>
-        <div style="position:relative;">
-          <a href="login.html" id="account-link">
+
+        <div style="position: relative">
+          <a href="./login.html" id="account-link">
             <button class="account-btn fa-solid fa-user" id="account-btn"></button>
           </a>
           <div class="account-dropdown" id="account-dropdown">
@@ -77,6 +78,7 @@
       </div>
     </div>
   </header>
+  <!-- ═══ HEADER — copy to this line ════════════════════════════════ -->
 
   <!-- CHECKOUT PROCESSING / SUCCESS OVERLAY -->
   <div id="checkout-overlay">
@@ -147,8 +149,8 @@
         <!-- Payment Method -->
         <div class="checkout-section">
           <h2>Payment Method</h2>
-          <div class="payment-card">
-            <div class="payment-card-header">
+          <div class="card">
+            <div class="card-header">
               <div class="left">
                 <i class="fa fa-credit-card"></i>
                 Credit Card
@@ -158,7 +160,7 @@
                 <i class="fa-brands fa-cc-mastercard"></i>
               </div>
             </div>
-            <div class="payment-card-body">
+            <div class="card-body">
               <div class="form-group card-number-wrap">
                 <label>Card Number</label>
                 <input type="text" id="card-number" placeholder="0000 0000 0000 0000" maxlength="19">
@@ -179,7 +181,7 @@
         </div>
 
         <!-- Complete Purchase button -->
-        <button class="complete-btn" id="complete-btn" onclick="completePurchase()">
+        <button class="btn btn-primary complete-btn" id="complete-btn" onclick="completePurchase()">
           <i class="fa fa-bag-shopping"></i>
           <span id="complete-btn-label">Complete Purchase</span>
         </button>
@@ -236,7 +238,7 @@
     </div>
   </main>
 
-  <!-- FOOTER -->
+  <!-- ═══ FOOTER — copy from this line ══════════════════════════════ -->
   <footer class="site-footer">
     <div class="container">
       <div class="flex-between">
@@ -244,15 +246,18 @@
           <h4>Contact</h4>
           <p>contact@bakehaven.com</p>
           <p>+20 15 5555 0199</p>
+          <p>+20 2 2555 0199</p>
         </div>
+
         <div class="footer-col">
-          <h4>Quick Links</h4>
+          <h4>Social Media</h4>
           <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="products.html">Products</a></li>
-            <li><a href="cart.html">Cart</a></li>
+            <li><a href="">Instagram</a></li>
+            <li><a href="">TikTok</a></li>
+            <li><a href="">Facebook</a></li>
           </ul>
         </div>
+
         <div class="footer-col">
           <h4>Feedback</h4>
           <p>We'd love to hear from you.</p>
@@ -263,46 +268,46 @@
     </div>
 
     <!-- FEEDBACK MODAL -->
-    <div class="modal-overlay" id="feedback-modal">
-      <div class="modal-box">
-        <button class="modal-close" id="feedback-close-btn">&times;</button>
+    <div id="feedback-modal-container">
 
-        <!-- Form view -->
-        <div id="feedback-form-view">
-          <h3>Send us feedback</h3>
-          <p class="modal-subtitle">We read every message and use it to improve.</p>
+      <div class="modal-overlay" id="feedback-modal">
+        <div class="card">
+          <button class="modal-close" id="feedback-close-btn">&times;</button>
 
-          <div class="form-group">
-            <label>Name</label>
-            <input type="text" id="fb-name" placeholder="Your name">
+          <div id="feedback-form-view">
+            <h3>Send us feedback</h3>
+            <p style="font-size:13px; color:#888; margin-bottom:22px;">
+              We read every message and use it to improve.
+            </p>
+            <div class="form-group">
+              <label>Name</label>
+              <input type="text" id="fb-name" placeholder="Your name">
+            </div>
+            <div class="form-group">
+              <label>Email</label>
+              <input type="email" id="fb-email" placeholder="you@example.com">
+            </div>
+            <div class="form-group">
+              <label>Message</label>
+              <textarea id="fb-message" rows="4" placeholder="Tell us what you think…"></textarea>
+            </div>
+            <p id="fb-error" style="color:#c0392b; font-size:13px; display:none; margin-bottom:12px;"></p>
+            <button class="btn btn-primary" style="width:100%;" onclick="submitFeedback()">
+              Submit Feedback
+            </button>
           </div>
-          <div class="form-group">
-            <label>Email</label>
-            <input type="email" id="fb-email" placeholder="you@example.com">
-          </div>
-          <div class="form-group">
-            <label>Message</label>
-            <textarea id="fb-message" rows="4"
-              style="width:100%; padding:10px 14px; border:1px solid #ddd; border-radius:8px; font-family:inherit; font-size:14px; resize:vertical;"
-              placeholder="Tell us what you think…"></textarea>
-          </div>
-          <p id="fb-error" style="color:#c0392b; font-size:13px; display:none; margin-bottom:12px;"></p>
-          <button class="btn btn-primary" style="width:100%;" onclick="submitFeedback()">
-            Submit Feedback
-          </button>
-        </div>
 
-        <!-- Success view (hidden until submitted) -->
-        <div class="modal-success" id="feedback-success-view">
-          <i class="fa fa-circle-check"></i>
-          <p>Thank you for your feedback!</p>
-          <span style="font-size:13px; color:#888;">This window will close automatically.</span>
+          <div class="modal-success" id="feedback-success-view">
+            <i class="fa fa-circle-check"></i>
+            <p style="font-weight:600; font-size:15px;">Thank you for your feedback!</p>
+            <span style="font-size:13px; color:#888;">This window will close automatically.</span>
+          </div>
         </div>
       </div>
+
     </div>
-
   </footer>
-
+  <!-- ═══ FOOTER — copy to this line ════════════════════════════════ -->
   <script src="./js/api.js"></script>
   <script src="./js/cart.js"></script>
   <script src="./js/user.js"></script>

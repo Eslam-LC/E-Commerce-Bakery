@@ -49,38 +49,37 @@
 <html lang="en">
 
 <head>
+
     <meta charset="UTF-8">
     <title>BakeHaven — Create Account</title>
+
     <link rel="stylesheet" href="./css/header-footer.css">
+    <link rel="stylesheet" href="./css/main.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    <style>
-        /* Person E: page-specific styles go here */
-    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
 </head>
 
 <body>
 
-    <!-- PASTE HEADER FROM header-footer.snippet.html -->
+    <!-- ═══ HEADER — copy from this line ═══════════════════════════════ -->
     <header class="site-header">
         <div class="container flex-between">
-
-            <div class="header-logo">
-                <div class="dark-bg">
-                    <svg width="200" height="72" viewBox="0 0 200 72" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M 60 28 Q 100 8 140 28" stroke="#BD590E" stroke-width="1.2" fill="none"
-                            stroke-linecap="round" opacity="0.7" />
-                        <circle cx="60" cy="28" r="2" fill="#BD590E" opacity="0.6" />
-                        <circle cx="80" cy="17" r="2" fill="#BD590E" opacity="0.6" />
-                        <circle cx="100" cy="13" r="2.5" fill="#BD590E" />
-                        <circle cx="120" cy="17" r="2" fill="#BD590E" opacity="0.6" />
-                        <circle cx="140" cy="28" r="2" fill="#BD590E" opacity="0.6" />
-                        <text x="100" y="46" text-anchor="middle" font-family="'Playfair Display', serif"
-                            font-weight="700" font-size="26" fill="#333" letter-spacing="8">BAKE</text>
-                        <line x1="52" y1="52" x2="148" y2="52" stroke="#BD590E" stroke-width="0.8" opacity="0.6" />
-                        <text x="100" y="66" text-anchor="middle" font-family="'Cormorant Garamond', serif"
-                            font-weight="300" font-size="14" fill="#BD590E" letter-spacing="10">HAVEN</text>
-                    </svg>
-                </div>
+            <div class="dark-bg">
+                <svg width="160" height="57" viewBox="0 6 200 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M 60 28 Q 100 8 140 28" stroke="#DAA520" stroke-width="1.2" fill="none"
+                        stroke-linecap="round" opacity="0.7" />
+                    <circle cx="60" cy="28" r="2" fill="#DAA520" opacity="0.6" />
+                    <circle cx="80" cy="17" r="2" fill="#DAA520" opacity="0.6" />
+                    <circle cx="100" cy="13" r="2.5" fill="#DAA520" />
+                    <circle cx="120" cy="17" r="2" fill="#DAA520" opacity="0.6" />
+                    <circle cx="140" cy="28" r="2" fill="#DAA520" opacity="0.6" />
+                    <text x="100" y="46" text-anchor="middle" font-family="'Playfair Display', serif" font-weight="700"
+                        font-size="26" fill="#1a1008" letter-spacing="8">BAKE</text>
+                    <line x1="52" y1="52" x2="148" y2="52" stroke="#DAA520" stroke-width="0.8" opacity="0.6" />
+                    <text x="100" y="66" text-anchor="middle" font-family="'Cormorant Garamond', serif"
+                        font-weight="300" font-size="14" fill="#8B6914" letter-spacing="10">HAVEN</text>
+                </svg>
             </div>
 
             <nav>
@@ -95,7 +94,7 @@
                     <span id="cart-badge">0</span>
                 </a>
 
-                <div style="position:relative;">
+                <div style="position: relative">
                     <a href="./login.html" id="account-link">
                         <button class="account-btn fa-solid fa-user" id="account-btn"></button>
                     </a>
@@ -103,84 +102,120 @@
                         <button id="logout-btn">Logout</button>
                     </div>
                 </div>
-
             </div>
         </div>
     </header>
+    <!-- ═══ HEADER — copy to this line ════════════════════════════════ -->
 
-    <main class="page-main flex-center">
-        <div class="card" id="register-card">
-            <h2>Create Account</h2>
 
-            <p id="register-error" style="display:none; color:var(--color-danger);"></p>
 
-            <div class="form-group">
-                <label for="reg-name">Full Name</label>
-                <input type="text" id="reg-name" placeholder="Jane Smith">
+
+    <section class="register-card">
+
+        <h2>Create Your Account</h2>
+
+        <p class="subtitle">
+            Join the BakeHaven community to start your baking journey
+        </p>
+
+        <form>
+
+            <label>Full Name</label>
+            <input type="text" placeholder="Enter your full name">
+
+            <label>Email Address</label>
+            <input type="email" placeholder="mohammed@example.com">
+
+            <label>Password</label>
+            <input type="password" placeholder="mini 8characters">
+
+            <label>Confirm Password</label>
+            <input type="password" placeholder="Repeat password">
+
+
+            <div class="terms">
+
+                <input type="checkbox">
+
+                <p>
+                    I agree to the
+                    <a href="#">Terms of Service</a>
+                    and
+                    <a href="#">Privacy Policy</a>
+                </p>
+
             </div>
 
-            <div class="form-group">
-                <label for="reg-email">Email</label>
-                <input type="email" id="reg-email" placeholder="you@example.com">
+
+            <button class="create-btn">
+                Create Account
+            </button>
+
+
+            <div class="divider">
+
+                <span></span>
+                <p>OR</p>
+                <span></span>
+
             </div>
 
-            <div class="form-group">
-                <label for="reg-password">Password</label>
-                <input type="password" id="reg-password" placeholder="••••••••">
+
+            <p class="signin-link">
+
+                Already have an account?
+                <a href="login.html">Sign In</a>
+
+            </p>
+
+        </form>
+
+    </section>
+
+  
+  
+  
+  <!-- ═══ FOOTER — copy from this line ══════════════════════════════ -->
+<footer class="site-footer">
+    <div class="container">
+        <div class="flex-between">
+            <div class="footer-col">
+                <h4>Contact</h4>
+                <p>contact@bakehaven.com</p>
+                <p>+20 15 5555 0199</p>
+                <p>+20 2 2555 0199</p>
             </div>
 
-            <div class="form-group">
-                <label for="reg-confirm">Confirm Password</label>
-                <input type="password" id="reg-confirm" placeholder="••••••••">
+            <div class="footer-col">
+                <h4>Social Media</h4>
+                <ul>
+                    <li><a href="">Instagram</a></li>
+                    <li><a href="">TikTok</a></li>
+                    <li><a href="">Facebook</a></li>
+                </ul>
             </div>
 
-            <button class="btn btn-primary" id="register-btn">Register</button>
-
-            <p>Already have an account? <a href="/login.html">Sign In</a></p>
+            <div class="footer-col">
+                <h4>Feedback</h4>
+                <p>We'd love to hear from you.</p>
+                <button class="btn btn-outline" id="feedback-btn">Send Feedback</button>
+            </div>
         </div>
-    </main>
+        <div class="footer-bottom">&copy; 2026 BakeHaven. All rights reserved.</div>
+    </div>
 
-    <!-- PASTE FOOTER FROM header-footer.snippet.html -->
-    <footer class="site-footer">
-        <div class="container">
-            <div class="flex-between">
+    <!-- FEEDBACK MODAL -->
+    <div id="feedback-modal-container">
 
-                <div class="footer-col">
-                    <h4>Contact</h4>
-                    <p>contact@bakehaven.com</p>
-                    <p>+20 15 5555 0199</p>
-                    <p>+20 2 2555 0199</p>
-                </div>
-
-                <div class="footer-col">
-                    <h4>Social Media</h4>
-                    <ul>
-                        <li><a href="">Instagram</a></li>
-                        <li><a href="">TikTok</a></li>
-                        <li><a href="">Facebook</a></li>
-                    </ul>
-                </div>
-
-                <div class="footer-col">
-                    <h4>Feedback</h4>
-                    <p>We'd love to hear from you.</p>
-                    <button class="btn btn-outline" id="feedback-btn">Send Feedback</button>
-                </div>
-
-            </div>
-            <div class="footer-bottom">&copy; 2026 BakeHaven. All rights reserved.</div>
-        </div>
-
-        <!-- FEEDBACK MODAL -->
         <div class="modal-overlay" id="feedback-modal">
-            <div class="modal-box">
+            <div class="card">
                 <button class="modal-close" id="feedback-close-btn">&times;</button>
 
-                <!-- Form view -->
                 <div id="feedback-form-view">
                     <h3>Send us feedback</h3>
-                    <p class="modal-subtitle">We read every message and use it to improve.</p>
-
+                    <p style="font-size:13px; color:#888; margin-bottom:22px;">
+                        We read every message and use it to improve.
+                    </p>
                     <div class="form-group">
                         <label>Name</label>
                         <input type="text" id="fb-name" placeholder="Your name">
@@ -191,9 +226,7 @@
                     </div>
                     <div class="form-group">
                         <label>Message</label>
-                        <textarea id="fb-message" rows="4"
-                            style="width:100%; padding:10px 14px; border:1px solid #ddd; border-radius:8px; font-family:inherit; font-size:14px; resize:vertical;"
-                            placeholder="Tell us what you think…"></textarea>
+                        <textarea id="fb-message" rows="4" placeholder="Tell us what you think…"></textarea>
                     </div>
                     <p id="fb-error" style="color:#c0392b; font-size:13px; display:none; margin-bottom:12px;"></p>
                     <button class="btn btn-primary" style="width:100%;" onclick="submitFeedback()">
@@ -201,15 +234,21 @@
                     </button>
                 </div>
 
-                <!-- Success view (hidden until submitted) -->
                 <div class="modal-success" id="feedback-success-view">
                     <i class="fa fa-circle-check"></i>
-                    <p>Thank you for your feedback!</p>
+                    <p style="font-weight:600; font-size:15px;">Thank you for your feedback!</p>
                     <span style="font-size:13px; color:#888;">This window will close automatically.</span>
                 </div>
             </div>
         </div>
 
+    </div>
+</footer>
+<!-- ═══ FOOTER — copy to this line ════════════════════════════════ -->
+  
+  
+  
+  
         <script src="./js/api.js"></script>
         <script src="./js/cart.js"></script>
         <script src="./js/user.js"></script>

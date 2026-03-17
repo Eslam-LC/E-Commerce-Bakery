@@ -168,7 +168,27 @@ function getItemCount() {
 function updateCartBadge() {
     var badge = document.getElementById('cart-badge')
     if (!badge) return
-    badge.innerText = `${getItemCount()}`
+    var count = getItemCount()
+    badge.innerText = `${count}`
+    badge.style.display = count > 0 ? 'inline-block' : 'none'
+}
+
+function getAvailable(product) {
+    var offsets = JSON.parse(localStorage.getItem('bh_stock_offsets') || '{}')
+    return Math.max(0, product.stock - (offsets[product.id] || 0))
+}
+
+function getStatusLabel(available) {
+    if (available === 0) return { text: 'Out of Stock', cssClass: 'out-of-stock' }
+    if (available === 1) return { text: 'Only 1 left!', cssClass: 'low-stock' }
+    if (available <= 5) return { text: 'Only ' + available + ' left!', cssClass: 'low-stock' }
+    return { text: 'In Stock: ' + available, cssClass: 'in-stock' }
+}
+
+function decrementStock(productId, quantity) {
+    var offsets = JSON.parse(localStorage.getItem('bh_stock_offsets') || '{}')
+    offsets[productId] = (offsets[productId] || 0) + quantity
+    localStorage.setItem('bh_stock_offsets', JSON.stringify(offsets))
 }
 
 function renderCart() {
@@ -193,7 +213,9 @@ function renderCart() {
             var html = "";
             var subtotal = 0;
 
+            // console.log(cart.length);
             for (var i = 0; i < cart.length; i++) {
+
                 var item = cart[i];
                 var product = null;
                 for (var j = 0; j < products.length; j++) {
@@ -203,6 +225,7 @@ function renderCart() {
                     }
                 }
                 if (!product) continue;
+
 
                 var price = product.price * item.quantity;
                 subtotal += price;
@@ -238,6 +261,28 @@ function renderCart() {
             }
 
             var total = subtotal;
+
+            box.innerHTML =
+                '<div class="cart-layout">' +
+                '<div class="cart-left">' +
+                '<div class="cart-header-row">' +
+                '<p>You have <b>' + cart.length + '</b> item(s)</p>' +
+                '<button class="clear-btn" onclick="clearCart();renderCart()">🗑 Clear Cart</button>' +
+                '</div>' +
+                html +
+                '<a href="./products.html" class="btn btn-primary checkout-btn"> Continue Shopping</a>' +
+                '</div>' +
+                '<div class="cart-right"><div class="order-summary">' +
+                '<h3>Order Summary</h3>' +
+                '<div class="summary-row"><span>Subtotal</span><span>$' + subtotal.toFixed(2) + '</span></div>' +
+                '<hr>' +
+                '<div class="summary-row total"><span>Total</span><span>$' + total.toFixed(2) + '</span></div>' +
+                '<a href="./checkout.html" target="_blank" class="btn btn-primary checkout-btn">Proceed to Checkout</a>' +
+                '</div></div></div>';
+        }
+    };
+    xhr.send();
+}
 
 function getStatusLabel(available) {
     // TODO (Person A)
