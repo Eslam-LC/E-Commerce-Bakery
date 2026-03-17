@@ -107,7 +107,7 @@ function updateAccountIcon() {
 }
 
 function validateCredentials(email, password, onSuccess, onFail) {
-    fetchJSON('api/users.json', function (users) {
+    fetchJSON('api/users', function (users) {
         for (var i = 0; i < users.length; i++) {
             if (users[i].email == email && users[i].password == password) {
                 onSuccess({ id: users[i].id, name: users[i].name, email: users[i].email });
