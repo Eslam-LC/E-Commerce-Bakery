@@ -25,7 +25,7 @@ body {
     color: #333;
     /* line height for better readability */
     line-height: 1.5;
-    /* min-height: 100vh; */
+    min-height: 100vh;
     /* assuming the rest of the pages will need flex */
     display: flex;
     flex-direction: column;
