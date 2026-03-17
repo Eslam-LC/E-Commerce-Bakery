@@ -284,6 +284,10 @@ function renderCart() {
     xhr.send();
 }
 
+function getStatusLabel(available) {
+    // TODO (Person A)
+}
+
 window.addEventListener("load", function () {
     updateCartBadge();
     renderCart();

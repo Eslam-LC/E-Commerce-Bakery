@@ -44,15 +44,12 @@
 <head>
 
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <title>BakeHaven Login</title>
-
+  <title>BakeHaven — Sign In</title>
   <link rel="stylesheet" href="./css/header-footer.css">
   <link rel="stylesheet" href="./css/main.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
-
+  
 </head>
 
 <body>
@@ -90,7 +87,7 @@
           . <span id="cart-badge">0</span>
         </a>
 
-        <div style="position: relative">
+        <div style="position:relative;">
           <a href="./login.html" id="account-link">
             <button class="account-btn fa-solid fa-user" id="account-btn"></button>
           </a>
@@ -104,6 +101,9 @@
   </header>
   <!-- ═══ HEADER — copy to this line ════════════════════════════════ -->
 
+  <main class="page-main flex-center">
+    <div class="card" id="login-card">
+      <h2>Sign In</h2>
 
   <section class="login-card">
 
@@ -166,6 +166,26 @@
   </section>
 
   <!-- ═══ FOOTER — copy from this line ══════════════════════════════ -->
+      <!-- Hidden by default — shown by JS when login fails -->
+      <p id="login-error" style="display:none; color:var(--color-danger);"></p>
+
+      <div class="form-group">
+        <label for="login-email">Email</label>
+        <input type="email" id="login-email" placeholder="you@example.com">
+      </div>
+
+      <div class="form-group">
+        <label for="login-password">Password</label>
+        <input type="password" id="login-password" placeholder="••••••••">
+      </div>
+
+      <button class="btn btn-primary" id="login-btn">Login</button>
+
+      <p>Don't have an account? <a href="./register.html">Register</a></p>
+    </div>
+  </main>
+
+  <!-- PASTE FOOTER FROM header-footer.snippet.html -->
   <footer class="site-footer">
     <div class="container">
       <div class="flex-between">
