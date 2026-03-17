@@ -80,13 +80,13 @@ function renderCart() {
         box.innerHTML =
             '<div class="empty-state">' +
             '<p>Your cart is empty 🛒</p>' +
-            '<a href="/products.html" class="btn btn-primary">Browse Products</a>' +
+            '<a href="./products.html" class="btn btn-primary">Browse Products</a>' +
             '</div>';
         return;
     }
 
     var xhr = new XMLHttpRequest();
-    xhr.open("GET", "https://raw.githubusercontent.com/Eslam-LC/E-Commerce-Bakery/refs/heads/main/api/products");
+    xhr.open("GET", "./api/products");
     xhr.onload = function () {
         if (xhr.status === 200) {
             var products = JSON.parse(xhr.responseText);
@@ -161,7 +161,8 @@ function renderCart() {
     xhr.send();
 }
 
-window.addEventListener("load", function() {
+window.addEventListener("load", function () {
     updateCartBadge();
     renderCart();
 });
+// renderCart()

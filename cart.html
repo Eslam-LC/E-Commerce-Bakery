@@ -7,299 +7,300 @@
   <link rel="stylesheet" href="./css/header-footer.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
-<style>
+  <style>
+    body {
+      background: #f6f3ef;
+      font-family: 'Poppins', sans-serif;
+      min-height: 100vh;
+      margin: 0;
+    }
 
-body {
-  background: #f6f3ef;
-  font-family: 'Poppins', sans-serif;
-  min-height: 100vh;
-  margin: 0;
-}
+    .page-main .container {
+      width: 80%;
+      margin: 0 auto;
+      padding: 0 20px;
+      box-sizing: border-box;
+    }
 
-.page-main .container {
-  width: 80%;
-  margin: 0 auto;
-  padding: 0 20px;
-  box-sizing: border-box;
-}
+    h1 {
+      font-size: 28px;
+      font-weight: 700;
+      margin-bottom: 24px;
+    }
 
-h1 {
-  font-size: 28px;
-  font-weight: 700;
-  margin-bottom: 24px;
-}
+    .card {
+      background: white;
+      border-radius: 16px;
+      padding: 24px;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.07);
+      margin-bottom: 16px;
+    }
 
-.card {
-  background: white;
-  border-radius: 16px;
-  padding: 24px;
-  box-shadow: 0 4px 16px rgba(0,0,0,0.07);
-  margin-bottom: 16px;
-}
+    .cart-layout {
+      display: flex;
+      gap: 24px;
+      align-items: flex-start;
+    }
 
-.cart-layout {
-  display: flex;
-  gap: 24px;
-  align-items: flex-start;
-}
+    /* scroll added here */
+    .cart-left {
+      flex: 2;
+      max-height: 70vh;
+      overflow-y: auto;
+      padding-right: 10px;
+    }
 
-/* scroll added here */
-.cart-left {
-  flex: 2;
-  max-height: 70vh;
-  overflow-y: auto;
-  padding-right: 10px;
-}
+    .cart-left::-webkit-scrollbar {
+      width: 6px;
+    }
 
-.cart-left::-webkit-scrollbar {
-  width: 6px;
-}
+    .cart-left::-webkit-scrollbar-thumb {
+      background: #c35a0a;
+      border-radius: 10px;
+    }
 
-.cart-left::-webkit-scrollbar-thumb {
-  background: #c35a0a;
-  border-radius: 10px;
-}
+    .cart-right {
+      flex: 1;
+    }
 
-.cart-right {
-  flex: 1;
-}
+    .cart-item {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      padding: 16px;
+    }
 
-.cart-item {
-  display: flex;
-  align-items: center;
-  gap: 20px;
-  padding: 16px;
-}
+    .cart-item img {
+      width: 90px;
+      height: 90px;
+      border-radius: 12px;
+      object-fit: cover;
+      flex-shrink: 0;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.10);
+      background: #f6efe8;
+    }
 
-.cart-item img {
-  width: 90px;
-  height: 90px;
-  border-radius: 12px;
-  object-fit: cover;
-  flex-shrink: 0;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.10);
-  background: #f6efe8;
-}
+    .cart-item-info {
+      flex: 1;
+    }
 
-.cart-item-info {
-  flex: 1;
-}
+    .item-name {
+      font-weight: 700;
+      font-size: 16px;
+      margin-bottom: 4px;
+      color: #222;
+    }
 
-.item-name {
-  font-weight: 700;
-  font-size: 16px;
-  margin-bottom: 4px;
-  color: #222;
-}
+    .item-desc {
+      font-size: 12px;
+      color: #aaa;
+      margin-bottom: 2px;
+      line-height: 1.4;
+    }
 
-.item-desc {
-  font-size: 12px;
-  color: #aaa;
-  margin-bottom: 2px;
-  line-height: 1.4;
-}
+    .item-price {
+      font-weight: 700;
+      color: #c35a0a;
+      font-size: 18px;
+      white-space: nowrap;
+      min-width: 70px;
+      text-align: right;
+    }
 
-.item-price {
-  font-weight: 700;
-  color: #c35a0a;
-  font-size: 18px;
-  white-space: nowrap;
-  min-width: 70px;
-  text-align: right;
-}
+    .qty-controls {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-top: 10px;
+    }
 
-.qty-controls {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  margin-top: 10px;
-}
+    .qty-btn-minus,
+    .qty-btn-plus {
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 17px;
+      line-height: 1;
+      cursor: pointer;
+    }
 
-.qty-btn-minus, .qty-btn-plus {
-  width: 30px;
-  height: 30px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 17px;
-  line-height: 1;
-  cursor: pointer;
-}
+    .qty-btn-minus {
+      border: 1.5px solid #ddd;
+      background: #f5f5f5;
+    }
 
-.qty-btn-minus {
-  border: 1.5px solid #ddd;
-  background: #f5f5f5;
-}
+    .qty-btn-plus {
+      border: none;
+      background: #c35a0a;
+      color: white;
+    }
 
-.qty-btn-plus {
-  border: none;
-  background: #c35a0a;
-  color: white;
-}
+    .qty-value {
+      font-weight: 700;
+      font-size: 15px;
+      min-width: 24px;
+      text-align: center;
+    }
 
-.qty-value {
-  font-weight: 700;
-  font-size: 15px;
-  min-width: 24px;
-  text-align: center;
-}
+    .remove-btn {
+      background: none;
+      border: none;
+      color: #ccc;
+      cursor: pointer;
+      font-size: 12px;
+    }
 
-.remove-btn {
-  background: none;
-  border: none;
-  color: #ccc;
-  cursor: pointer;
-  font-size: 12px;
-}
+    .cart-header-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 16px;
+    }
 
-.cart-header-row {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 16px;
-}
+    .clear-btn {
+      background: #c35a0a;
+      color: white;
+      border: none;
+      font-size: 16px;
+      padding: 12px 24px;
+      border-radius: 25px;
+      cursor: pointer;
+    }
 
-.clear-btn {
-  background: #c35a0a;
-  color: white;
-  border: none;
-  font-size: 16px;
-  padding: 12px 24px;
-  border-radius: 25px;
-  cursor: pointer;
-}
+    .order-summary {
+      background: #f6efe8;
+      padding: 24px;
+      border-radius: 16px;
+      position: sticky;
+      top: 20px;
+    }
 
-.order-summary {
-  background: #f6efe8;
-  padding: 24px;
-  border-radius: 16px;
-  position: sticky;
-  top: 20px;
-}
+    .summary-row {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 10px;
+      font-size: 14px;
+    }
 
-.summary-row {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 10px;
-  font-size: 14px;
-}
+    .summary-row.total {
+      font-weight: 700;
+      font-size: 18px;
+      margin: 16px 0 20px;
+    }
 
-.summary-row.total {
-  font-weight: 700;
-  font-size: 18px;
-  margin: 16px 0 20px;
-}
+    .summary-row.total span:last-child {
+      color: #c35a0a;
+    }
 
-.summary-row.total span:last-child {
-  color: #c35a0a;
-}
+    .checkout-btn,
+    .continue-btn {
+      display: inline-block;
+      text-align: center;
+      background: #c35a0a;
+      color: white;
+      padding: 14px 28px;
+      border-radius: 25px;
+      font-weight: 600;
+      border: none;
+      cursor: pointer;
+      text-decoration: none;
+      margin-top: 10px;
+    }
 
-.checkout-btn, .continue-btn {
-  display: inline-block;
-  text-align: center;
-  background: #c35a0a;
-  color: white;
-  padding: 14px 28px;
-  border-radius: 25px;
-  font-weight: 600;
-  border: none;
-  cursor: pointer;
-  text-decoration: none;
-  margin-top: 10px;
-}
-
-.empty-state {
-  text-align: center;
-  padding: 60px 0;
-}
-
-</style>
+    .empty-state {
+      text-align: center;
+      padding: 60px 0;
+    }
+  </style>
 </head>
 
 <body>
 
-<header class="site-header">
-<div class="container flex-between">
+  <header class="site-header">
+    <div class="container flex-between">
 
-<div class="header-logo">
-<i class="fa fa-bread-slice"></i>
-<h3> Bake Haven</h3>
-</div>
+      <div class="header-logo">
+        <i class="fa fa-bread-slice"></i>
+        <h3> Bake Haven</h3>
+      </div>
 
-<nav>
-<ul class="header-nav">
-<li><a href="./index.html">Home</a></li>
-<li><a href="./products.html">Products</a></li>
-</ul>
-</nav>
+      <nav>
+        <ul class="header-nav">
+          <li><a href="./index.html">Home</a></li>
+          <li><a href="./products.html">Products</a></li>
+        </ul>
+      </nav>
 
-<div class="header-actions">
-<a href="./cart.html" class="cart-link fa fa-cart-shopping">
-<span id="cart-badge">0</span>
-</a>
+      <div class="header-actions">
+        <a href="./cart.html" class="cart-link fa fa-cart-shopping">
+          <span id="cart-badge">0</span>
+        </a>
 
-<div style="position:relative;">
-<a href="./login.html" id="account-link">
-<button class="account-btn fa-solid fa-user" id="account-btn"></button>
-</a>
+        <div style="position:relative;">
+          <a href="./login.html" id="account-link">
+            <button class="account-btn fa-solid fa-user" id="account-btn"></button>
+          </a>
 
-<div class="account-dropdown" id="account-dropdown">
-<button id="logout-btn">Logout</button>
-</div>
-</div>
+          <div class="account-dropdown" id="account-dropdown">
+            <button id="logout-btn">Logout</button>
+          </div>
+        </div>
 
-</div>
-</div>
-</header>
+      </div>
+    </div>
+  </header>
 
-<main class="page-main">
-<div class="container">
+  <main class="page-main">
+    <div class="container">
 
-<h1>Your Cart</h1>
+      <h1>Your Cart</h1>
 
-<div id="cart-content"></div>
+      <div id="cart-content"></div>
 
-</div>
-</main>
+    </div>
+  </main>
 
-<footer class="site-footer">
-<div class="container">
-<div class="flex-between">
+  <footer class="site-footer">
+    <div class="container">
+      <div class="flex-between">
 
-<div class="footer-col">
-<h4>Contact</h4>
-<p>contact@bakehaven.com</p>
-<p>+20 15 5555 0199</p>
-<p>+20 2 2555 0199</p>
-</div>
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <p>contact@bakehaven.com</p>
+          <p>+20 15 5555 0199</p>
+          <p>+20 2 2555 0199</p>
+        </div>
 
-<div class="footer-col">
-<h4>Social Media</h4>
-<ul>
-<li><a href="">Instagram</a></li>
-<li><a href="">TikTok</a></li>
-<li><a href="">Facebook</a></li>
-</ul>
-</div>
+        <div class="footer-col">
+          <h4>Social Media</h4>
+          <ul>
+            <li><a href="">Instagram</a></li>
+            <li><a href="">TikTok</a></li>
+            <li><a href="">Facebook</a></li>
+          </ul>
+        </div>
 
-<div class="footer-col">
-<h4>Feedback</h4>
-<p>We'd love to hear from you.</p>
-<button class="btn btn-outline" id="feedback-btn">Send Feedback</button>
-</div>
+        <div class="footer-col">
+          <h4>Feedback</h4>
+          <p>We'd love to hear from you.</p>
+          <button class="btn btn-outline" id="feedback-btn">Send Feedback</button>
+        </div>
 
-</div>
+      </div>
 
-<div class="footer-bottom">&copy; 2026 BakeHaven. All rights reserved.</div>
+      <div class="footer-bottom">&copy; 2026 BakeHaven. All rights reserved.</div>
 
-</div>
-</footer>
+    </div>
+  </footer>
 
-<script src="/js/api.js"></script>
-<script src="/js/cart.js"></script>
-<script src="/js/user.js"></script>
-<script src="/js/event.js"></script>
+  <script src="/js/api.js"></script>
+  <script src="/js/cart.js"></script>
+  <script src="/js/user.js"></script>
+  <script src="/js/event.js"></script>
 
 </body>
+
 </html>
