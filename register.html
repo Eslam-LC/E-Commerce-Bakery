@@ -1,157 +1,175 @@
+<!--
+  PAGE:     register.html  (Create Account)
+  OWNER:    Person E
+
+  WHAT THIS PAGE IS:
+    The registration page. The user fills in their details to create
+    a new account. Because there's no real server to write to, new users
+    are saved in localStorage and merged with the seeded users when
+    checking credentials.
+
+  WHAT THE USER CAN DO HERE:
+    - Fill in name, email, password, confirm password
+    - Create an account and get logged in automatically
+    - See errors if passwords don't match or email is taken
+    - Click a link to go back to login.html
+
+  CONNECTS TO:
+    ← login.html     (arrived via "Don't have an account?" link)
+    → index.html     (redirect after successful registration)
+    → login.html     ("Already have an account?" link)
+
+  YOUR JS TASK:
+    - On page load: call updateCartBadge() and updateAccountIcon()
+    - If isLoggedIn() → redirect to /index.html immediately
+    - On "Register" button click:
+        1. Read all four field values
+        2. Check nothing is empty
+        3. Check password === confirm password
+        4. fetchJSON('/api/users.json', function(seededUsers) {
+               also read any extra registered users from localStorage
+               combine both lists and check the email isn't already taken
+               if taken → show error
+               if free  → build new user object, save to localStorage,
+                          call login({ id, name, email }), redirect home
+           })
+
+  HOW TO SAVE EXTRA USERS TO LOCALSTORAGE:
+    Use a key like 'bh_users_extra' and store an array of user objects.
+    When checking for duplicates, check both the seededUsers array
+    and whatever is in localStorage under that key.
+
+  CSS GUIDELINES:
+    - Same layout as login.html — centred card, .form-group for each field
+    - Use .btn .btn-primary for the Register button, full width
+    - Error and success messages follow the same pattern as login.html
+    - Add page-specific styles inside the <style> block in <head>
+-->
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Create Account | BakeHaven</title>
-
-<link rel="stylesheet" href="./css/header-footer.css">
-<link rel="stylesheet" href="./css/main.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
-
+    <meta charset="UTF-8">
+    <title>BakeHaven — Create Account</title>
+    <link rel="stylesheet" href="./css/header-footer.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        /* Person E: page-specific styles go here */
+    </style>
 </head>
 
 <body>
 
-  <header class="site-header">
-    <div class="container flex-between">
-      <div class="header-logo">
-        <div class="dark-bg">
-          <svg width="200" height="72" viewBox="0 0 200 72" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M 60 28 Q 100 8 140 28" stroke="#BD590E" stroke-width="1.2" fill="none" stroke-linecap="round" opacity="0.7" />
-            <circle cx="60" cy="28" r="2" fill="#BD590E" opacity="0.6" />
-            <circle cx="80" cy="17" r="2" fill="#BD590E" opacity="0.6" />
-            <circle cx="100" cy="13" r="2.5" fill="#BD590E" />
-            <circle cx="120" cy="17" r="2" fill="#BD590E" opacity="0.6" />
-            <circle cx="140" cy="28" r="2" fill="#BD590E" opacity="0.6" />
-            <text x="100" y="46" text-anchor="middle" font-family="'Playfair Display', serif" font-weight="700" font-size="26" fill="#333" letter-spacing="8">BAKE</text>
-            <line x1="52" y1="52" x2="148" y2="52" stroke="#BD590E" stroke-width="0.8" opacity="0.6" />
-            <text x="100" y="66" text-anchor="middle" font-family="'Cormorant Garamond', serif" font-weight="300" font-size="14" fill="#BD590E" letter-spacing="10">HAVEN</text>
-          </svg>
+    <!-- PASTE HEADER FROM header-footer.snippet.html -->
+    <header class="site-header">
+        <div class="container flex-between">
+
+            <div class="header-logo">
+                <div class="dark-bg">
+                    <svg width="200" height="72" viewBox="0 0 200 72" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M 60 28 Q 100 8 140 28" stroke="#BD590E" stroke-width="1.2" fill="none"
+                            stroke-linecap="round" opacity="0.7" />
+                        <circle cx="60" cy="28" r="2" fill="#BD590E" opacity="0.6" />
+                        <circle cx="80" cy="17" r="2" fill="#BD590E" opacity="0.6" />
+                        <circle cx="100" cy="13" r="2.5" fill="#BD590E" />
+                        <circle cx="120" cy="17" r="2" fill="#BD590E" opacity="0.6" />
+                        <circle cx="140" cy="28" r="2" fill="#BD590E" opacity="0.6" />
+                        <text x="100" y="46" text-anchor="middle" font-family="'Playfair Display', serif"
+                            font-weight="700" font-size="26" fill="#333" letter-spacing="8">BAKE</text>
+                        <line x1="52" y1="52" x2="148" y2="52" stroke="#BD590E" stroke-width="0.8" opacity="0.6" />
+                        <text x="100" y="66" text-anchor="middle" font-family="'Cormorant Garamond', serif"
+                            font-weight="300" font-size="14" fill="#BD590E" letter-spacing="10">HAVEN</text>
+                    </svg>
+                </div>
+            </div>
+
+            <nav>
+                <ul class="header-nav">
+                    <li><a href="./index.html">Home</a></li>
+                    <li><a href="./products.html">Products</a></li>
+                </ul>
+            </nav>
+
+            <div class="header-actions">
+                <a href="./cart.html" class="cart-link fa fa-cart-shopping">
+                    <span id="cart-badge">0</span>
+                </a>
+
+                <div style="position:relative;">
+                    <a href="./login.html" id="account-link">
+                        <button class="account-btn fa-solid fa-user" id="account-btn"></button>
+                    </a>
+                    <div class="account-dropdown" id="account-dropdown">
+                        <button id="logout-btn">Logout</button>
+                    </div>
+                </div>
+
+            </div>
         </div>
-      </div>
+    </header>
 
-      <nav>
-        <ul class="header-nav">
-          <li><a href="./index.html">Home</a></li>
-          <li><a href="./products.html">Products</a></li>
-        </ul>
-      </nav>
+    <main class="page-main flex-center">
+        <div class="card" id="register-card">
+            <h2>Create Account</h2>
 
-      <div class="header-actions">
-        <a href="./cart.html" class="cart-link fa fa-cart-shopping">
-          <span id="cart-badge">0</span>
-        </a>
-        <div style="position: relative">
-          <a href="./login.html" id="account-link">
-            <button class="account-btn fa-solid fa-user" id="account-btn"></button>
-          </a>
-          <div class="account-dropdown" id="account-dropdown">
-            <button id="logout-btn">Logout</button>
-          </div>
+            <p id="register-error" style="display:none; color:var(--color-danger);"></p>
+
+            <div class="form-group">
+                <label for="reg-name">Full Name</label>
+                <input type="text" id="reg-name" placeholder="Jane Smith">
+            </div>
+
+            <div class="form-group">
+                <label for="reg-email">Email</label>
+                <input type="email" id="reg-email" placeholder="you@example.com">
+            </div>
+
+            <div class="form-group">
+                <label for="reg-password">Password</label>
+                <input type="password" id="reg-password" placeholder="••••••••">
+            </div>
+
+            <div class="form-group">
+                <label for="reg-confirm">Confirm Password</label>
+                <input type="password" id="reg-confirm" placeholder="••••••••">
+            </div>
+
+            <button class="btn btn-primary" id="register-btn">Register</button>
+
+            <p>Already have an account? <a href="/login.html">Sign In</a></p>
         </div>
-      </div>
-    </div>
-  </header>
+    </main>
 
+    <!-- PASTE FOOTER FROM header-footer.snippet.html -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="flex-between">
 
+                <div class="footer-col">
+                    <h4>Contact</h4>
+                    <p>contact@bakehaven.com</p>
+                    <p>+20 15 5555 0199</p>
+                    <p>+20 2 2555 0199</p>
+                </div>
 
+                <div class="footer-col">
+                    <h4>Social Media</h4>
+                    <ul>
+                        <li><a href="">Instagram</a></li>
+                        <li><a href="">TikTok</a></li>
+                        <li><a href="">Facebook</a></li>
+                    </ul>
+                </div>
 
-<section class="register-card">
+                <div class="footer-col">
+                    <h4>Feedback</h4>
+                    <p>We'd love to hear from you.</p>
+                    <button class="btn btn-outline" id="feedback-btn">Send Feedback</button>
+                </div>
 
-<h2>Create Your Account</h2>
-
-<p class="subtitle">
-Join the BakeHaven community to start your baking journey
-</p>
-
-<form>
-
-<label>Full Name</label>
-<input type="text" placeholder="Enter your full name">
-
-<label>Email Address</label>
-<input type="email" placeholder="mohammed@example.com">
-
-<label>Password</label>
-<input type="password" placeholder="mini 8characters">
-
-<label>Confirm Password</label>
-<input type="password" placeholder="Repeat password">
-
-
-<div class="terms">
-
-<input type="checkbox">
-
-<p>
-I agree to the
-<a href="#">Terms of Service</a>
-and
-<a href="#">Privacy Policy</a>
-</p>
-
-</div>
-
-
-<button class="create-btn">
-Create Account
-</button>
-
-
-<div class="divider">
-
-<span></span>
-<p>OR</p>
-<span></span>
-
-</div>
-
-
-<p class="signin-link">
-
-Already have an account?
-<a href="login.html">Sign In</a>
-
-</p>
-
-</form>
-
-</section>
-
-
-  <footer class="site-footer">
-    <div class="container">
-      <div class="flex-between">
-        <div class="footer-col">
-          <h4>Contact</h4>
-          <p>contact@bakehaven.com</p>
-          <p>+20 15 5555 0199</p>
-          <p>+20 2 2555 0199</p>
+            </div>
+            <div class="footer-bottom">&copy; 2026 BakeHaven. All rights reserved.</div>
         </div>
-        <div class="footer-col">
-          <h4>Social Media</h4>
-          <ul>
-            <li><a href="">Instagram</a></li>
-            <li><a href="">TikTok</a></li>
-            <li><a href="">Facebook</a></li>
-          </ul>
-        </div>
-        <div class="footer-col">
-          <h4>Feedback</h4>
-          <p>We'd love to hear from you.</p>
-          <button class="btn btn-outline" id="feedback-btn">Send Feedback</button>
-        </div>
-      </div>
-      <div class="footer-bottom">&copy; 2026 BakeHaven. All rights reserved.</div>
-    </div>
-    <div id="feedback-modal-container"></div>
-  </footer>
-
 
         <!-- FEEDBACK MODAL -->
         <div class="modal-overlay" id="feedback-modal">
@@ -196,20 +214,7 @@ Already have an account?
         <script src="./js/cart.js"></script>
         <script src="./js/user.js"></script>
         <script src="./js/event.js"></script>
-        <script>
-            // TODO (Person E): your page script goes here
-            //
-            // Step 1 — on load: updateCartBadge(), updateAccountIcon()
-            // Step 2 — if (isLoggedIn()) redirect to home
-            // Step 3 — wire register-btn click:
-            //            validate fields (not empty, passwords match)
-            //            fetchJSON('/api/users.json', function(seededUsers) {
-            //                also read localStorage 'bh_users_extra'
-            //                check email not already taken in either list
-            //                save new user to 'bh_users_extra' in localStorage
-            //                login({ id: Date.now(), name, email })
-            //                redirect to /index.html
-            //            })
-        </script>
+
 </body>
+
 </html>
