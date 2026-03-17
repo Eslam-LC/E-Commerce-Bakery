@@ -53,14 +53,11 @@
  */
 
 function getSession() {
-    // TODO (Person A)
-    // key: 'bh_session'
     return JSON.parse(localStorage.getItem('bh_session'))
 
 }
 
 function isLoggedIn() {
-    // TODO (Person A)
     return localStorage.getItem('bh_session') !== null
 }
 
@@ -77,12 +74,12 @@ function logout() {
 
     updateAccountIcon()
     window.location.href = './index.html'
-    window.location.href = './index.html'
 }
 
 function updateAccountIcon() {
     var btn = document.getElementById('account-btn');
     var link = document.getElementById('account-link');
+    // console.log(btn, link)
     if (!btn) return;
 
     if (isLoggedIn()) {
@@ -98,7 +95,6 @@ function updateAccountIcon() {
 }
 
 function validateCredentials(email, password, onSuccess, onFail) {
-    // not fully implemented yet
 
     //  * validateCredentials(email, password, onSuccess, onFail)
     //  *   INPUT:  email     - string   - what the user typed in the email field
