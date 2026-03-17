@@ -168,17 +168,25 @@ function getItemCount() {
 function updateCartBadge() {
     var badge = document.getElementById('cart-badge')
     if (!badge) return
-    badge.innerText = `${getItemCount()}`
+    var count = getItemCount()
+    badge.innerText = `${count}`
+    badge.style.display = count > 0 ? 'inline-block' : 'none'
 }
 
 function getAvailable(product) {
-    // TODO (Person A)
+    var offsets = JSON.parse(localStorage.getItem('bh_stock_offsets') || '{}')
+    return Math.max(0, product.stock - (offsets[product.id] || 0))
 }
 
 function getStatusLabel(available) {
-    // TODO (Person A)
+    if (available === 0) return { text: 'Out of Stock', cssClass: 'out-of-stock' }
+    if (available === 1) return { text: 'Only 1 left!', cssClass: 'low-stock' }
+    if (available <= 5) return { text: 'Only ' + available + ' left!', cssClass: 'low-stock' }
+    return { text: 'In Stock: ' + available, cssClass: 'in-stock' }
 }
 
 function decrementStock(productId, quantity) {
-    // TODO (Person A)
+    var offsets = JSON.parse(localStorage.getItem('bh_stock_offsets') || '{}')
+    offsets[productId] = (offsets[productId] || 0) + quantity
+    localStorage.setItem('bh_stock_offsets', JSON.stringify(offsets))
 }

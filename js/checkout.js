@@ -42,7 +42,7 @@ function renderContactSection() {
 
     if (session) {
         section.innerHTML = `
-          <div class="contact-card">
+          <div class="card">
             <div class="contact-card-info">
               <div class="contact-avatar">${session.name.charAt(0).toUpperCase()}</div>
               <div>
@@ -180,71 +180,4 @@ function returnToStore() {
     setTimeout(function () {
         window.location.href = 'index.html'
     }, 300)
-}
-
-/* ══════════════════════════════════════════════════════════
-   FEEDBACK MODAL
-══════════════════════════════════════════════════════════ */
-var feedbackModal = null
-
-document.addEventListener('DOMContentLoaded', function () {
-    feedbackModal = document.getElementById('feedback-modal')
-
-    /* Open */
-    document.getElementById('feedback-btn').addEventListener('click', openFeedback)
-
-    /* Close button */
-    document.getElementById('feedback-close-btn').addEventListener('click', closeFeedback)
-
-    /* Overlay click */
-    feedbackModal.addEventListener('click', function (e) {
-        if (e.target === feedbackModal) closeFeedback()
-    })
-
-    /* Escape key */
-    document.addEventListener('keydown', function (e) {
-        if (e.key === 'Escape' && feedbackModal.classList.contains('open')) {
-            closeFeedback()
-        }
-    })
-})
-
-function openFeedback() {
-    /* Reset to form view in case success was shown before */
-    document.getElementById('feedback-form-view').style.display = 'block'
-    document.getElementById('feedback-success-view').style.display = 'none'
-    document.getElementById('fb-error').style.display = 'none'
-    feedbackModal.classList.add('open')
-}
-
-function closeFeedback() {
-    feedbackModal.classList.remove('open')
-}
-
-function submitFeedback() {
-    var name = document.getElementById('fb-name').value.trim()
-    var email = document.getElementById('fb-email').value.trim()
-    var message = document.getElementById('fb-message').value.trim()
-    var errEl = document.getElementById('fb-error')
-
-    if (!name || !email || !message) {
-        errEl.textContent = 'Please fill in all fields.'
-        errEl.style.display = 'block'
-        return
-    }
-
-    errEl.style.display = 'none'
-
-    /* Save to localStorage */
-    var existing = JSON.parse(localStorage.getItem('bh_feedback') || '[]')
-    existing.push({ name, email, message, date: new Date().toISOString() })
-    localStorage.setItem('bh_feedback', JSON.stringify(existing))
-
-    /* Show success */
-    document.getElementById('feedback-form-view').style.display = 'none'
-    var successEl = document.getElementById('feedback-success-view')
-    successEl.style.display = 'flex'
-
-    /* Auto-close after 2 seconds */
-    setTimeout(closeFeedback, 2000)
 }

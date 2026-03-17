@@ -65,28 +65,18 @@ function isLoggedIn() {
 }
 
 function login(userData) {
-    // TODO (Person A)
-    if (isLoggedIn()) {
-        console.error('Already Logged In.')
-        return
-    } else {
-        localStorage.setItem('bh_session', JSON.stringify(userData))
-        // updateAccountIcon()
-    }
+
+    localStorage.setItem('bh_session', JSON.stringify(userData))
+
     updateAccountIcon()
 }
 
 function logout() {
-    // TODO (Person A)
-    if (!isLoggedIn()) {
-        console.error('Already Logged Out.')
-        return
-    } else {
-        localStorage.removeItem('bh_session')
-        // updateAccountIcon()
-    }
+
+    localStorage.removeItem('bh_session')
+
     updateAccountIcon()
-    window.location.href = '../index.html'
+    window.location.href = './index.html'
 }
 
 function updateAccountIcon() {
@@ -108,14 +98,25 @@ function updateAccountIcon() {
 
 function validateCredentials(email, password, onSuccess, onFail) {
     // not fully implemented yet
-    var valid = false
-    fetchJSON('../api/users', (response) => {
+
+    //  * validateCredentials(email, password, onSuccess, onFail)
+    //  *   INPUT:  email     - string   - what the user typed in the email field
+    //  *           password  - string   - what the user typed in the password field
+    //  *           onSuccess - function - called with { id, name, email } if match found
+    //  *           onFail    - function - called with an error message string if no match
+    //  *   OUTPUT: nothing returned — result comes via the callback functions
+    //  *   NOTE:   internally calls fetchJSON('/api/users.json', ...) to get the user list
+    //  *           called by Person E on the login page
+
+    fetchJSON('./api/users', (response) => {
         for (const u of response) {
             if (u.email == email && u.password == password) {
-                valid = true
-                break
+                onSuccess({ id: u.id, name: u.name, email: u.email })
+                return
             }
         }
-    }, null)
-    return valid
+        onFail('Incorrect email or password.')
+    }, function () {
+        onFail('Could not load user data.')
+    })
 }

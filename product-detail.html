@@ -225,53 +225,63 @@
 
 
   <!-- ********************************************************** -->
-   <section class="reviews-section">
+  <section class="reviews-section">
     <h2>Customer Reviews</h2>
 
     <div class="reviews-container">
 
-     <div class="reviews-left">
-    <p class="big-rating" id="big-rating">4.8</p>
-    <div class="stars" id="review-stars">
-        <i class="fa-solid fa-star"></i>
-        <i class="fa-solid fa-star"></i>
-        <i class="fa-solid fa-star"></i>
-        <i class="fa-solid fa-star"></i>
-        <i class="fa-solid fa-star-half-stroke"></i>
-    </div>
-    <br>
-    <p class="reviews-count">Based on <span id="reviews-count">124</span> reviews</p>
-</div>
-        <div class="reviews-right">
-            <div class="bar-row">
-                <span>5</span>
-                <div class="bar-track"><div class="bar-fill" style="width: 80%"></div></div>
-                <span>80%</span>
-            </div>
-            <div class="bar-row">
-                <span>4</span>
-                <div class="bar-track"><div class="bar-fill" style="width: 12%"></div></div>
-                <span>12%</span>
-            </div>
-            <div class="bar-row">
-                <span>3</span>
-                <div class="bar-track"><div class="bar-fill" style="width: 5%"></div></div>
-                <span>5%</span>
-            </div>
-            <div class="bar-row">
-                <span>2</span>
-                <div class="bar-track"><div class="bar-fill" style="width: 1%"></div></div>
-                <span>1%</span>
-            </div>
-            <div class="bar-row">
-                <span>1</span>
-                <div class="bar-track"><div class="bar-fill" style="width: 2%"></div></div>
-                <span>2%</span>
-            </div>
+      <div class="reviews-left">
+        <p class="big-rating" id="big-rating">4.8</p>
+        <div class="stars" id="review-stars">
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star-half-stroke"></i>
         </div>
+        <br>
+        <p class="reviews-count">Based on <span id="reviews-count">124</span> reviews</p>
+      </div>
+      <div class="reviews-right">
+        <div class="bar-row">
+          <span>5</span>
+          <div class="bar-track">
+            <div class="bar-fill" style="width: 80%"></div>
+          </div>
+          <span>80%</span>
+        </div>
+        <div class="bar-row">
+          <span>4</span>
+          <div class="bar-track">
+            <div class="bar-fill" style="width: 12%"></div>
+          </div>
+          <span>12%</span>
+        </div>
+        <div class="bar-row">
+          <span>3</span>
+          <div class="bar-track">
+            <div class="bar-fill" style="width: 5%"></div>
+          </div>
+          <span>5%</span>
+        </div>
+        <div class="bar-row">
+          <span>2</span>
+          <div class="bar-track">
+            <div class="bar-fill" style="width: 1%"></div>
+          </div>
+          <span>1%</span>
+        </div>
+        <div class="bar-row">
+          <span>1</span>
+          <div class="bar-track">
+            <div class="bar-fill" style="width: 2%"></div>
+          </div>
+          <span>2%</span>
+        </div>
+      </div>
 
     </div>
-</section>
+  </section>
 
 
 
@@ -286,7 +296,10 @@
   <script>
     fetch('footer.html')
       .then(r => r.text())
-      .then(html => document.body.insertAdjacentHTML('beforeend', html))
+      .then(function (html) {
+        document.body.insertAdjacentHTML('beforeend', html)
+        initFeedbackModal()
+      })
   </script>
 
 

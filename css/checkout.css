@@ -106,11 +106,11 @@ h1.checkout-title {
 
 /* ── Payment card ─────────────────────────────────────────── */
 /*
-    In HTML: <div class="card"> replaces .payment-card
-    The negative margins on .payment-card-header pull it flush
+    In HTML: <div class="card"> replaces .card
+    The negative margins on .card-header pull it flush
     against the .card padding so the header bleeds to the edges.
 */
-.payment-card-header {
+.card-header {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -120,7 +120,7 @@ h1.checkout-title {
     margin: -22.5px -22.5px 20px;
 }
 
-.payment-card-header .left {
+.card-header .left {
     display: flex;
     align-items: center;
     gap: 10px;
@@ -128,11 +128,11 @@ h1.checkout-title {
     font-size: 15px;
 }
 
-.payment-card-header .left i {
+.card-header .left i {
     color: #BD590E;
 }
 
-.payment-card-body {
+.card-body {
     display: flex;
     flex-direction: column;
     gap: 14px;
@@ -414,17 +414,5 @@ h1.checkout-title {
 @keyframes spin {
     to {
         transform: rotate(360deg);
-    }
-}
-
-/* ── Responsive ───────────────────────────────────────────── */
-@media (max-width: 860px) {
-    .checkout-wrapper {
-        grid-template-columns: 1fr;
-    }
-
-    .order-summary {
-        position: static;
-        order: -1;
     }
 }

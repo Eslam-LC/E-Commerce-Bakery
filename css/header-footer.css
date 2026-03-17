@@ -279,10 +279,10 @@ body {
     cursor: pointer;
     color: #aaa;
     line-height: 1;
-}
 
-.modal-close:hover {
-    color: #333;
+    &:hover {
+        color: #333;
+    }
 }
 
 .modal-success {
@@ -292,9 +292,58 @@ body {
     gap: 10px;
     padding: 20px 0;
     text-align: center;
+
+    & i {
+        color: #BD590E;
+        font-size: 40px;
+    }
 }
 
-.modal-success i {
-    font-size: 40px;
-    color: #BD590E;
+.card {
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    padding: 22.5px;
+    /* padding: 1.5rem; */
+}
+
+/* Add to header-footer.css */
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.3rem;
+    font-weight: bold;
+}
+
+input,
+textarea {
+    width: 100%;
+    padding: 0.6rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-family: inherit;
+    font-size: 1rem;
+}
+
+input:focus,
+textarea:focus {
+    outline: none;
+    border-color: goldenrod;
+    box-shadow: 0 0 0 2px rgba(218, 165, 32, 0.2);
+}
+
+/* Ensure the submit button uses .btn-primary (already in global.css) */
+.btn-primary {
+    background-color: goldenrod;
+    color: #fff;
+    border: 2px solid goldenrod;
+}
+
+.btn-primary:hover {
+    background-color: #b8860b;
+    border-color: #b8860b;
 }
