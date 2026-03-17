@@ -67,8 +67,8 @@
 
     /* PAGE LAYOUT */
     .current-page {
-      border-bottom: 2px solid #BD590E;
-      color: #BD590E;
+      border-bottom: 2px solid goldenrod;
+      color: goldenrod;
     }
 
     #page-layout {
@@ -108,7 +108,6 @@
       margin-right: 8px;
       accent-color: #c46b1c;
       cursor: pointer;
-
     }
 
     /* RESULTS HEADER */
@@ -226,31 +225,32 @@
 
 <body>
 
-
   <!-- ═══ HEADER — copy from this line ═══════════════════════════════ -->
-  <header class="site-header">
+  <header class="site-header ">
     <div class="container flex-between">
-      <div class="dark-bg">
-        <svg width="160" height="57" viewBox="0 6 200 60" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M 60 28 Q 100 8 140 28" stroke="#DAA520" stroke-width="1.2" fill="none" stroke-linecap="round"
-            opacity="0.7" />
-          <circle cx="60" cy="28" r="2" fill="#DAA520" opacity="0.6" />
-          <circle cx="80" cy="17" r="2" fill="#DAA520" opacity="0.6" />
-          <circle cx="100" cy="13" r="2.5" fill="#DAA520" />
-          <circle cx="120" cy="17" r="2" fill="#DAA520" opacity="0.6" />
-          <circle cx="140" cy="28" r="2" fill="#DAA520" opacity="0.6" />
-          <text x="100" y="46" text-anchor="middle" font-family="'Playfair Display', serif" font-weight="700"
-            font-size="26" fill="#1a1008" letter-spacing="8">BAKE</text>
-          <line x1="52" y1="52" x2="148" y2="52" stroke="#DAA520" stroke-width="0.8" opacity="0.6" />
-          <text x="100" y="66" text-anchor="middle" font-family="'Cormorant Garamond', serif" font-weight="300"
-            font-size="14" fill="#8B6914" letter-spacing="10">HAVEN</text>
-        </svg>
+      <div class="header-logo">
+        <div class="dark-bg">
+          <svg width="200" height="72" viewBox="0 0 200 72" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M 60 28 Q 100 8 140 28" stroke="#BD590E" stroke-width="1.2" fill="none" stroke-linecap="round"
+              opacity="0.7" />
+            <circle cx="60" cy="28" r="2" fill="#BD590E" opacity="0.6" />
+            <circle cx="80" cy="17" r="2" fill="#BD590E" opacity="0.6" />
+            <circle cx="100" cy="13" r="2.5" fill="#BD590E" />
+            <circle cx="120" cy="17" r="2" fill="#BD590E" opacity="0.6" />
+            <circle cx="140" cy="28" r="2" fill="#BD590E" opacity="0.6" />
+            <text x="100" y="46" text-anchor="middle" font-family="'Playfair Display', serif" font-weight="700"
+              font-size="26" fill="#333" letter-spacing="8">BAKE</text>
+            <line x1="52" y1="52" x2="148" y2="52" stroke="#BD590E" stroke-width="0.8" opacity="0.6" />
+            <text x="100" y="66" text-anchor="middle" font-family="'Cormorant Garamond', serif" font-weight="300"
+              font-size="14" fill="#BD590E" letter-spacing="10">HAVEN</text>
+          </svg>
+        </div>
       </div>
 
       <nav>
         <ul class="header-nav">
           <li><a href="./index.html">Home</a></li>
-          <li><a href="./products.html">Products</a></li>
+          <li><a class="current-page" href="./products.html">Products</a></li>
         </ul>
       </nav>
 
@@ -292,6 +292,7 @@
       </div>
     </div>
   </main>
+
 
   <!-- ═══ FOOTER — copy from this line ══════════════════════════════ -->
   <footer class="site-footer">
@@ -364,12 +365,23 @@
   </footer>
   <!-- ═══ FOOTER — copy to this line ════════════════════════════════ -->
 
-
   <script src="./js/api.js"></script>
   <script src="./js/cart.js"></script>
   <script src="./js/user.js"></script>
   <script src="./js/event.js"></script>
-  <script src="./js/products-page.js"></script>
+  <script src="./js/products-page.js">
+    // TODO (Person C): your page script goes here
+    // var allProducts = []   ← store the full list here after fetch
+    //
+    // Step 1 — on load: call updateCartBadge() and updateAccountIcon()
+    // Step 2 — fetchJSON('/api/products.json', function(products) {
+    //              allProducts = products
+    //              renderGrid(allProducts)
+    //              build the category checkboxes from the data
+    //          })
+    // Step 3 — write renderGrid(list) — clears #product-grid and redraws cards
+    // Step 4 — wire each filter to run renderGrid() with a filtered list
+  </script>
 </body>
 
 </html>

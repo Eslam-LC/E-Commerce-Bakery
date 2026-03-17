@@ -319,8 +319,8 @@ body {
     font-weight: bold;
 }
 
-input,
-textarea {
+#feedback-modal-container input,
+#feedback-modal-container textarea {
     width: 100%;
     padding: 0.6rem;
     border: 1px solid #ccc;
