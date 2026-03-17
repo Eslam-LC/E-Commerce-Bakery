@@ -86,7 +86,7 @@ function logout() {
         // updateAccountIcon()
     }
     updateAccountIcon()
-    window.location.href = '/index.html'
+    window.location.href = './index.html'
 }
 
 function updateAccountIcon() {
