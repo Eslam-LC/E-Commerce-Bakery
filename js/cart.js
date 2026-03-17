@@ -70,7 +70,7 @@ function updateCartBadge() {
     var badge = document.getElementById("cart-badge");
     if (badge) badge.innerText = getItemCount();
 }
- 
+
 function renderCart() {
     var cart = getCart();
     var box = document.getElementById("cart-content");
@@ -95,10 +95,10 @@ function renderCart() {
 
             for (var i = 0; i < cart.length; i++) {
                 var item = cart[i];
-               var product = null;
-                for (var i = 0; i < products.length; i++) {
-                    if (products[i].id == item.productId) {
-                        product = products[i];
+                var product = null;
+                for (var j = 0; j < products.length; j++) {
+                    if (products[j].id == item.productId) {
+                        product = products[j];
                         break;
                     }
                 }
@@ -114,7 +114,7 @@ function renderCart() {
                     } else {
                         shortDesc = product.description;
                     }
-                } 
+                }
 
                 var imgSrc = product.thumbnail;
                 if (!imgSrc.startsWith("http")) {
@@ -137,8 +137,7 @@ function renderCart() {
                     '</div>';
             }
 
-            var tax = subtotal * 0.08;
-            var total = subtotal + 5 + tax;
+            var total = subtotal;
 
             box.innerHTML =
                 '<div class="cart-layout">' +
@@ -153,14 +152,12 @@ function renderCart() {
                 '<div class="cart-right"><div class="order-summary">' +
                 '<h3>Order Summary</h3>' +
                 '<div class="summary-row"><span>Subtotal</span><span>$' + subtotal.toFixed(2) + '</span></div>' +
-                '<div class="summary-row"><span>Shipping</span><span>$5.00</span></div>' +
-                '<div class="summary-row"><span>Tax (8%)</span><span>$' + tax.toFixed(2) + '</span></div>' +
                 '<hr>' +
                 '<div class="summary-row total"><span>Total</span><span>$' + total.toFixed(2) + '</span></div>' +
                 '<a href="/checkout.html" target="_blank" class="btn btn-primary checkout-btn">Proceed to Checkout</a>' +
                 '</div></div></div>';
         }
- };
+    };
     xhr.send();
 }
 
