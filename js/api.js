@@ -46,7 +46,7 @@ function fetchJSON(url, onSuccess, onError) {
     XHR.responseType = 'json'
     XHR.send()
     XHR.onload = () => {
-        if (XHR.status !== 200 && XHR.status !== 304 && XHR.status !== 0) {
+        if (XHR.status !== 200) {
             console.error(`not ok response ${XHR.status}`)
             return
         }
