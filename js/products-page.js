@@ -2,6 +2,7 @@ updateCartBadge()
 updateAccountIcon()
 
 var allProducts = []
+var categoryParam = null
 
 var xhr = new XMLHttpRequest()
 xhr.open('GET', 'https://raw.githubusercontent.com/Eslam-LC/E-Commerce-Bakery/refs/heads/main/api/products')
@@ -12,7 +13,15 @@ xhr.onload = function () {
 
     allProducts = xhr.response
 
-    renderGrid(allProducts)
+    const urlParams = new URLSearchParams(window.location.search)
+    categoryParam = urlParams.get('category')
+
+    let initialProducts = allProducts
+    if (categoryParam) {
+        initialProducts = allProducts.filter(p => p.category === categoryParam)
+    }
+
+    renderGrid(initialProducts)
     buildCategories(allProducts)
 }
 
@@ -86,6 +95,14 @@ function buildCategories(products) {
     }
 
     document.getElementById("search").addEventListener("input", applyFilters)
+
+    if (categoryParam) {
+        const checkbox = document.querySelector(`input.cat-filter[value="${categoryParam}"]`);
+        if (checkbox) {
+            checkbox.checked = true;
+        }
+        applyFilters();
+    }
 }
 
 function applyFilters() {

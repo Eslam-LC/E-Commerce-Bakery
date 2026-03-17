@@ -1,5 +1,5 @@
-var params=new URLSearchParams(location.search);
-var id =params.get("id")
+var params = new URLSearchParams(location.search);
+var id = params.get("id")
 console.log(id)
 
 // var id = 26
@@ -7,7 +7,7 @@ console.log(id)
 
 
 var xhr = new XMLHttpRequest();
-xhr.open('GET', `./api/products`);
+xhr.open('GET', './api/products');
 xhr.responseType = "json";
 xhr.send();
 xhr.onload = function () {
@@ -111,38 +111,12 @@ xhr.onload = function () {
         }
     });
 
-document.getElementsByClassName("add-to-cart")[0].addEventListener('click'  ,function (){
-
-    var cart = JSON.parse(localStorage.getItem("cart")) || []
-
-
-    var existing = cart.find(function (item) {
-        return item.id == product.id;
+    document.getElementsByClassName("add-to-cart")[0].addEventListener('click', function () {
+        addToCart(product.id, qty);
+        window.location.href = "./cart.html";
     });
 
 
-    if (existing) {
-        existing.quantity += qty;
-    } else {
-        cart.push({
-            id: product.id,
-            name: product.name,
-            price: product.price,
-            thumbnail: product.thumbnail,
-            quantity: qty
-        });
-    }
-
-
-
-
-
-    localStorage.setItem("cart", JSON.stringify(cart));
-   window.location.href = "./cart.html";
-
-
-    });
-    
 
 
 }

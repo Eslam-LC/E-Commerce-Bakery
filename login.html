@@ -1,100 +1,203 @@
-<!--
-  PAGE:     login.html  (Sign In)
-  OWNER:    Person E
-
-  WHAT THIS PAGE IS:
-    The sign-in page. The user enters their email and password.
-    The credentials are checked against /api/users.json.
-    On success the session is saved and the user is redirected home.
-    On failure an error message appears below the form.
-
-  WHAT THE USER CAN DO HERE:
-    - Enter email and password and log in
-    - See an error if credentials are wrong
-    - Click a link to go to register.html instead
-
-  CONNECTS TO:
-    ← Any page       (arrived via account icon in header when logged out)
-    → index.html     (redirect on successful login)
-    → register.html  ("Don't have an account?" link)
-
-  YOUR JS TASK:
-    - On page load: call updateCartBadge() and updateAccountIcon()
-    - If isLoggedIn() is true → redirect to /index.html immediately
-      (no point showing login to someone already logged in)
-    - On "Login" button click:
-        1. Read the email and password input values
-        2. Basic check: are they empty? If yes, show an error
-        3. Call validateCredentials(email, password, onSuccess, onFail)
-           onSuccess → call login(userData) then redirect to /index.html
-           onFail    → show the error message in #login-error
-
-  CSS GUIDELINES:
-    - Centre the form card on the page using .flex-center on <main>
-    - Use .card for the form wrapper, max-width around 400px
-    - Use .form-group for each label + input pair (defined in global.css)
-    - Use .btn .btn-primary for the login button, full width
-    - Error message starts hidden (display:none) — your JS sets display:block
-      and fills in the message text when login fails
-    - Add page-specific styles inside the <style> block in <head>
--->
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
+
   <meta charset="UTF-8">
-  <title>BakeHaven — Sign In</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>BakeHaven Login</title>
+
   <link rel="stylesheet" href="./css/header-footer.css">
+  <link rel="stylesheet" href="./css/main.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-  <style>
-    /* Person E: page-specific styles go here */
-  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
 </head>
 
 <body>
 
-  <script>
-    fetch('header.html')
-      .then(r => r.text())
-      .then(html => document.body.insertAdjacentHTML('afterbegin', html))
-  </script>
 
-  <main class="page-main flex-center">
-    <div class="card" id="login-card">
-      <h2>Sign In</h2>
-
-      <!-- Hidden by default — shown by JS when login fails -->
-      <p id="login-error" style="display:none; color:#c0392b;"></p>
-
-      <div class="form-group">
-        <label for="login-email">Email</label>
-        <input type="email" id="login-email" placeholder="you@example.com">
+  <header class="site-header">
+    <div class="container flex-between">
+      <div class="header-logo">
+        <div class="dark-bg">
+          <svg width="200" height="72" viewBox="0 0 200 72" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M 60 28 Q 100 8 140 28" stroke="#BD590E" stroke-width="1.2" fill="none" stroke-linecap="round"
+              opacity="0.7" />
+            <circle cx="60" cy="28" r="2" fill="#BD590E" opacity="0.6" />
+            <circle cx="80" cy="17" r="2" fill="#BD590E" opacity="0.6" />
+            <circle cx="100" cy="13" r="2.5" fill="#BD590E" />
+            <circle cx="120" cy="17" r="2" fill="#BD590E" opacity="0.6" />
+            <circle cx="140" cy="28" r="2" fill="#BD590E" opacity="0.6" />
+            <text x="100" y="46" text-anchor="middle" font-family="'Playfair Display', serif" font-weight="700"
+              font-size="26" fill="#333" letter-spacing="8">BAKE</text>
+            <line x1="52" y1="52" x2="148" y2="52" stroke="#BD590E" stroke-width="0.8" opacity="0.6" />
+            <text x="100" y="66" text-anchor="middle" font-family="'Cormorant Garamond', serif" font-weight="300"
+              font-size="14" fill="#BD590E" letter-spacing="10">HAVEN</text>
+          </svg>
+        </div>
       </div>
 
-      <div class="form-group">
-        <label for="login-password">Password</label>
-        <input type="password" id="login-password" placeholder="••••••••">
+      <nav>
+        <ul class="header-nav">
+          <li><a href="./index.html">Home</a></li>
+          <li><a href="./products.html">Products</a></li>
+        </ul>
+      </nav>
+
+      <div class="header-actions">
+        <a href="./cart.html" class="cart-link fa fa-cart-shopping">
+          <span id="cart-badge">0</span>
+        </a>
+        <div style="position: relative">
+          <a href="./login.html" id="account-link">
+            <button class="account-btn fa-solid fa-user" id="account-btn"></button>
+          </a>
+          <div class="account-dropdown" id="account-dropdown">
+            <button id="logout-btn">Logout</button>
+          </div>
+        </div>
       </div>
-
-      <button class="btn btn-primary" id="login-btn">Login</button>
-
-      <p>Don't have an account? <a href="./register.html">Register</a></p>
     </div>
-  </main>
+  </header>
 
-  <script>
-    fetch('footer.html')
-      .then(r => r.text())
-      .then(function (html) {
-        document.body.insertAdjacentHTML('beforeend', html)
-        initFeedbackModal()
-      })
-  </script>
+
+
+  <section class="login-card">
+
+    <div class="card-image"></div>
+
+    <div class="card-content">
+
+      <h2>Welcome Back</h2>
+
+      <p class="subtitle">
+        Freshly baked treats are just a login away.
+      </p>
+
+      <form>
+
+        <label>Email Address</label>
+
+        <div class="input-group">
+          <i class="fa-solid fa-envelope"></i>
+          <input type="email" id="login-email" placeholder="mohammed@example.com">
+        </div>
+
+
+        <label>Password</label>
+
+        <div class="input-group">
+          <i class="fa-solid fa-lock"></i>
+          <input type="password" id="login-password" placeholder="********">
+        </div>
+
+
+        <div class="options">
+
+          <label class="remember">
+            <input type="checkbox" id="remember-me">
+            Remember me
+          </label>
+
+          <a href="#" id="forgot-link">Forgot password?</a>
+
+        </div>
+
+        <p id="login-error" style="color:red; font-size:13px; display:none;"></p>
+
+        <button type="button" class="login-btn" id="login-btn">
+          Sign In
+          <i class="fa-solid fa-arrow-right"></i>
+        </button>
+
+      </form>
+
+
+      <p class="create-account">
+        New to BakeHaven?
+        <a href="register.html">Create an Account</a>
+      </p>
+
+    </div>
+
+  </section>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="flex-between">
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <p>contact@bakehaven.com</p>
+          <p>+20 15 5555 0199</p>
+          <p>+20 2 2555 0199</p>
+        </div>
+        <div class="footer-col">
+          <h4>Social Media</h4>
+          <ul>
+            <li><a href="">Instagram</a></li>
+            <li><a href="">TikTok</a></li>
+            <li><a href="">Facebook</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Feedback</h4>
+          <p>We'd love to hear from you.</p>
+          <button class="btn btn-outline" id="feedback-btn">Send Feedback</button>
+        </div>
+      </div>
+      <div class="footer-bottom">&copy; 2026 BakeHaven. All rights reserved.</div>
+    </div>
+    <div id="feedback-modal-container"></div>
+  </footer>
+
+
+  <!-- FEEDBACK MODAL -->
+  <div class="modal-overlay" id="feedback-modal">
+    <div class="modal-box">
+      <button class="modal-close" id="feedback-close-btn">&times;</button>
+
+      <!-- Form view -->
+      <div id="feedback-form-view">
+        <h3>Send us feedback</h3>
+        <p class="modal-subtitle">We read every message and use it to improve.</p>
+
+        <div class="form-group">
+          <label>Name</label>
+          <input type="text" id="fb-name" placeholder="Your name">
+        </div>
+        <div class="form-group">
+          <label>Email</label>
+          <input type="email" id="fb-email" placeholder="you@example.com">
+        </div>
+        <div class="form-group">
+          <label>Message</label>
+          <textarea id="fb-message" rows="4"
+            style="width:100%; padding:10px 14px; border:1px solid #ddd; border-radius:8px; font-family:inherit; font-size:14px; resize:vertical;"
+            placeholder="Tell us what you think…"></textarea>
+        </div>
+        <p id="fb-error" style="color:#c0392b; font-size:13px; display:none; margin-bottom:12px;"></p>
+        <button class="btn btn-primary" style="width:100%;" onclick="submitFeedback()">
+          Submit Feedback
+        </button>
+      </div>
+
+      <!-- Success view (hidden until submitted) -->
+      <div class="modal-success" id="feedback-success-view">
+        <i class="fa fa-circle-check"></i>
+        <p>Thank you for your feedback!</p>
+        <span style="font-size:13px; color:#888;">This window will close automatically.</span>
+      </div>
+    </div>
+  </div>
 
   <script src="./js/api.js"></script>
   <script src="./js/cart.js"></script>
   <script src="./js/user.js"></script>
   <script src="./js/event.js"></script>
+  <script src="./js/login.js"></script>
+
 
 </body>
 
