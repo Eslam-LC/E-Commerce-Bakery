@@ -114,7 +114,9 @@ function renderCart() {
             var html = "";
             var subtotal = 0;
 
+            console.log(cart.length);
             for (var i = 0; i < cart.length; i++) {
+
                 var item = cart[i];
                 var product = null;
                 for (var i = 0; i < products.length; i++) {
@@ -124,6 +126,7 @@ function renderCart() {
                     }
                 }
                 if (!product) continue;
+
 
                 var price = product.price * item.quantity;
                 subtotal += price;
