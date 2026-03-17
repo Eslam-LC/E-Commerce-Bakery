@@ -86,7 +86,7 @@ function logout() {
         // updateAccountIcon()
     }
     updateAccountIcon()
-    window.location.href = '../index.html'
+    window.location.href = './index.html'
 }
 
 function updateAccountIcon() {
@@ -107,15 +107,13 @@ function updateAccountIcon() {
 }
 
 function validateCredentials(email, password, onSuccess, onFail) {
-    // not fully implemented yet
-    var valid = false
-    fetchJSON('../api/users', (response) => {
-        for (const u of response) {
-            if (u.email == email && u.password == password) {
-                valid = true
-                break
+    fetchJSON('api/users', function (users) {
+        for (var i = 0; i < users.length; i++) {
+            if (users[i].email == email && users[i].password == password) {
+                onSuccess({ id: users[i].id, name: users[i].name, email: users[i].email });
+                return;
             }
         }
-    }, null)
-    return valid
+        onFail('Wrong email or password.');
+    });
 }
