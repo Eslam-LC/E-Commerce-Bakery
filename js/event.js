@@ -58,7 +58,7 @@ function toggleDropdownMenu() {
       FEEDBACK MODAL
    ══════════════════════════════════════════════════════════ */
 
-function initFeedbackModal() {
+document.addEventListener('DOMContentLoaded', function () {
     feedbackModal = document.getElementById('feedback-modal')
     document.getElementById('feedback-btn').addEventListener('click', openFeedback)
     document.getElementById('feedback-close-btn').addEventListener('click', closeFeedback)
@@ -68,7 +68,7 @@ function initFeedbackModal() {
     document.addEventListener('keydown', function (e) {
         if (e.key === 'Escape' && feedbackModal.classList.contains('open')) closeFeedback()
     })
-}
+})
 
 function openFeedback() {
     /* Reset to form view in case success was shown before */
