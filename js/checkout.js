@@ -149,13 +149,14 @@ function completePurchase() {
     }
 
     var address = {
-        address: document.getElementById('ship-address'),
+        addr: document.getElementById('ship-address'),
         city: document.getElementById('ship-city'),
         country: document.getElementById('ship-country'),
 
     }
+    // console.log(address);
     for (const key in address) {
-        const E = data[key];
+        const E = address[key];
 
         if (!E || !E.value.trim()) {
             E && E.focus()
@@ -169,13 +170,16 @@ function completePurchase() {
         cvv: document.getElementById('card-cvv'),
 
     }
-    for (const E of payment) {
+    // console.log(payment)
+    for (const key in payment) {
+        const E = payment[key];
 
         if (!E || !E.value.trim()) {
             E && E.focus()
             return
         }
     }
+
 
 
     /* Show processing overlay */
