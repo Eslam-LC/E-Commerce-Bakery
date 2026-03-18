@@ -45,8 +45,7 @@ E-Commerce-Bakery/
 ├── js/
 │   └── main.js         # Core JavaScript logic
 │
-└── assets/
-    └── images/         # Product and UI images
+└── images/         # Product and UI images
 ```
  
 ---
