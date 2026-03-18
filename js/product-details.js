@@ -116,7 +116,7 @@ xhr.onload = function () {
         var cart = JSON.parse(localStorage.getItem("bh_cart")) || []
 
         var existing = cart.find(function (item) {
-            return item.id == product.id;
+            return item.productId == product.id;
         });
 
 
