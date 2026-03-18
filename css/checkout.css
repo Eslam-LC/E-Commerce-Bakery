@@ -1,303 +1,260 @@
-/* ── Page layout ──────────────────────────────────────────── */
-.checkout-wrapper {
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 40px 24px 80px;
-    display: grid;
-    grid-template-columns: 1fr 420px;
-    gap: 48px;
-    align-items: start;
+* {
+    box-sizing: border-box;
 }
 
-/* ── Breadcrumb ───────────────────────────────────────────── */
+body {
+    background-color: #f9f8f6;
+}
+
+/* ── Layout ── */
+
+.checkout-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 420px;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.checkout-wrapper > div:first-child {
+    padding: 32px 48px 48px 32px;
+    background: #ffffff;
+}
+
+/* ── Breadcrumb ── */
+
 .breadcrumb {
     display: flex;
     align-items: center;
-    gap: 6px;
+    gap: 8px;
     font-size: 13px;
-    margin-bottom: 28px;
-    color: #aaa;
+    color: #6b7280;
+    margin-bottom: 24px;
 }
 
 .breadcrumb a {
-    color: #aaa;
+    color: #BD590E;
     text-decoration: none;
+    font-weight: 500;
 }
 
-.breadcrumb a:hover {
-    color: #BD590E;
+.breadcrumb .fa-chevron-right {
+    font-size: 10px;
+    color: #9ca3af;
 }
 
 .breadcrumb .current {
-    color: #333;
     font-weight: 600;
+    color: #1a1a1a;
 }
 
-.breadcrumb i {
-    font-size: 11px;
+/* ── Title ── */
+
+.checkout-title {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 28px;
 }
 
-h1.checkout-title {
-    font-size: 32px;
-    font-weight: 900;
-    letter-spacing: -0.5px;
-    margin-bottom: 36px;
-}
+/* ── Sections ── */
 
-/* ── Sections ─────────────────────────────────────────────── */
 .checkout-section {
-    margin-bottom: 36px;
+    margin-bottom: 32px;
 }
 
 .checkout-section h2 {
-    font-size: 18px;
-    font-weight: 700;
-    margin-bottom: 16px;
-    padding-bottom: 10px;
-    border-bottom: 1px solid #eee;
-}
-
-/* ── Contact card ─────────────────────────────────────────── */
-/*
-    In HTML: <div class="card flex-between"> replaces .contact-card
-    Only the inner parts need rules here.
-*/
-.contact-card-info {
-    display: flex;
-    align-items: center;
-    gap: 14px;
-}
-
-.contact-avatar {
-    width: 44px;
-    height: 44px;
-    border-radius: 50%;
-    background: #BD590E;
-    color: #fff;
-    font-weight: 900;
-    font-size: 18px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
-}
-
-.contact-name {
-    font-weight: 700;
-    font-size: 15px;
-}
-
-.contact-email {
     font-size: 13px;
-    color: #888;
-    margin-top: 2px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #6b7280;
+    margin-bottom: 14px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #e5e7eb;
 }
 
-/* ── Address grid ─────────────────────────────────────────── */
+/* ── Inputs ── */
+
+.checkout-wrapper input[type="text"],
+.checkout-wrapper input[type="email"] {
+    width: 100%;
+    padding: 10px 14px;
+    border: 1px solid #e5e7eb;
+    border-radius: 4px;
+    font-size: 14px;
+    outline: none;
+}
+
+.checkout-wrapper input:focus {
+    border-color: #BD590E;
+    box-shadow: 0 0 0 3px rgba(189, 89, 14, 0.12);
+}
+
+.checkout-wrapper input::placeholder {
+    color: #9ca3af;
+}
+
+.checkout-wrapper .form-group label {
+    display: block;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #6b7280;
+    margin-bottom: 6px;
+}
+
+.checkout-wrapper .form-group {
+    margin-bottom: 0;
+}
+
+/* ── Address grid ── */
+
 .address-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 14px;
+    gap: 14px 20px;
 }
 
 .address-grid .full-width {
     grid-column: 1 / -1;
 }
 
-/* ── Payment card ─────────────────────────────────────────── */
-/*
-    In HTML: <div class="card"> replaces .card
-    The negative margins on .card-header pull it flush
-    against the .card padding so the header bleeds to the edges.
-*/
+/* ── Payment card ── */
+
+#payment-section .card {
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    box-shadow: none;
+    padding: 0;
+    overflow: hidden;
+}
+
 .card-header {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 14px 20px;
-    background: #fdf8f0;
-    border-bottom: 1px solid #eee;
-    margin: -22.5px -22.5px 20px;
+    padding: 14px 18px;
+    background: #fafaf9;
+    border-bottom: 1px solid #e5e7eb;
+    font-size: 14px;
+    font-weight: 600;
 }
 
 .card-header .left {
     display: flex;
     align-items: center;
     gap: 10px;
-    font-weight: 700;
-    font-size: 15px;
 }
 
-.card-header .left i {
+.card-header .fa-credit-card {
     color: #BD590E;
 }
 
 .card-body {
+    padding: 20px 18px;
     display: flex;
     flex-direction: column;
-    gap: 14px;
+    gap: 16px;
 }
 
 .card-number-wrap {
     position: relative;
 }
 
-.card-number-wrap input {
-    padding-right: 40px;
+.card-number-wrap .fa-lock {
+    position: absolute;
+    right: 14px;
+    top: 50%;
+    transform: translateY(6px);
+    color: #9ca3af;
+    font-size: 13px;
 }
 
-.card-number-wrap i {
-    position: absolute;
-    right: 12px;
-    top: 50%;
-    transform: translateY(-50%);
-    color: #ccc;
-    font-size: 14px;
+.card-number-wrap input {
+    padding-right: 40px;
 }
 
 .payment-row {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 14px;
+    gap: 16px;
 }
 
-/* ── Complete purchase button ─────────────────────────────── */
-/*
-    In HTML: class="btn btn-primary complete-btn"
-    .btn and .btn-primary come from header-footer.css.
-    Only the checkout-specific overrides live here.
-*/
+/* ── Complete button ── */
+
 .complete-btn {
     width: 100%;
+    padding: 16px;
+    font-size: 15px;
+    font-weight: 600;
+    background-color: #BD590E;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 10px;
     margin-top: 8px;
-    border-radius: 10px;
-    font-size: 16px;
+    transition: background-color 0.2s;
 }
 
-.complete-btn:active {
-    transform: scale(0.99);
+.complete-btn:hover {
+    background-color: #964708;
+    border-bottom: none;
+    color: #fff;
 }
 
 .secure-note {
-    text-align: center;
-    font-size: 12px;
-    color: #aaa;
-    margin-top: 10px;
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 5px;
+    gap: 6px;
+    font-size: 12px;
+    color: #9ca3af;
+    margin-top: 10px;
 }
 
-/* ── Order summary ────────────────────────────────────────── */
-/*
-    In HTML: class="card order-summary"
-    .card comes from header-footer.css.
-    Only sticky positioning override needed here.
-*/
+/* ── Order Summary ── */
+
 .order-summary {
     position: sticky;
-    top: 90px;
+    top: 80px;
+    background: #f3f0eb;
+    border-left: 1px solid #e5e7eb;
+    min-height: 100vh;
+    padding: 32px 28px 48px;
 }
 
 .order-summary h2 {
-    font-size: 17px;
-    font-weight: 700;
-    margin-bottom: 20px;
-}
-
-/* ── Compact item list ────────────────────────────────────── */
-.order-items {
-    display: flex;
-    flex-direction: column;
-    gap: 0;
-    margin-bottom: 20px;
-    border: 1px solid #ede5d8;
-    border-radius: 8px;
-    overflow: hidden;
-}
-
-.order-item {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 11px 14px;
     font-size: 13px;
-    border-bottom: 1px solid #ede5d8;
-    background: #fff;
-}
-
-.order-item:last-child {
-    border-bottom: none;
-}
-
-.order-item-left {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    flex: 1;
-}
-
-.order-item-qty {
-    background: #BD590E;
-    color: #fff;
-    font-size: 11px;
-    font-weight: 700;
-    width: 20px;
-    height: 20px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
-}
-
-.order-item-name {
     font-weight: 600;
-    color: #333;
-}
-
-.order-item-price {
-    font-weight: 700;
-    color: #333;
-    white-space: nowrap;
-    margin-left: 10px;
-}
-
-.order-empty {
-    padding: 20px;
-    text-align: center;
-    color: #aaa;
-    font-size: 13px;
-    background: #fff;
-}
-
-/* ── Donation row ─────────────────────────────────────────── */
-.donation-row {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
     margin-bottom: 20px;
-    padding: 14px 16px;
-    background: #fff;
-    border: 1px solid #ede5d8;
-    border-radius: 8px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid #ddd7ce;
+}
+
+/* ── Donation buttons ── */
+
+.donation-row {
+    padding: 14px 0;
+    border-bottom: 1px solid #ddd7ce;
+    margin-bottom: 4px;
 }
 
 .donation-label {
     display: flex;
     align-items: center;
-    gap: 8px;
+    gap: 7px;
     font-size: 13px;
-    font-weight: 600;
-    color: #555;
+    font-weight: 500;
+    margin-bottom: 10px;
 }
 
-.donation-label i {
+.donation-label .fa-heart {
     color: #BD590E;
 }
 
@@ -308,111 +265,97 @@ h1.checkout-title {
 
 .donation-btn {
     flex: 1;
-    padding: 8px 0;
-    border: 1px solid #ddd;
-    border-radius: 6px;
-    background: #fff;
+    padding: 7px 4px;
     font-size: 13px;
     font-weight: 600;
+    border: 1px solid #e5e7eb;
+    border-radius: 4px;
+    background: #ffffff;
+    color: #6b7280;
     cursor: pointer;
-    color: #555;
     transition: all 0.15s;
 }
 
-.donation-btn:hover {
-    border-color: #BD590E;
-    color: #BD590E;
-}
-
-.donation-btn.selected {
+.donation-btn:hover,
+.donation-btn.active {
     background: #BD590E;
     border-color: #BD590E;
     color: #fff;
 }
 
-/* ── Pricing breakdown ────────────────────────────────────── */
+/* ── Pricing ── */
+
 .pricing-breakdown {
-    border-top: 1px solid #ede5d8;
     padding-top: 16px;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
 }
 
 .pricing-row {
     display: flex;
     justify-content: space-between;
-    font-size: 13px;
-}
-
-.pricing-row .label {
-    color: #888;
-}
-
-.pricing-row .value {
-    font-weight: 600;
+    font-size: 13.5px;
+    padding: 5px 0;
+    color: #6b7280;
 }
 
 .pricing-total {
     display: flex;
     justify-content: space-between;
-    font-size: 18px;
-    font-weight: 900;
+    align-items: center;
+    margin-top: 14px;
     padding-top: 14px;
-    border-top: 1px solid #ede5d8;
-    margin-top: 4px;
+    border-top: 1px solid #ddd7ce;
+    font-size: 15px;
+    font-weight: 700;
 }
 
-.pricing-total .total-amount {
+.total-amount {
     color: #BD590E;
+    font-size: 17px;
 }
 
-/* ── Processing / Success overlay ────────────────────────── */
+/* ── Overlay ── */
+
 #checkout-overlay {
     display: none;
     position: fixed;
     inset: 0;
-    background: rgba(255, 255, 255, 0.92);
+    background: rgba(249, 248, 246, 0.92);
     z-index: 999;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 20px;
+    gap: 14px;
     text-align: center;
-    padding: 40px;
 }
 
 #checkout-overlay.active {
     display: flex;
 }
 
-.overlay-icon {
-    font-size: 56px;
-    color: #BD590E;
-}
-
-.overlay-title {
-    font-size: 28px;
-    font-weight: 900;
-}
-
-.overlay-subtitle {
-    font-size: 15px;
-    color: #888;
-    max-width: 360px;
-}
-
 .spinner {
     width: 44px;
     height: 44px;
-    border: 4px solid #f0e8d8;
+    border: 3px solid #e5e7eb;
     border-top-color: #BD590E;
     border-radius: 50%;
     animation: spin 0.8s linear infinite;
 }
 
 @keyframes spin {
-    to {
-        transform: rotate(360deg);
-    }
+    to { transform: rotate(360deg); }
+}
+
+.overlay-icon {
+    font-size: 52px;
+    color: #BD590E;
+}
+
+.overlay-title {
+    font-size: 22px;
+    font-weight: 700;
+}
+
+.overlay-subtitle {
+    font-size: 14px;
+    color: #6b7280;
 }

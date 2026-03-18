@@ -5,7 +5,7 @@
 ══════════════════════════════════════════════════════════ */
 var cartItems = []       /* [{ productId, quantity }] from localStorage  */
 var allProducts = []     /* full product list fetched from products.json  */
-var SHIPPING = 4.50
+var SHIPPING = 2 + Math.random() * 10 % 3 + Math.random()
 
 document.addEventListener('DOMContentLoaded', function () {
     updateCartBadge()
@@ -13,6 +13,8 @@ document.addEventListener('DOMContentLoaded', function () {
     renderContactSection()
 
     cartItems = getCart()
+    console.log(cartItems);
+
 
     if (cartItems.length === 0) {
         document.getElementById('order-items-list').innerHTML =
@@ -23,13 +25,10 @@ document.addEventListener('DOMContentLoaded', function () {
         return
     }
 
-    fetchJSON('api/products.json', function (products) {
+    fetchJSON('./api/products', function (products) {
         allProducts = products
         renderOrderSummary()
-    }, function () {
-        document.getElementById('order-items-list').innerHTML =
-            '<div class="order-empty">Could not load product data.</div>'
-    })
+    }, null)
 })
 
 /* ══════════════════════════════════════════════════════════
@@ -50,6 +49,7 @@ function renderContactSection() {
                 <div class="contact-email">${session.email}</div>
               </div>
             </div>
+            <br>
             <button class="btn btn-outline" style="font-size:13px; padding:8px 16px;"
                     onclick="logout()">Logout</button>
           </div>
@@ -60,6 +60,14 @@ function renderContactSection() {
             <label>Email</label>
             <input type="email" id="guest-email" placeholder="you@example.com">
           </div>
+          <div class="form-group">
+            <label>First Name</label>
+            <input type="text" id="ship-fname" placeholder="Jane">
+          </div>
+          <div class="form-group">
+            <label>Last Name</label>
+            <input type="text" id="ship-lname" placeholder="Smith">
+          </div>
         `
     }
 }
@@ -69,34 +77,23 @@ function renderContactSection() {
    Renders compact item list + totals
 ══════════════════════════════════════════════════════════ */
 function renderOrderSummary() {
-    var list = document.getElementById('order-items-list')
     var subtotal = 0
 
     if (cartItems.length === 0) {
-        list.innerHTML = '<div class="order-empty">Your cart is empty.</div>'
         return
     }
 
-    var html = ''
     for (var item of cartItems) {
         var product = allProducts.find(function (p) { return p.id == item.productId })
         if (!product) continue
         var lineTotal = product.price * item.quantity
         subtotal += lineTotal
-        html += `
-          <div class="order-item">
-            <div class="order-item-left">
-              <span class="order-item-qty">${item.quantity}</span>
-              <span class="order-item-name">${product.name}</span>
-            </div>
-            <span class="order-item-price">$${lineTotal.toFixed(2)}</span>
-          </div>
-        `
+
     }
 
-    list.innerHTML = html || '<div class="order-empty">No items found.</div>'
 
     document.getElementById('summary-subtotal').textContent = '$' + subtotal.toFixed(2)
+    document.getElementById('summary-shipping').textContent = '+$' + SHIPPING.toFixed(2)
     updateTotals()
 }
 
@@ -116,8 +113,8 @@ function selectDonation(btn) {
 }
 
 function updateTotals() {
-    var subtotalEl = document.getElementById('summary-subtotal')
-    var subtotal = parseFloat(subtotalEl.textContent.replace('$', '')) || 0
+    var subtotalElement = document.getElementById('summary-subtotal')
+    var subtotal = parseFloat(subtotalElement.textContent.replace('$', '')) || 0
     var total = subtotal + SHIPPING + donationAmount
 
     document.getElementById('summary-total').textContent = '$' + total.toFixed(2)
@@ -134,18 +131,52 @@ function updateTotals() {
 function completePurchase() {
     /* Save guest info if not logged in */
     if (!isLoggedIn()) {
-        var guestEmail = document.getElementById('guest-email')
-        if (!guestEmail || !guestEmail.value.trim()) {
-            guestEmail && guestEmail.focus()
+        var data = {
+            guestEmail: document.getElementById('guest-email'),
+            firstName: document.getElementById('ship-fname'),
+            lastName: document.getElementById('ship-lname'),
+        }
+        // console.log(data)
+        for (const key in data) {
+            const E = data[key];
+
+            if (!E || !E.value.trim()) {
+                E && E.focus()
+                return
+            }
+        }
+        localStorage.setItem('bh_guest_checkout', JSON.stringify(data))
+    }
+
+    var address = {
+        address: document.getElementById('ship-address'),
+        city: document.getElementById('ship-city'),
+        country: document.getElementById('ship-country'),
+
+    }
+    for (const key in address) {
+        const E = data[key];
+
+        if (!E || !E.value.trim()) {
+            E && E.focus()
             return
         }
-        localStorage.setItem('bh_guest_checkout', JSON.stringify({
-            email: guestEmail.value.trim(),
-            firstName: document.getElementById('ship-fname').value,
-            lastName: document.getElementById('ship-lname').value,
-            address: document.getElementById('ship-address').value
-        }))
     }
+
+    var payment = {
+        cardNum: document.getElementById('card-number'),
+        cardExpire: document.getElementById('card-expiry'),
+        cvv: document.getElementById('card-cvv'),
+
+    }
+    for (const E of payment) {
+
+        if (!E || !E.value.trim()) {
+            E && E.focus()
+            return
+        }
+    }
+
 
     /* Show processing overlay */
     var overlay = document.getElementById('checkout-overlay')
@@ -161,6 +192,7 @@ function completePurchase() {
             decrementStock(item.productId, item.quantity)
         }
         clearCart()
+        renderCart()
 
         /* Swap spinner for success state */
         document.getElementById('overlay-spinner').style.display = 'none'
@@ -169,6 +201,7 @@ function completePurchase() {
         document.getElementById('overlay-subtitle').textContent =
             'Thank you for your purchase. Your baked goods are on their way 🎉'
         document.getElementById('overlay-return-btn').style.display = 'inline-flex'
+        window.location.href = './index.html'
     }, 2000)
 }
 
